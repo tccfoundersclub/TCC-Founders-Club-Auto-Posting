@@ -85,3 +85,22 @@ export async function markAsPosted(fileId, token) {
     { method: "PATCH" }
   );
 }
+
+// Counts how many files have already been posted (moved into "Posted" so
+// far). Used as a deterministic rotation index so the caption/pillar bank
+// advances 0,1,2,3... in a fixed, plannable order instead of a pseudo-random
+// seed - the same post count always maps to the same theme.
+export async function countPosted(token) {
+  const q = encodeURIComponent(
+    `'${FOLDER_ID}' in parents and name='Posted' and mimeType='application/vnd.google-apps.folder' and trashed=false`
+  );
+  const folderResp = await driveFetch(`/files?q=${q}&fields=files(id)`, token);
+  const { files: folders } = await folderResp.json();
+  if (folders.length === 0) return 0;
+
+  const postedFolderId = folders[0].id;
+  const fileQ = encodeURIComponent(`'${postedFolderId}' in parents and trashed=false`);
+  const fileResp = await driveFetch(`/files?q=${fileQ}&fields=files(id)&pageSize=1000`, token);
+  const { files } = await fileResp.json();
+  return files.length;
+}
