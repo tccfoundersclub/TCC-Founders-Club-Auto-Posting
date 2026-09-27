@@ -1,6 +1,6 @@
 # TCC Founders Club / The Connector Club — 100-Day Content Plan
 
-Status as of this writing: pipeline built, first post published live (Instagram, Facebook, Threads). One blocker remains before the automated cron pipeline can run end-to-end — see "Blocking item" below.
+Status as of this writing: pipeline fully live end-to-end. Two manual posts published (Instagram, Facebook, Threads) with a 4-minute gap between them, and the Google Drive credential blocker that was failing the scheduled cron runs has been resolved.
 
 ## 1. What's actually running vs. what's still blueprint
 
@@ -9,11 +9,10 @@ Status as of this writing: pipeline built, first post published live (Instagram,
 - Instagram, Facebook Page, and Threads publishing (`src/social.js`) — all three tested live
 - Supabase Storage hosting for public media URLs
 - ffmpeg-based media pipeline: static image posts (4:5) and "Silent Film Storytelling Reels" (9:16, music + on-screen story-arc text, no voiceover) — see `src/media.js`
-- A 19-theme caption bank across founder pain, psychology, humor, lessons, failure stories, scaling reality, humanized networking, founder relationships, collaboration, founder lifestyle, community, Pakistani/Islamabad reality, women-focused, and culture/environment pillars — see `src/captions.js`
+- A 23-theme caption bank across founder pain, psychology, humor, lessons, failure stories, scaling reality, humanized networking, founder relationships, collaboration, founder lifestyle, community, Pakistani/Islamabad reality, women-focused, and culture/environment pillars — see `src/captions.js`
+- Google Drive credential (`GOOGLE_SERVICE_ACCOUNT_JSON`) — regenerated and added to GitHub Secrets on 2026-09-27; confirmed working locally (auth succeeds). The two earlier scheduled runs that failed ("All jobs have failed") were this exact issue — should not recur.
 
-**Blocking item:** the pipeline pulls raw clips/photos from your Google Drive inbox folder ("TCC FC Auto Posting") using a service-account key. That key downloaded once but I was never able to locate the file on disk (see earlier conversation) — so `GOOGLE_SERVICE_ACCOUNT_JSON` is the one GitHub secret still missing. Until it's added, the cron workflow will run but find no content to post. Everything else is ready to go the moment that's in place. Two ways to unblock it when you're back:
-1. Go to Google Cloud Console → IAM & Admin → Service Accounts → `tcc-content-automation@tcc-founders-club-automation.iam.gserviceaccount.com` → Keys → generate a new key, then tell me and I'll walk the "copy → paste into GitHub Secrets" flow with you (same safe pattern used for every other credential in this build).
-2. Or just say the word and I'll regenerate it myself and guide you through the same handoff.
+**No blockers remaining for the cron pipeline itself.** One open item: the Drive inbox folder's actual content (raw clips/photos, and the optional "Music" subfolder) is still whatever you've put there — see §2.
 
 ## 2. Content inputs needed from you
 
@@ -108,5 +107,5 @@ RELEVANCE > VIRALITY. QUALITY > QUANTITY. CONNECTION > IMPRESSIONS. Nothing in t
 
 1. Read the captions in `src/captions.js` — tone check, anything to adjust
 2. Approve/deny me sourcing royalty-free music, or drop your own into the Drive "Music" folder
-3. Handle the Drive service-account key (5 minutes, I'll walk you through it)
+3. ~~Handle the Drive service-account key~~ — done 2026-09-27, cron pipeline is unblocked
 4. Send more raw content, brand specifics, and feedback — I'll fold it straight into the bank
