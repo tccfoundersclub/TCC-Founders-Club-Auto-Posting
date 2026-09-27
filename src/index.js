@@ -2,7 +2,7 @@ import fs from "node:fs";
 import path from "node:path";
 import os from "node:os";
 import { getDriveAccessToken } from "./googleAuth.js";
-import { pickNextFile, downloadFile, markAsPosted, pickMusicTrack } from "./drive.js";
+import { pickNextFile, downloadFile, markAsPosted, pickMusicTrack, countPosted } from "./drive.js";
 import { isVideo, compileImage, compileReel } from "./media.js";
 import { uploadToSupabase } from "./supabase.js";
 import { generateCaptions } from "./captions.js";
@@ -25,7 +25,9 @@ async function main() {
   await downloadFile(file.id, driveToken, rawPath);
 
   const video = isVideo(file.name);
-  const captions = generateCaptions();
+  const postIndex = await countPosted(driveToken);
+  const captions = generateCaptions(postIndex);
+  console.log(`Post #${postIndex + 1} - theme index ${postIndex % 23}`);
   const outPath = path.join(tmpDir, video ? "out.mp4" : "out.jpg");
 
   if (video) {
