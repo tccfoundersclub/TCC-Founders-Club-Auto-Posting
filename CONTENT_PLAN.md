@@ -57,7 +57,37 @@ The system is ready to consume content the moment it's dropped in place:
 | Culture: Who are you becoming (reflection) | 1 | "Who are you becoming while building this?" |
 | Founder Pain (team growth / losing personal touch) | 1 | "You used to know everyone's name." |
 
-At 5 posts/day this cycles roughly every 4-5 days — enough variety that regular followers won't see an obvious repeat pattern. As you send more raw stories, topics, and feedback, I'll keep expanding this bank so the ratio gets even better before we scale posting frequency up.
+Rotation is now **deterministic, not random**: `src/index.js` asks Drive how many posts have already gone out (by counting files in the "Posted" folder) and uses that exact count as the rotation index, so post #1 is always theme 0, post #2 is always theme 1, and so on — no repeats until the full bank has cycled, and the schedule below can be trusted as an actual calendar rather than a description of tendencies.
+
+At 5 posts/day against a 23-theme bank, the day-level pattern repeats every **23 days** (since 23 and 5 share no common factor, every day of the cycle gets a different starting theme before it loops). Over 100 days that's 4 full 23-day cycles plus 8 extra days (days 93-100 repeat cycle-days 1-8 exactly). Here's the exact cycle — "Day" below is cycle-day; to map to a real date, Day 1 = whichever day the first post actually goes out, Day 24 = Day 1 again, Day 47 = Day 1 again, Day 70 = Day 1 again, Day 93 = Day 1 again:
+
+| Day | Slot 1 (~9am) | Slot 2 (~12pm) | Slot 3 (~3pm) | Slot 4 (~6pm) | Slot 5 (~9pm) |
+|---|---|---|---|---|---|
+| 1 | Founder Psychology / The Mask | Scaling Reality | Humanized Networking | Founder Humor | Pakistani / Islamabad Reality |
+| 2 | Community / Belonging | Founder Pain (cash flow) | Founder Pain (bad hire) | Founder Lessons (delegation) | Founder Lessons (pricing) |
+| 3 | Failure Stories (product) | Failure Stories (partnership) | Founder Relationships (friendship) | Founder Relationships (co-founder trust) | Collaboration |
+| 4 | Founder Lifestyle | Women-focused | Culture: Environment shapes you | Culture: Serendipity | Culture: Hosting / noticing people |
+| 5 | Culture: Collective energy / empowerment | Culture: Who are you becoming (reflection) | Founder Pain (team growth / losing personal touch) | Founder Psychology / The Mask | Scaling Reality |
+| 6 | Humanized Networking | Founder Humor | Pakistani / Islamabad Reality | Community / Belonging | Founder Pain (cash flow) |
+| 7 | Founder Pain (bad hire) | Founder Lessons (delegation) | Founder Lessons (pricing) | Failure Stories (product) | Failure Stories (partnership) |
+| 8 | Founder Relationships (friendship) | Founder Relationships (co-founder trust) | Collaboration | Founder Lifestyle | Women-focused |
+| 9 | Culture: Environment shapes you | Culture: Serendipity | Culture: Hosting / noticing people | Culture: Collective energy / empowerment | Culture: Who are you becoming (reflection) |
+| 10 | Founder Pain (team growth / losing personal touch) | Founder Psychology / The Mask | Scaling Reality | Humanized Networking | Founder Humor |
+| 11 | Pakistani / Islamabad Reality | Community / Belonging | Founder Pain (cash flow) | Founder Pain (bad hire) | Founder Lessons (delegation) |
+| 12 | Founder Lessons (pricing) | Failure Stories (product) | Failure Stories (partnership) | Founder Relationships (friendship) | Founder Relationships (co-founder trust) |
+| 13 | Collaboration | Founder Lifestyle | Women-focused | Culture: Environment shapes you | Culture: Serendipity |
+| 14 | Culture: Hosting / noticing people | Culture: Collective energy / empowerment | Culture: Who are you becoming (reflection) | Founder Pain (team growth / losing personal touch) | Founder Psychology / The Mask |
+| 15 | Scaling Reality | Humanized Networking | Founder Humor | Pakistani / Islamabad Reality | Community / Belonging |
+| 16 | Founder Pain (cash flow) | Founder Pain (bad hire) | Founder Lessons (delegation) | Founder Lessons (pricing) | Failure Stories (product) |
+| 17 | Failure Stories (partnership) | Founder Relationships (friendship) | Founder Relationships (co-founder trust) | Collaboration | Founder Lifestyle |
+| 18 | Women-focused | Culture: Environment shapes you | Culture: Serendipity | Culture: Hosting / noticing people | Culture: Collective energy / empowerment |
+| 19 | Culture: Who are you becoming (reflection) | Founder Pain (team growth / losing personal touch) | Founder Psychology / The Mask | Scaling Reality | Humanized Networking |
+| 20 | Founder Humor | Pakistani / Islamabad Reality | Community / Belonging | Founder Pain (cash flow) | Founder Pain (bad hire) |
+| 21 | Founder Lessons (delegation) | Founder Lessons (pricing) | Failure Stories (product) | Failure Stories (partnership) | Founder Relationships (friendship) |
+| 22 | Founder Relationships (co-founder trust) | Collaboration | Founder Lifestyle | Women-focused | Culture: Environment shapes you |
+| 23 | Culture: Serendipity | Culture: Hosting / noticing people | Culture: Collective energy / empowerment | Culture: Who are you becoming (reflection) | Founder Pain (team growth / losing personal touch) |
+
+Whether any given slot becomes a static post or a Reel depends only on what's sitting in the Drive inbox at that moment (image vs. video file) — the theme/caption assigned to that slot is fixed by this table regardless of format. If you add more themes to `src/captions.js`, the cycle length changes automatically (no code change needed elsewhere) and this table would need regenerating to match — worth asking me to do whenever the bank grows.
 
 Every caption ends with the required CTA verbatim: **"If you want to be part of the community we're building, DM 'COMMUNITY'."** Every post is written to the standard from the brand framework: hook first, short paragraphs, no selling, no corporate language, optimized for "someone recognizes themselves" over reach.
 
