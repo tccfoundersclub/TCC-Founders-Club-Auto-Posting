@@ -1,0 +1,10 @@
+{
+    "name": "tcc-founders-auto-posting",
+    "version": "1.0.0",
+    "private": true,
+    "type": "module",
+    "description": "Automated content pipeline for TCC Founders Club - pulls from Google Drive, compiles video/images with ffmpeg, hosts on Supabase, and publishes to Instagram, Facebook, and Threads.",
+    "scripts": {
+          "start": "node src/index.js"
+    }
+}
