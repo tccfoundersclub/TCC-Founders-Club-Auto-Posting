@@ -10,9 +10,21 @@ const STATE_KEY = "state/reel-pipeline-state.json";
 const DEFAULT_STATE = {
   version: 0,
   reels: [],
+  contentBank: [], // pre-written concepts, zero API cost - see src/fallbackConcepts.js / scripts/add-to-content-bank.js
+  rejectedLog: [], // concepts that failed dedup, kept visible with a reason - see content-library/REJECTED.md
+  nextConceptId: 1, // stable TCCFC-#### numbering, never reused even if a concept is later rejected/edited
   lastMusicPath: null,
   lastScheduledTime: null,
 };
+
+// Permanent, human-referenceable ID ("Change TCCFC-0147") - assigned once,
+// on creation, and never reused or reassigned even if the concept is later
+// rejected, edited, or its status changes.
+export function assignConceptId(state) {
+  const id = `TCCFC-${String(state.nextConceptId).padStart(4, "0")}`;
+  state.nextConceptId += 1;
+  return id;
+}
 
 // Persistent pipeline state (queue + full reel history + music rotation),
 // stored as one JSON blob in the same Supabase Storage bucket already used
@@ -34,7 +46,10 @@ export async function loadState() {
     }
     throw new Error(`Failed to load remote state: ${resp.status} ${bodyText}`);
   }
-  return await resp.json();
+  const loaded = await resp.json();
+  // Merge with defaults so fields added after a state file was first written
+  // (e.g. contentBank) don't come back undefined for older saved states.
+  return { ...DEFAULT_STATE, ...loaded };
 }
 
 export async function saveState(state) {
@@ -67,6 +82,10 @@ export function dueReels(state, now = new Date()) {
   return state.reels
     .filter((r) => r.status === "SCHEDULED" && new Date(r.scheduledTime) <= now)
     .sort((a, b) => new Date(a.scheduledTime) - new Date(b.scheduledTime));
+}
+
+export function availableBankConcepts(state) {
+  return state.contentBank.filter((c) => c.status === "AVAILABLE");
 }
 
 export function lastScheduledTime(state) {

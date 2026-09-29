@@ -3,9 +3,10 @@ name: TCC Founders Club Reel Pipeline
 on:
   schedule:
     # Runs every 30 minutes. Cheap when there's nothing to do (just a small
-    # JSON state read from Supabase) - it only publishes reels whose
-    # scheduled_time has arrived and only calls the Anthropic API when the
-    # future queue has dropped to the replenish threshold.
+    # JSON state read from Supabase) - it only renders/publishes when a reel
+    # is actually due or the queue needs topping up. No paid API calls: the
+    # content bank consumed here is pre-written (see
+    # scripts/add-to-content-bank.js), not generated live.
     - cron: "*/30 * * * *"
   workflow_dispatch: {}
 
@@ -37,5 +38,4 @@ jobs:
           THREADS_ACCESS_TOKEN: ${{ secrets.THREADS_ACCESS_TOKEN }}
           SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
           SUPABASE_SECRET_KEY: ${{ secrets.SUPABASE_SECRET_KEY }}
-          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
         run: node scripts/run-reel-pipeline.js

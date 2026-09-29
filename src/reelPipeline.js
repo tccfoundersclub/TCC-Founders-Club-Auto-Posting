@@ -5,17 +5,22 @@ import { execFileSync } from "node:child_process";
 import { compileMultiClipReel } from "./media.js";
 import { uploadToSupabase } from "./supabase.js";
 import { postToInstagram, postToFacebookPage, postToThreads } from "./social.js";
-import { loadState, saveState, futureQueue, dueReels, lastScheduledTime } from "./remoteState.js";
-import { generateConcepts } from "./anthropicContent.js";
+import { loadState, saveState, futureQueue, dueReels, lastScheduledTime, availableBankConcepts, assignConceptId } from "./remoteState.js";
 import { FALLBACK_CONCEPTS } from "./fallbackConcepts.js";
 import { BACKGROUND_VIDEO, MUSIC_LIBRARY } from "./mediaLibrary.js";
 import { contentHash } from "./contentHistory.js";
 
+// No live LLM calls in production - by design, per explicit instruction to
+// avoid any paid API dependency. Replenishment draws only from the
+// pre-written, zero-cost content bank (state.contentBank, filled offline via
+// scripts/add-to-content-bank.js) and, if that's also empty, the small
+// FALLBACK_CONCEPTS reserve. If both are exhausted, replenishment simply
+// stops for that run and logs a warning - it never calls out to any API.
 const TARGET_QUEUE = 20;
 const REPLENISH_THRESHOLD = 16;
 const HOURS_BETWEEN = 4;
-const MAX_BATCHES_PER_RUN = 2; // bounds API cost + run time even if queue is far below target
-const BATCH_SIZE = 4;
+const LOW_BANK_WARNING_THRESHOLD = 60;
+const MAX_RENDERS_PER_RUN = 4; // bounds run time/minutes per GitHub Actions run
 const HASHTAGS =
   "#TCCFoundersClub #TheConnectorClub #StartupPakistan #FoundersClub #Islamabad #Networking #FounderLife";
 
@@ -135,75 +140,94 @@ async function renderConcept(concept, state, log) {
   }
 }
 
+function nextBankConcept(state) {
+  // Bank first (the large pre-written batch), fallback bank second (small
+  // reserve) - both zero-cost, no network call. Returns null when both are
+  // exhausted, which the caller treats as "nothing left to replenish with".
+  const bankConcept = state.contentBank.find((c) => c.status === "AVAILABLE");
+  if (bankConcept) return { concept: bankConcept, source: "bank" };
+
+  const usedFallbackHooks = new Set(state.reels.filter((r) => r.source === "fallback").map((r) => r.hook));
+  const fallback = FALLBACK_CONCEPTS.find((c) => !usedFallbackHooks.has(c.hook));
+  if (fallback) return { concept: fallback, source: "fallback" };
+
+  return null;
+}
+
 async function replenish(state, log) {
-  let batches = 0;
-  while (futureQueue(state).length <= REPLENISH_THRESHOLD && batches < MAX_BATCHES_PER_RUN) {
-    batches++;
-    const existingTopics = state.reels.map((r) => r.topic || r.hook).slice(-40);
+  let rendersThisRun = 0;
 
-    let concepts;
-    let source = "anthropic";
+  while (futureQueue(state).length < TARGET_QUEUE && rendersThisRun < MAX_RENDERS_PER_RUN) {
+    const next = nextBankConcept(state);
+    if (!next) {
+      const available = availableBankConcepts(state).length;
+      log(`Content bank and fallback reserve both exhausted (0 available). Queue at ${futureQueue(state).length}/${TARGET_QUEUE}. LOW_CONTENT_BANK: generate more concepts via scripts/add-to-content-bank.js.`);
+      state.lowContentBankWarning = true;
+      break;
+    }
+    const { concept, source } = next;
+
+    const hash = contentHash(concept);
+    if (state.reels.some((r) => r.contentHash === hash) || isSemanticDuplicate(concept, state)) {
+      log(`Skipping duplicate concept from ${source}: ${concept.hook}`);
+      if (source === "bank") concept.status = "REJECTED";
+      continue;
+    }
+
+    let rendered;
     try {
-      concepts = await generateConcepts(BATCH_SIZE, existingTopics);
+      rendered = await renderConcept(concept, state, log);
+      rendersThisRun++;
     } catch (err) {
-      log(`Anthropic generation failed, falling back to reserve bank: ${err.message}`);
-      source = "fallback";
-      const usedFallbackHooks = new Set(state.reels.filter((r) => r.source === "fallback").map((r) => r.hook));
-      concepts = FALLBACK_CONCEPTS.filter((c) => !usedFallbackHooks.has(c.hook)).slice(0, BATCH_SIZE);
-      if (concepts.length === 0) {
-        log("Fallback bank exhausted too - skipping replenishment this run.");
-        break;
-      }
+      log(`Render failed for "${concept.hook}": ${err.message}`);
+      if (source === "bank") concept.status = "REJECTED";
+      continue;
     }
 
-    for (const concept of concepts) {
-      if (futureQueue(state).length >= TARGET_QUEUE) break;
+    const slot = new Date(lastScheduledTime(state).getTime() + HOURS_BETWEEN * 3600 * 1000);
+    // Bank concepts already carry a permanent conceptId/batchId from
+    // scripts/add-to-content-bank.js - the reel inherits it (same concept,
+    // later lifecycle stage). Fallback concepts have no ID of their own
+    // (src/fallbackConcepts.js is a static file), so one is minted here.
+    const conceptId = source === "bank" ? concept.conceptId : assignConceptId(state);
+    const batchId = source === "bank" ? concept.batchId : "FALLBACK";
+    const nowIso = new Date().toISOString();
+    const reel = {
+      reelId: `reel-${Date.now()}-${Math.random().toString(36).slice(2, 8)}`,
+      conceptId,
+      batchId,
+      topic: concept.topic,
+      hook: concept.hook,
+      context: concept.context,
+      points: concept.points,
+      caption: buildFullCaption(concept, rendered.music.credit),
+      cta: concept.cta,
+      contentHash: hash,
+      musicUsed: rendered.music.path,
+      mediaUrl: rendered.mediaUrl,
+      scheduledTime: slot.toISOString(),
+      status: "SCHEDULED",
+      source,
+      revision: 1,
+      createdAt: nowIso,
+      lastModifiedAt: nowIso,
+      publishedAt: null,
+      instagramResult: null,
+      facebookResult: null,
+      threadsResult: null,
+      error: null,
+    };
+    state.reels.push(reel);
+    state.lastScheduledTime = slot.toISOString();
+    state.lastMusicPath = rendered.music.path;
+    if (source === "bank") concept.status = "QUEUED";
+    log(`Queued ${conceptId} "${concept.hook}" for ${slot.toISOString()} (music: ${rendered.music.path}, source: ${source})`);
+  }
 
-      const hash = contentHash(concept);
-      if (state.reels.some((r) => r.contentHash === hash)) {
-        log(`Skipping exact-duplicate concept: ${concept.hook}`);
-        continue;
-      }
-      if (isSemanticDuplicate(concept, state)) {
-        log(`Skipping semantic-duplicate concept: ${concept.hook}`);
-        continue;
-      }
-
-      let rendered;
-      try {
-        rendered = await renderConcept(concept, state, log);
-      } catch (err) {
-        log(`Render failed for "${concept.hook}": ${err.message}`);
-        continue;
-      }
-
-      const slot = new Date(lastScheduledTime(state).getTime() + HOURS_BETWEEN * 3600 * 1000);
-      const reel = {
-        reelId: `reel-${Date.now()}-${Math.random().toString(36).slice(2, 8)}`,
-        topic: concept.topic,
-        hook: concept.hook,
-        context: concept.context,
-        points: concept.points,
-        caption: buildFullCaption(concept, rendered.music.credit),
-        cta: concept.cta,
-        contentHash: hash,
-        musicUsed: rendered.music.path,
-        mediaUrl: rendered.mediaUrl,
-        scheduledTime: slot.toISOString(),
-        status: "SCHEDULED",
-        source,
-        createdAt: new Date().toISOString(),
-        publishedAt: null,
-        instagramResult: null,
-        facebookResult: null,
-        threadsResult: null,
-        error: null,
-      };
-      state.reels.push(reel);
-      state.lastScheduledTime = slot.toISOString();
-      state.lastMusicPath = rendered.music.path;
-      log(`Queued "${concept.hook}" for ${slot.toISOString()} (music: ${rendered.music.path}, source: ${source})`);
-    }
+  const availableCount = availableBankConcepts(state).length;
+  state.lowContentBankWarning = availableCount < LOW_BANK_WARNING_THRESHOLD;
+  if (state.lowContentBankWarning) {
+    log(`LOW_CONTENT_BANK warning: only ${availableCount} unused concepts remain in the bank.`);
   }
 }
 
@@ -229,7 +253,7 @@ async function publishDue(state, log) {
       }
       reel.status = "PUBLISHED";
       reel.publishedAt = new Date().toISOString();
-      log(`Published "${reel.hook}" -> ${reel.instagramResult}`);
+      log(`Published ${reel.conceptId} "${reel.hook}" -> ${reel.instagramResult}`);
     } catch (err) {
       // Instagram result is uncertain here - do NOT retry automatically
       // (would risk a double-post). Mark FAILED and leave it for manual
@@ -237,7 +261,7 @@ async function publishDue(state, log) {
       // re-attempted next run.
       reel.status = "FAILED";
       reel.error = err.message;
-      log(`FAILED to publish "${reel.hook}": ${err.message}`);
+      log(`FAILED to publish ${reel.conceptId} "${reel.hook}": ${err.message}`);
     }
   }
 }
@@ -254,5 +278,7 @@ export async function runPipeline({ log = console.log } = {}) {
     futureQueueCount: futureQueue(state).length,
     totalReels: state.reels.length,
     failedCount: state.reels.filter((r) => r.status === "FAILED").length,
+    contentBankAvailable: availableBankConcepts(state).length,
+    lowContentBankWarning: !!state.lowContentBankWarning,
   };
 }
