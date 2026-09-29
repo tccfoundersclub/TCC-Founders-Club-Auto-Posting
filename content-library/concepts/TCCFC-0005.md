@@ -36,9 +36,7 @@ It costs nothing and almost nobody does it consistently.
 
 DM "TRIBE" to build teams that actually want to stick around.
 
-#TCCFoundersClub #TheConnectorClub #StartupPakistan #FoundersClub #Islamabad #Networking #FounderLife
-
-Music: "Powerful" by MaxKoMusic (maxkomusic.com), CC BY-SA 3.0.
+#FoundersClub #Entrepreneurs #FounderCommunity #BusinessOwners #Karachi
 
 CTA:
 DM "TRIBE"
@@ -56,10 +54,10 @@ CREATED:
 2026-09-29 14:29:00 UTC
 
 LAST MODIFIED:
-2026-09-29 14:29:00 UTC
+2026-09-29 17:58:50 UTC
 
 REVISION:
-1
+2
 
 RELATED RENDER:
 reel-1790692140145-c8bn0t

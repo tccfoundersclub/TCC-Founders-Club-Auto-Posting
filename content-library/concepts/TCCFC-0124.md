@@ -36,9 +36,7 @@ If you're relying on motivation alone, you're playing the hardest version of thi
 
 DM "TRIBE" to build an environment that does some of the work for you.
 
-#TCCFoundersClub #TheConnectorClub #StartupPakistan #FoundersClub #Islamabad #Networking #FounderLife
-
-Music: "Powerful" by MaxKoMusic (maxkomusic.com), CC BY-SA 3.0.
+#FoundersClub #BusinessOwners #StartupFounder #Entrepreneurs #Pakistan
 
 CTA:
 DM "TRIBE"
@@ -56,10 +54,10 @@ CREATED:
 2026-09-29 13:32:06 UTC
 
 LAST MODIFIED:
-2026-09-29 13:32:06 UTC
+2026-09-29 17:58:50 UTC
 
 REVISION:
-1
+2
 
 RELATED RENDER:
 reel-1790688726276-ippgv0

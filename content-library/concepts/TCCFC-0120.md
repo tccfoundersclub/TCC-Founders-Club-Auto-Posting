@@ -5,7 +5,7 @@ BATCH:
 FALLBACK
 
 STATUS:
-SCHEDULED
+PUBLISHED
 
 TOPIC:
 Founders avoid confronting a stalling co-founder relationship
@@ -71,7 +71,7 @@ SCHEDULED TIME:
 2026-09-29 17:30:04 UTC
 
 PUBLISHED MEDIA:
--
+https://www.instagram.com/p/18018697214951546/
 
 SOURCE FILE:
 src/fallbackConcepts.js

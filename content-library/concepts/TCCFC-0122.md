@@ -39,9 +39,7 @@ Your network isn't the size of your contact list. It's the sum of what you've ac
 
 DM "TRIBE" to build the kind of network that compounds.
 
-#TCCFoundersClub #TheConnectorClub #StartupPakistan #FoundersClub #Islamabad #Networking #FounderLife
-
-Music: "Powerful" by MaxKoMusic (maxkomusic.com), CC BY-SA 3.0.
+#FoundersClub #StartupCommunity #FounderNetworking #Karachi
 
 CTA:
 DM "TRIBE"
@@ -59,10 +57,10 @@ CREATED:
 2026-09-29 13:31:05 UTC
 
 LAST MODIFIED:
-2026-09-29 13:31:05 UTC
+2026-09-29 17:58:50 UTC
 
 REVISION:
-1
+2
 
 RELATED RENDER:
 reel-1790688665456-4d7y5f

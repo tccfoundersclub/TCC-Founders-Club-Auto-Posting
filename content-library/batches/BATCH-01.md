@@ -17,7 +17,7 @@ Rejected: 0
 - **TCCFC-0010** [SCHEDULED] - The Boring Paperwork Founders Skip Is the Thing That Would've Saved Them
 - **TCCFC-0011** [SCHEDULED] - Why Some Founders Raise Easily and It Has Almost Nothing to Do With the Pitch
 - **TCCFC-0012** [SCHEDULED] - The Hidden Tax of Deciding Everything Alone
-- **TCCFC-0013** [AVAILABLE] - The Stall That Hits Right After Product-Market Fit, Not Before
+- **TCCFC-0013** [SCHEDULED] - The Stall That Hits Right After Product-Market Fit, Not Before
 - **TCCFC-0014** [AVAILABLE] - The Real Reason Founders Don't Raise Their Prices
 - **TCCFC-0015** [AVAILABLE] - "Always Be Closing" Is Quietly Burning Out Founder-Led Sales
 - **TCCFC-0016** [AVAILABLE] - A Founder Friend Group and a Founder Mastermind Are Not the Same Thing

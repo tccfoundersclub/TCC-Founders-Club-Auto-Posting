@@ -36,9 +36,7 @@ Rest isn't the opposite of ambition. It's what ambition runs on.
 
 DM "TRIBE" to be around founders who take this seriously.
 
-#TCCFoundersClub #TheConnectorClub #StartupPakistan #FoundersClub #Islamabad #Networking #FounderLife
-
-Music: "Powerful Trap Beat" by Alex-Productions, CC BY 3.0.
+#TCCFoundersClub #StartupPartnerships #Fundraising #Islamabad
 
 CTA:
 DM "TRIBE"
@@ -56,10 +54,10 @@ CREATED:
 2026-09-29 14:30:42 UTC
 
 LAST MODIFIED:
-2026-09-29 14:30:42 UTC
+2026-09-29 17:58:50 UTC
 
 REVISION:
-1
+2
 
 RELATED RENDER:
 reel-1790692242240-wh4ywz

@@ -36,9 +36,7 @@ If your team feels distant, the fix probably isn't more meetings. It's more unpl
 
 DM "TRIBE" for how founders running remote teams are solving this.
 
-#TCCFoundersClub #TheConnectorClub #StartupPakistan #FoundersClub #Islamabad #Networking #FounderLife
-
-Music: "Powerful Trap Beat" by Alex-Productions, CC BY 3.0.
+#TCCFoundersClub #RemoteTeams #RemoteWork #Lahore
 
 CTA:
 DM "TRIBE"
@@ -56,10 +54,10 @@ CREATED:
 2026-09-29 14:27:48 UTC
 
 LAST MODIFIED:
-2026-09-29 14:27:48 UTC
+2026-09-29 17:58:50 UTC
 
 REVISION:
-1
+2
 
 RELATED RENDER:
 reel-1790692068020-j4gsrc

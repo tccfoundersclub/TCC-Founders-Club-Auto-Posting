@@ -36,9 +36,7 @@ If your last few partnerships fizzled, check the handoff before you blame the pi
 
 DM "TRIBE" to build partnerships that survive the follow-through.
 
-#TCCFoundersClub #TheConnectorClub #StartupPakistan #FoundersClub #Islamabad #Networking #FounderLife
-
-Music: "Powerful" by MaxKoMusic (maxkomusic.com), CC BY-SA 3.0.
+#FoundersClub #Fundraising #StartupPartnerships #Lahore
 
 CTA:
 DM "TRIBE"
@@ -56,10 +54,10 @@ CREATED:
 2026-09-29 14:31:21 UTC
 
 LAST MODIFIED:
-2026-09-29 14:31:21 UTC
+2026-09-29 17:58:50 UTC
 
 REVISION:
-1
+2
 
 RELATED RENDER:
 reel-1790692281524-7quv9i

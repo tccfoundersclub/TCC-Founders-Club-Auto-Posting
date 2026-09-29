@@ -39,9 +39,7 @@ Having a room that sticks around after the congratulations post is what actually
 
 DM "TRIBE" to have people in your corner past the highlight reel.
 
-#TCCFoundersClub #TheConnectorClub #StartupPakistan #FoundersClub #Islamabad #Networking #FounderLife
-
-Music: "Powerful Trap Beat" by Alex-Productions, CC BY 3.0.
+#TCCFoundersClub #FounderMindset #FounderLife #Islamabad
 
 CTA:
 DM "TRIBE"
@@ -59,10 +57,10 @@ CREATED:
 2026-09-29 13:32:37 UTC
 
 LAST MODIFIED:
-2026-09-29 13:32:37 UTC
+2026-09-29 17:58:50 UTC
 
 REVISION:
-1
+2
 
 RELATED RENDER:
 reel-1790688757278-52x98x

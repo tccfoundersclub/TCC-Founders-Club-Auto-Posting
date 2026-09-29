@@ -36,9 +36,7 @@ It's not exciting work. It's some of the highest-leverage work you'll do all yea
 
 DM "TRIBE" to talk through what needs to be in writing before it's too late.
 
-#TCCFoundersClub #TheConnectorClub #StartupPakistan #FoundersClub #Islamabad #Networking #FounderLife
-
-Music: "Powerful Trap Beat" by Alex-Productions, CC BY 3.0.
+#FoundersClub #BusinessOwners #StartupFounder #Entrepreneurs #StartupPakistan
 
 CTA:
 DM "TRIBE"
@@ -56,10 +54,10 @@ CREATED:
 2026-09-29 14:31:49 UTC
 
 LAST MODIFIED:
-2026-09-29 14:31:49 UTC
+2026-09-29 17:58:50 UTC
 
 REVISION:
-1
+2
 
 RELATED RENDER:
 reel-1790692309585-387wii

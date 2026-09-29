@@ -36,9 +36,7 @@ Protecting your sharpest hours isn't soft. It's the highest-leverage thing you c
 
 DM "TRIBE" to be around founders who take this seriously.
 
-#TCCFoundersClub #TheConnectorClub #StartupPakistan #FoundersClub #Islamabad #Networking #FounderLife
-
-Music: "Powerful Trap Beat" by Alex-Productions, CC BY 3.0.
+#TCCFoundersClub #StartupFounder #Entrepreneurs #FounderCommunity #Lahore
 
 CTA:
 DM "TRIBE"
@@ -56,10 +54,10 @@ CREATED:
 2026-09-29 13:30:32 UTC
 
 LAST MODIFIED:
-2026-09-29 13:30:32 UTC
+2026-09-29 17:58:50 UTC
 
 REVISION:
-1
+2
 
 RELATED RENDER:
 reel-1790688632820-1e1j7i

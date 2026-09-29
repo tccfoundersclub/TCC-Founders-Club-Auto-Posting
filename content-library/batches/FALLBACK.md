@@ -5,7 +5,7 @@ Rejected: 0
 
 ## Accepted concepts
 
-- **TCCFC-0120** [SCHEDULED] - The Co-Founder Conversation Most Founders Postpone for a Year
+- **TCCFC-0120** [PUBLISHED] - The Co-Founder Conversation Most Founders Postpone for a Year
 - **TCCFC-0121** [SCHEDULED] - Your Best Decisions Aren't Happening at 11PM
 - **TCCFC-0122** [SCHEDULED] - Why Some Founders' Networks Get Stronger Every Year (and Others Don't)
 - **TCCFC-0123** [SCHEDULED] - The Hiring Mistake That Feels Like Good Judgment

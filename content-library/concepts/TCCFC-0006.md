@@ -34,9 +34,7 @@ The founders who handle this well aren't more ruthless. They've just learned tha
 
 DM "TRIBE" to think through a hard call with people who've made one.
 
-#TCCFoundersClub #TheConnectorClub #StartupPakistan #FoundersClub #Islamabad #Networking #FounderLife
-
-Music: "Powerful Trap Beat" by Alex-Productions, CC BY 3.0.
+#TCCFoundersClub #Hiring #TeamBuilding #StartupPakistan
 
 CTA:
 DM "TRIBE"
@@ -54,10 +52,10 @@ CREATED:
 2026-09-29 14:29:31 UTC
 
 LAST MODIFIED:
-2026-09-29 14:29:31 UTC
+2026-09-29 17:58:50 UTC
 
 REVISION:
-1
+2
 
 RELATED RENDER:
 reel-1790692171523-qppoae

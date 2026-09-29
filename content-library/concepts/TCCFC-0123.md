@@ -36,9 +36,7 @@ The hires that actually protect a company aren't the ones who agree fastest. The
 
 DM "TRIBE" to think this through with founders who've made both mistakes.
 
-#TCCFoundersClub #TheConnectorClub #StartupPakistan #FoundersClub #Islamabad #Networking #FounderLife
-
-Music: "Powerful Trap Beat" by Alex-Productions, CC BY 3.0.
+#TCCFoundersClub #Hiring #TeamBuilding #StartupPakistan
 
 CTA:
 DM "TRIBE"
@@ -56,10 +54,10 @@ CREATED:
 2026-09-29 13:31:34 UTC
 
 LAST MODIFIED:
-2026-09-29 13:31:34 UTC
+2026-09-29 17:58:50 UTC
 
 REVISION:
-1
+2
 
 RELATED RENDER:
 reel-1790688694899-y0b9sk

@@ -416,12 +416,34 @@ PURPOSE: The pure content-hashing function (contentHash) used everywhere duplica
 WHAT DEPENDS ON IT: reelPipeline.js, add-to-content-bank.js (contentHash only)
 
 FILE: src/social.js
-PURPOSE: Publishes a rendered reel to Instagram, Facebook Page, and Threads via the Meta Graph API, polling until each platform reports the upload actually finished processing before publishing it.
+PURPOSE: Publishes a rendered reel to Instagram, Facebook Page, and Threads via the Meta Graph API, polling until each platform reports the upload actually finished processing before publishing it. postToInstagram also posts a required music-license attribution as the first comment right after publish (see the Music licensing audit section below) - never in the caption itself.
 WHAT DEPENDS ON IT: reelPipeline.js (publishDue)
 
 FILE: src/media.js
 PURPOSE: The ffmpeg wrapper - builds the locked TCC Founders Club visual template (white/black branding, rounded panels, centered text) and compiles the multi-clip crossfade reel to an exact requested duration.
 WHAT DEPENDS ON IT: reelPipeline.js (renderConcept)
+
+FILE: src/hashtags.js
+PURPOSE: Builds each reel's caption hashtags (topic-aware, capped at 5 per Instagram's Dec 2025 rule - see content-library/HASHTAGS.md) and sanitizes captions to strip any production/licensing metadata (music credits, filenames, license text) as a defense-in-depth check, even though that content is no longer added to captions in the first place.
+INPUT: a concept object (topic/hook/context) and its conceptId
+OUTPUT: selectHashtags() -> array of up to 5 hashtags; sanitizeCaption() -> cleaned caption text
+WHAT DEPENDS ON IT: reelPipeline.js (buildFullCaption)
+
+## Music licensing audit (2026-09-29)
+
+Both approved tracks are Creative Commons licensed:
+- "Powerful" by MaxKoMusic - CC BY-SA 3.0 - **ATTRIBUTION_REQUIRED**
+- "Powerful Trap Beat" by Alex-Productions - CC BY 3.0 - **ATTRIBUTION_REQUIRED**
+
+Both licenses legally require attribution wherever the work is used. That's a real license term - it cannot be silently dropped just to get a cleaner caption.
+
+**Resolution:** attribution is now posted as an automated Instagram comment immediately after the reel publishes (src/social.js's \`postToInstagram(..., commentText)\` param, called from reelPipeline.js's \`publishDue()\` with \`reel.musicCredit\`), instead of living inside the caption. This satisfies the "no production metadata in the caption" requirement AND the CC license's attribution requirement (CC licenses require attribution "reasonably associated with the work" - a comment on the same post qualifies) at the same time, without discarding either currently-owned, already-tested track. \`reel.attributionCommentPosted\` records whether that comment actually went through; a failure there does not block the reel from publishing, but is logged as a warning for manual follow-up.
+
+Any future track must go through this same audit before being added to \`src/mediaLibrary.js\` - if its license requires attribution and the comment-based mechanism can't be confirmed to satisfy it, the track gets marked \`NOT_APPROVED_FOR_AUTOMATED_CAPTIONLESS_USE\` and is not used.
+
+## Caption & hashtag system (2026-09-29)
+
+Captions built by \`buildFullCaption()\` in reelPipeline.js now contain **content only**: the hand-written caption text, a blank line, then up to 5 topic-matched hashtags. No music credit, no filenames, no license text, no production/automation notes ever appear in the caption - see content-library/HASHTAGS.md and content-library/KEYWORDS.md for the full research and category breakdown.
 
 ## .github/workflows/reel-pipeline.yml
 

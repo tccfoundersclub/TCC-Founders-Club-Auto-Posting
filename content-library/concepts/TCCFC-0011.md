@@ -36,9 +36,7 @@ The best fundraising prep starts long before you need the money.
 
 DM "TRIBE" to build the kind of reputation that makes the raise easier.
 
-#TCCFoundersClub #TheConnectorClub #StartupPakistan #FoundersClub #Islamabad #Networking #FounderLife
-
-Music: "Powerful" by MaxKoMusic (maxkomusic.com), CC BY-SA 3.0.
+#TCCFoundersClub #StartupPartnerships #Fundraising #Pakistan
 
 CTA:
 DM "TRIBE"
@@ -56,10 +54,10 @@ CREATED:
 2026-09-29 14:32:21 UTC
 
 LAST MODIFIED:
-2026-09-29 14:32:21 UTC
+2026-09-29 17:58:50 UTC
 
 REVISION:
-1
+2
 
 RELATED RENDER:
 reel-1790692341753-3o6d1x

@@ -1,6 +1,13 @@
 # Published
 
-Total published: 5
+Total published: 6
+
+## TCCFC-0120 - The Co-Founder Conversation Most Founders Postpone for a Year
+
+- Published: 2026-09-29 17:46:39 UTC
+- Instagram: https://www.instagram.com/p/18018697214951546/
+- Music: assets/music-powerful-maxko.mp3
+- Caption: see content-library/concepts/TCCFC-0120.md
 
 ## TCCFC-0132 - You Become the Average of the 5 Founders You Talk to Most
 

@@ -42,7 +42,14 @@ async function pollUntilReady(url, containerId, accessToken, statusField, readyV
   throw new Error(`Media container ${containerId} did not finish processing within ${timeoutMs}ms`);
 }
 
-export async function postToInstagram(mediaUrl, caption, isVideo, thumbOffsetMs) {
+// commentText: required legal attribution (e.g. a CC-BY music credit) goes
+// here instead of in the caption - posted as the first comment right after
+// publish, which satisfies CC BY / CC BY-SA "reasonably associated with the
+// work" attribution requirements without putting production metadata in
+// front of the audience. A failed comment does NOT fail the publish itself
+// (the reel is already live either way); the caller decides how to record
+// that the attribution comment didn't go through.
+export async function postToInstagram(mediaUrl, caption, isVideo, thumbOffsetMs, commentText) {
   const data = {
     caption,
     access_token: IG_ACCESS_TOKEN,
@@ -59,7 +66,23 @@ export async function postToInstagram(mediaUrl, caption, isVideo, thumbOffsetMs)
     creation_id: create.id,
     access_token: IG_ACCESS_TOKEN,
   });
-  return `https://www.instagram.com/p/${publish.id}/`;
+
+  let attributionCommentPosted = false;
+  if (commentText) {
+    try {
+      await postForm(`${IG_GRAPH}/${publish.id}/comments`, {
+        message: commentText,
+        access_token: IG_ACCESS_TOKEN,
+      });
+      attributionCommentPosted = true;
+    } catch (e) {
+      // Non-fatal: the reel is already live. Caller records this so it's
+      // visible, not silently dropped.
+      console.warn(`Attribution comment failed for media ${publish.id}: ${e.message}`);
+    }
+  }
+
+  return { url: `https://www.instagram.com/p/${publish.id}/`, mediaId: publish.id, attributionCommentPosted };
 }
 
 export async function postToFacebookPage(mediaUrl, caption, isVideo) {

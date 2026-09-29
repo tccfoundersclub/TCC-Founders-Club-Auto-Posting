@@ -36,9 +36,7 @@ That follow-up is the part almost everyone skips, and it's the part that keeps t
 
 DM "TRIBE" to learn how to actually use the room you're in.
 
-#TCCFoundersClub #TheConnectorClub #StartupPakistan #FoundersClub #Islamabad #Networking #FounderLife
-
-Music: "Powerful" by MaxKoMusic (maxkomusic.com), CC BY-SA 3.0.
+#FoundersClub #BusinessOwners #StartupFounder #Entrepreneurs #Islamabad
 
 CTA:
 DM "TRIBE"
@@ -56,10 +54,10 @@ CREATED:
 2026-09-29 14:27:08 UTC
 
 LAST MODIFIED:
-2026-09-29 14:27:08 UTC
+2026-09-29 17:58:50 UTC
 
 REVISION:
-1
+2
 
 RELATED RENDER:
 reel-1790692028159-7m2ebi

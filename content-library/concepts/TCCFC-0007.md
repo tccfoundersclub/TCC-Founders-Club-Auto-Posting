@@ -34,9 +34,7 @@ The founders with genuinely useful networks aren't the ones who go to the most e
 
 DM "TRIBE" for a seat at a table built for depth, not headcount.
 
-#TCCFoundersClub #TheConnectorClub #StartupPakistan #FoundersClub #Islamabad #Networking #FounderLife
-
-Music: "Powerful" by MaxKoMusic (maxkomusic.com), CC BY-SA 3.0.
+#FoundersClub #SoftwareHouse #FounderNetworking #StartupCommunity #Pakistan
 
 CTA:
 DM "TRIBE"
@@ -54,10 +52,10 @@ CREATED:
 2026-09-29 14:30:07 UTC
 
 LAST MODIFIED:
-2026-09-29 14:30:07 UTC
+2026-09-29 17:58:50 UTC
 
 REVISION:
-1
+2
 
 RELATED RENDER:
 reel-1790692207422-m7vo3j

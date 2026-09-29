@@ -36,9 +36,7 @@ Preparation isn't the opposite of authenticity. It's what makes the authentic ve
 
 DM "TRIBE" to practice the ask with founders who'll give it to you straight.
 
-#TCCFoundersClub #TheConnectorClub #StartupPakistan #FoundersClub #Islamabad #Networking #FounderLife
-
-Music: "Powerful" by MaxKoMusic (maxkomusic.com), CC BY-SA 3.0.
+#FoundersClub #Entrepreneurs #FounderCommunity #BusinessOwners #StartupPakistan
 
 CTA:
 DM "TRIBE"
@@ -56,10 +54,10 @@ CREATED:
 2026-09-29 14:25:59 UTC
 
 LAST MODIFIED:
-2026-09-29 14:25:59 UTC
+2026-09-29 17:58:50 UTC
 
 REVISION:
-1
+2
 
 RELATED RENDER:
 reel-1790691959017-0vfyjl

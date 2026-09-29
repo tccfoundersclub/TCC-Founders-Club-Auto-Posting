@@ -34,9 +34,7 @@ The solo founders who move fastest aren't the ones who trust their gut more. The
 
 DM "TRIBE" if you're building alone and want that outside read.
 
-#TCCFoundersClub #TheConnectorClub #StartupPakistan #FoundersClub #Islamabad #Networking #FounderLife
-
-Music: "Powerful Trap Beat" by Alex-Productions, CC BY 3.0.
+#FoundersClub #Fundraising #StartupPartnerships #Islamabad
 
 CTA:
 DM "TRIBE"
@@ -54,10 +52,10 @@ CREATED:
 2026-09-29 14:32:48 UTC
 
 LAST MODIFIED:
-2026-09-29 14:32:48 UTC
+2026-09-29 17:58:50 UTC
 
 REVISION:
-1
+2
 
 RELATED RENDER:
 reel-1790692368658-1jz20v

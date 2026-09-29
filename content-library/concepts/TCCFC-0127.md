@@ -36,9 +36,7 @@ The founders who show up anyway aren't less busy. They've just seen the payoff o
 
 DM "TRIBE" to make room for the relationships that pay off later.
 
-#TCCFoundersClub #TheConnectorClub #StartupPakistan #FoundersClub #Islamabad #Networking #FounderLife
-
-Music: "Powerful Trap Beat" by Alex-Productions, CC BY 3.0.
+#TCCFoundersClub #FounderNetworking #StartupCommunity #Karachi
 
 CTA:
 DM "TRIBE"
@@ -56,10 +54,10 @@ CREATED:
 2026-09-29 13:33:32 UTC
 
 LAST MODIFIED:
-2026-09-29 13:33:32 UTC
+2026-09-29 17:58:50 UTC
 
 REVISION:
-1
+2
 
 RELATED RENDER:
 reel-1790688812501-1fdryx

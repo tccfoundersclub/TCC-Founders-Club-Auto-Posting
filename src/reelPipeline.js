@@ -9,6 +9,7 @@ import { loadState, saveState, futureQueue, dueReels, lastScheduledTime, availab
 import { FALLBACK_CONCEPTS } from "./fallbackConcepts.js";
 import { BACKGROUND_VIDEO, MUSIC_LIBRARY } from "./mediaLibrary.js";
 import { contentHash } from "./contentHistory.js";
+import { selectHashtags, sanitizeCaption } from "./hashtags.js";
 
 // No live LLM calls in production - by design, per explicit instruction to
 // avoid any paid API dependency. Replenishment draws only from the
@@ -21,8 +22,6 @@ const REPLENISH_THRESHOLD = 16;
 const HOURS_BETWEEN = 4;
 const LOW_BANK_WARNING_THRESHOLD = 60;
 const MAX_RENDERS_PER_RUN = 4; // bounds run time/minutes per GitHub Actions run
-const HASHTAGS =
-  "#TCCFoundersClub #TheConnectorClub #StartupPakistan #FoundersClub #Islamabad #Networking #FounderLife";
 
 function templateFonts() {
   if (process.env.TEMPLATE_FONT_BOLD && process.env.TEMPLATE_FONT_REGULAR) {
@@ -101,8 +100,13 @@ function pickSegments(hook) {
   });
 }
 
-function buildFullCaption(concept, musicCredit) {
-  return `${concept.caption}\n\n${HASHTAGS}\n\n${musicCredit}`;
+// Content only - no music credit, no production metadata. Legally required
+// attribution for the track (both approved tracks are CC BY / CC BY-SA,
+// which require it) goes out as a separate Instagram comment instead - see
+// publishDue() and src/social.js's postToInstagram commentText param.
+function buildFullCaption(concept, conceptId) {
+  const hashtags = selectHashtags(concept, conceptId).join(" ");
+  return sanitizeCaption(`${concept.caption}\n\n${hashtags}`);
 }
 
 async function renderConcept(concept, state, log) {
@@ -200,10 +204,11 @@ async function replenish(state, log) {
       hook: concept.hook,
       context: concept.context,
       points: concept.points,
-      caption: buildFullCaption(concept, rendered.music.credit),
+      caption: buildFullCaption(concept, conceptId),
       cta: concept.cta,
       contentHash: hash,
       musicUsed: rendered.music.path,
+      musicCredit: rendered.music.credit, // legal attribution - posted as an IG comment, never in the caption
       mediaUrl: rendered.mediaUrl,
       scheduledTime: slot.toISOString(),
       status: "SCHEDULED",
@@ -213,6 +218,8 @@ async function replenish(state, log) {
       lastModifiedAt: nowIso,
       publishedAt: null,
       instagramResult: null,
+      instagramMediaId: null,
+      attributionCommentPosted: null,
       facebookResult: null,
       threadsResult: null,
       error: null,
@@ -237,7 +244,13 @@ async function publishDue(state, log) {
     if (reel.status === "PUBLISHED" || reel.instagramResult) continue;
 
     try {
-      reel.instagramResult = await postToInstagram(reel.mediaUrl, reel.caption, true, 1200);
+      const ig = await postToInstagram(reel.mediaUrl, reel.caption, true, 1200, reel.musicCredit);
+      reel.instagramResult = ig.url;
+      reel.instagramMediaId = ig.mediaId;
+      reel.attributionCommentPosted = ig.attributionCommentPosted;
+      if (reel.musicCredit && !ig.attributionCommentPosted) {
+        log(`WARNING: attribution comment did not post for ${reel.conceptId} - music credit is required and not yet visible anywhere on this post. Needs manual follow-up.`);
+      }
       // Facebook/Threads failures don't block Instagram from counting as
       // published - Instagram is the primary channel and the one this
       // whole pipeline is built around.

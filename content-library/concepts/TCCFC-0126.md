@@ -36,9 +36,7 @@ Quality of question beats quantity of contact, every time.
 
 DM "TRIBE" to be in rooms built for real conversation, not small talk.
 
-#TCCFoundersClub #TheConnectorClub #StartupPakistan #FoundersClub #Islamabad #Networking #FounderLife
-
-Music: "Powerful" by MaxKoMusic (maxkomusic.com), CC BY-SA 3.0.
+#FoundersClub #StartupCommunity #FounderNetworking #Lahore
 
 CTA:
 DM "TRIBE"
@@ -56,10 +54,10 @@ CREATED:
 2026-09-29 13:33:05 UTC
 
 LAST MODIFIED:
-2026-09-29 13:33:05 UTC
+2026-09-29 17:58:50 UTC
 
 REVISION:
-1
+2
 
 RELATED RENDER:
 reel-1790688785956-hspcb5

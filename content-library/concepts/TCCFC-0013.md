@@ -5,7 +5,7 @@ BATCH:
 BATCH-01
 
 STATUS:
-AVAILABLE
+SCHEDULED
 
 TOPIC:
 Growth stalls after product-market fit, not before it, for a specific reason
@@ -34,32 +34,34 @@ The founders who move through this fastest treat the moment after PMF like a sec
 
 DM "TRIBE" if you're in that stall right now.
 
+#TCCFoundersClub #B2BSales #StartupGrowth #SaaSFounder #Lahore
+
 CTA:
 DM "TRIBE"
 
 MUSIC:
--
+assets/music-powerful-maxko.mp3
 
 BACKGROUND:
--
+assets/bg-tcc-with-nasheed.mp4
 
 CONTENT HASH:
 c9ea3ad9e1f8d2fc
 
 CREATED:
-2026-09-29 14:20:42 UTC
+2026-09-29 17:46:58 UTC
 
 LAST MODIFIED:
-2026-09-29 14:20:42 UTC
+2026-09-29 17:58:50 UTC
 
 REVISION:
-1
+2
 
 RELATED RENDER:
-(not yet rendered)
+reel-1790704018605-mkdclt
 
 SCHEDULED TIME:
--
+2026-10-03 01:30:04 UTC
 
 PUBLISHED MEDIA:
 -
