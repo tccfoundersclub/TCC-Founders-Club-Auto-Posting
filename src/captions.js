@@ -32,6 +32,28 @@ function beats(hook, tension) {
   ];
 }
 
+// Three-part beat set for a 10-second clip-based reel: hook, then a short
+// body/description line, then the CTA held at the end - the same hook +
+// tension pair each theme already carries (see beats() above), just
+// compressed to fit a 10-second clip instead of a 58-second one.
+export function shortBeats(hook, body) {
+  return sceneBeats(hook, body, 10);
+}
+
+// Same three-part hook/body/CTA structure as shortBeats, but proportional to
+// whatever total duration the clip actually ends up being (multi-clip edits
+// vary in length: 5-20s depending on how many segments are blended in).
+export function sceneBeats(hook, body, totalDuration) {
+  const gap = Math.min(0.3, totalDuration * 0.03);
+  const hookEnd = totalDuration * 0.32;
+  const bodyEnd = totalDuration * 0.7;
+  return [
+    { text: hook, start: 0, end: hookEnd },
+    { text: body, start: hookEnd + gap, end: bodyEnd },
+    { text: ON_SCREEN_CTA, start: bodyEnd + gap, end: totalDuration },
+  ];
+}
+
 const THEMES = [
   // Founder psychology / the founder mask
   {
@@ -436,3 +458,195 @@ export function generateCaptions(seed = Date.now()) {
   const theme = THEMES[seed % THEMES.length];
   return theme;
 }
+
+// 30 reel concepts (hook + 2-line caption + CTA), all closing on DM "TRIBE" -
+// this is the content library for the editorial-style video reels, distinct
+// from the static-post THEMES bank above (which still closes on "COMMUNITY").
+const REEL_CONCEPTS = [
+  {
+    tag: "The Room Changes Everything",
+    hook: `Sometimes you don't need a new strategy. You need a new room.`,
+    caption: `The people around you can change what you think is possible. One room, one conversation, one introduction can open a completely different path.`,
+    cta: `DM "TRIBE" if you want to be part of this tribe and attend our next Founders Networking Dinner.`,
+  },
+  {
+    tag: "You Never Know Who You'll Meet",
+    hook: `The person sitting next to you could change your life.`,
+    caption: `You never know who you're going to meet, or what one conversation might unlock. A founder, partner, friend, mentor, client, or simply someone who understands you.`,
+    cta: `DM "TRIBE" to be part of the community and join our next Founders Networking Dinner.`,
+  },
+  {
+    tag: "Founders Need Friends Too",
+    hook: `You built a company. But who do you talk to when things get hard?`,
+    caption: `Founders don't always need another business contact. Sometimes they need people who genuinely understand the journey. The right community gives you people you can talk to without explaining everything.`,
+    cta: `DM "TRIBE" to be part of it and attend our next Founders Networking Dinner.`,
+  },
+  {
+    tag: `Networking Isn't About Business Cards`,
+    hook: `If your networking event feels like a job interview, something is wrong.`,
+    caption: `Real networking isn't collecting 50 contacts in one night. It's sitting across from someone interesting and having a conversation you actually remember.`,
+    cta: `DM "TRIBE" if you want to experience our next Founders Networking Dinner.`,
+  },
+  {
+    tag: "Your Next Co-Founder Might Be Somewhere in the Room",
+    hook: `You might not need another idea. You might need another person.`,
+    caption: `Some ideas become real when the right people finally meet. Your next co-founder, collaborator, partner, or teammate could be one conversation away.`,
+    cta: `DM "TRIBE" to join the community and attend our next Founders Networking Dinner.`,
+  },
+  {
+    tag: "The Founder Nobody Sees",
+    hook: `Everyone sees the CEO. Almost nobody sees the person.`,
+    caption: `Behind the revenue, team, clients and milestones is a human being figuring things out too. Sometimes the best conversations happen when founders stop performing success.`,
+    cta: `DM "TRIBE" to find your people and join our next Founders Networking Dinner.`,
+  },
+  {
+    tag: "The 10-Person Team Problem",
+    hook: `Going from 10 people to 50 changes you more than you expect.`,
+    caption: `At some point, you stop being able to solve everything yourself. Leadership becomes less about doing and more about understanding people.`,
+    cta: `DM "TRIBE" to meet founders navigating the same journey at our next dinner.`,
+  },
+  {
+    tag: "Successful But Lonely",
+    hook: `You can be surrounded by 50 employees and still feel alone.`,
+    caption: `Growth can increase responsibility faster than it increases understanding. That's why founders need people who understand the pressure behind the numbers.`,
+    cta: `DM "TRIBE" to be part of the community and attend our next Founders Networking Dinner.`,
+  },
+  {
+    tag: "The Conversation You Didn't Expect",
+    hook: `You came for networking. You left with a completely different perspective.`,
+    caption: `Sometimes the most valuable conversation isn't the one you planned to have. It's the random conversation that makes you rethink something important.`,
+    cta: `DM "TRIBE" to experience the next Founders Networking Dinner.`,
+  },
+  {
+    tag: "Stop Building Alone",
+    hook: `Building alone feels productive until you realize how much you're missing.`,
+    caption: `There are people around you who already know what you're trying to figure out. The challenge is finding them and actually starting the conversation.`,
+    cta: `DM "TRIBE" to meet them at our next Founders Networking Dinner.`,
+  },
+  {
+    tag: "The Right People Give You Energy",
+    hook: `Ever spent two hours with someone and somehow left with more energy?`,
+    caption: `That's what the right environment can do. Sometimes you don't need motivation. You need better energy around you.`,
+    cta: `DM "TRIBE" to be part of this community and join our next dinner.`,
+  },
+  {
+    tag: "Not Every Conversation Needs a Pitch",
+    hook: `Imagine meeting someone without immediately asking what they can do for you.`,
+    caption: `Talk about life. Ideas. Failure. Family. Dreams. Business. Anything. Sometimes the relationship becomes valuable precisely because it wasn't transactional.`,
+    cta: `DM "TRIBE" to experience our next Founders Networking Dinner.`,
+  },
+  {
+    tag: "The Founder Dinner",
+    hook: `What if a founder dinner wasn't actually about networking?`,
+    caption: `What if it was simply about sitting around a table with fascinating people and having real conversations? The opportunities can come naturally after the connection.`,
+    cta: `DM "TRIBE" if you want to attend our next Founders Networking Dinner.`,
+  },
+  {
+    tag: "Find People Outside Your Bubble",
+    hook: `Your next big idea might come from someone in a completely different industry.`,
+    caption: `Founders don't need more conversations with people exactly like them. Sometimes the best ideas come from designers, artists, marketers, creators and people outside your usual circle.`,
+    cta: `DM "TRIBE" to join the community and meet them at our next dinner.`,
+  },
+  {
+    tag: "Women Who Are Building",
+    hook: `Ambitious women don't need another room where they're talked over.`,
+    caption: `They need rooms where their ideas are heard, their work is respected and meaningful connections can happen naturally. We want more exceptional women building, creating and connecting with each other.`,
+    cta: `DM "TRIBE" to be part of the community and attend our next Founders Networking Dinner.`,
+  },
+  {
+    tag: "The Woman Behind the Founder",
+    hook: `She isn't just someone's co-founder, employee, wife, daughter or sister. She's building too.`,
+    caption: `Women are building companies, brands, creative careers and communities across Pakistan. Their stories deserve space, recognition and genuine connection.`,
+    cta: `DM "TRIBE" to join a community where women and men can connect, collaborate and grow together.`,
+  },
+  {
+    tag: "The Most Valuable Introduction",
+    hook: `One introduction can be worth more than 100 cold DMs.`,
+    caption: `Trust travels faster than a cold pitch. The right person introducing you to the right person can completely change the conversation.`,
+    cta: `DM "TRIBE" to meet people worth knowing at our next Founders Networking Dinner.`,
+  },
+  {
+    tag: "Your Network Has a Blind Spot",
+    hook: `If everyone in your network thinks like you, you're missing something.`,
+    caption: `Different industries create different perspectives. Sometimes the person who challenges your thinking is more valuable than the person who agrees with you.`,
+    cta: `DM "TRIBE" to expand your circle at our next Founders Networking Dinner.`,
+  },
+  {
+    tag: `The Person You Haven't Met Yet`,
+    hook: `Your next opportunity doesn't have your name saved in their phone yet.`,
+    caption: `They may not even know you exist. That's why you have to keep creating opportunities for meaningful people to cross paths.`,
+    cta: `DM "TRIBE" to join the community and attend our next dinner.`,
+  },
+  {
+    tag: "Founder Problems Nobody Posts",
+    hook: `Nobody posts about the 2 AM decisions.`,
+    caption: `People post the launch, the funding and the growth. The uncertainty, pressure and difficult decisions usually stay behind the scenes.`,
+    cta: `DM "TRIBE" if you want conversations that go beyond the highlight reel.`,
+  },
+  {
+    tag: "The Room You Become",
+    hook: `Your environment doesn't just influence your business. It influences who you become.`,
+    caption: `Spend enough time around builders and you start thinking differently about what's possible. Your surroundings can either reinforce your limits or challenge them.`,
+    cta: `DM "TRIBE" to be part of the community and join our next Founders Networking Dinner.`,
+  },
+  {
+    tag: `Not Everyone Wants Another LinkedIn Connection`,
+    hook: `Maybe you don't need another connection. Maybe you need a friend.`,
+    caption: `Someone you can call when you're stuck. Someone who understands the founder journey without needing a 20-minute explanation.`,
+    cta: `DM "TRIBE" to find your people at our next Founders Networking Dinner.`,
+  },
+  {
+    tag: "When Strangers Become Your People",
+    hook: `They walked into the room as strangers.`,
+    caption: `A few conversations later, they were exchanging ideas, stories, jokes and contacts. That's the beautiful part about bringing interesting people together.`,
+    cta: `DM "TRIBE" to experience the next Founders Networking Dinner.`,
+  },
+  {
+    tag: `You Don't Know What You Don't Know`,
+    hook: `Someone around you already knows the answer you're searching for.`,
+    caption: `The problem is you haven't met them yet. Community gives knowledge a human face.`,
+    cta: `DM "TRIBE" to meet more people who can expand your world.`,
+  },
+  {
+    tag: "The Founder Who Needed Perspective",
+    hook: `Sometimes you don't need advice. You need perspective.`,
+    caption: `Another founder can understand a problem differently because they've already lived through something similar. One conversation can save you months of figuring it out alone.`,
+    cta: `DM "TRIBE" to join our community and attend our next Founders Networking Dinner.`,
+  },
+  {
+    tag: "Build Your Tribe Before You Need Them",
+    hook: `Don't wait until you're struggling to realize you have nobody to call.`,
+    caption: `Build relationships before you need favors. The strongest networks are built through genuine connection, not emergency networking.`,
+    cta: `DM "TRIBE" to meet your people at our next Founders Networking Dinner.`,
+  },
+  {
+    tag: "The Creative + Founder Connection",
+    hook: `A founder and an artist walk into a dinner…`,
+    caption: `Different worlds can create unexpected ideas when they meet. The best communities don't just connect similar people. They create collisions between different perspectives.`,
+    cta: `DM "TRIBE" to experience the next Founders Networking Dinner.`,
+  },
+  {
+    tag: "What If Everyone Helped Someone?",
+    hook: `Imagine a community where everyone came to contribute.`,
+    caption: `You help someone today. Someone else helps you tomorrow. That's how relationships become an ecosystem instead of a transaction.`,
+    cta: `DM "TRIBE" to be part of the community we're building.`,
+  },
+  {
+    tag: `The Dinner You'll Remember`,
+    hook: `You won't remember every networking event you attended.`,
+    caption: `But you'll remember the one where you met someone who changed how you thought, built, or lived. That's the kind of experience we're trying to create.`,
+    cta: `DM "TRIBE" to attend our next Founders Networking Dinner.`,
+  },
+  {
+    tag: "Find Your People",
+    hook: `Maybe you don't need more followers. Maybe you need your people.`,
+    caption: `People who understand what you're building. People you can laugh with, learn from and build alongside. Because sometimes the biggest growth starts with simply finding the right room.`,
+    cta: `DM "TRIBE" to become part of the community and attend our next Founders Networking Dinner.`,
+  },
+];
+
+export function reelConcept(seed = Date.now()) {
+  return REEL_CONCEPTS[seed % REEL_CONCEPTS.length];
+}
+
+export const REEL_CONCEPTS_COUNT = REEL_CONCEPTS.length;

@@ -1,13 +1,12 @@
 name: Auto-post to TCC Founders Club
 
 on:
-  schedule:
-    # 5x/day during warm-up: 9am, 12pm, 3pm, 6pm, 9pm PKT (UTC+5) -> UTC below
-    - cron: "0 4 * * *"
-    - cron: "0 7 * * *"
-    - cron: "0 10 * * *"
-    - cron: "0 13 * * *"
-    - cron: "0 16 * * *"
+  # Retired: superseded by .github/workflows/reel-pipeline.yml (the TCC
+  # Founders Club template system with music rotation, duplicate protection,
+  # and 4-hour scheduling). Automatic schedule disabled so this old
+  # Drive-inbox/generic-caption pipeline can't post to the same Instagram
+  # account alongside the new one. Left as workflow_dispatch-only in case a
+  # one-off manual run of the old flow is ever needed.
   workflow_dispatch: {}
 
 jobs:

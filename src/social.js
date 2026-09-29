@@ -18,14 +18,43 @@ async function postForm(url, data) {
   return json;
 }
 
-export async function postToInstagram(mediaUrl, caption, isVideo) {
+async function getJson(url, params) {
+  const resp = await fetch(`${url}?${new URLSearchParams(params)}`);
+  const json = await resp.json();
+  if (!resp.ok) throw new Error(`${url}: ${resp.status} ${JSON.stringify(json)}`);
+  return json;
+}
+
+// Video/reel containers process asynchronously server-side. Polling the
+// container's own status is more reliable than a fixed sleep, especially for
+// longer text-reels which can take well over the old flat 15s wait.
+async function pollUntilReady(url, containerId, accessToken, statusField, readyValue, { timeoutMs = 120000, intervalMs = 4000 } = {}) {
+  const deadline = Date.now() + timeoutMs;
+  while (Date.now() < deadline) {
+    const status = await getJson(`${url}/${containerId}`, { fields: statusField, access_token: accessToken });
+    const value = status[statusField];
+    if (value === readyValue) return;
+    if (value === "ERROR" || value === "EXPIRED") {
+      throw new Error(`Media container ${containerId} failed processing: ${JSON.stringify(status)}`);
+    }
+    await sleep(intervalMs);
+  }
+  throw new Error(`Media container ${containerId} did not finish processing within ${timeoutMs}ms`);
+}
+
+export async function postToInstagram(mediaUrl, caption, isVideo, thumbOffsetMs) {
   const data = {
     caption,
     access_token: IG_ACCESS_TOKEN,
     ...(isVideo ? { media_type: "REELS", video_url: mediaUrl } : { image_url: mediaUrl }),
+    ...(isVideo && thumbOffsetMs != null ? { thumb_offset: thumbOffsetMs } : {}),
   };
   const create = await postForm(`${IG_GRAPH}/${IG_USER_ID}/media`, data);
-  await sleep(isVideo ? 15000 : 2000); // video containers take longer to process
+  if (isVideo) {
+    await pollUntilReady(IG_GRAPH, create.id, IG_ACCESS_TOKEN, "status_code", "FINISHED");
+  } else {
+    await sleep(2000);
+  }
   const publish = await postForm(`${IG_GRAPH}/${IG_USER_ID}/media_publish`, {
     creation_id: create.id,
     access_token: IG_ACCESS_TOKEN,
@@ -59,7 +88,11 @@ export async function postToThreads(caption, mediaUrl, isVideo) {
     data.media_type = "TEXT";
   }
   const create = await postForm(`${THREADS_GRAPH}/${THREADS_USER_ID}/threads`, data);
-  await sleep(isVideo ? 15000 : 2000);
+  if (isVideo) {
+    await pollUntilReady(THREADS_GRAPH, create.id, THREADS_ACCESS_TOKEN, "status", "FINISHED");
+  } else {
+    await sleep(2000);
+  }
   const publish = await postForm(`${THREADS_GRAPH}/${THREADS_USER_ID}/threads_publish`, {
     creation_id: create.id,
     access_token: THREADS_ACCESS_TOKEN,
