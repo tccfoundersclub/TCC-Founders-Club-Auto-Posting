@@ -5,7 +5,7 @@ BATCH:
 FALLBACK
 
 STATUS:
-SCHEDULED
+PUBLISHED
 
 TOPIC:
 Environment does more work than willpower for founder discipline
@@ -66,7 +66,7 @@ SCHEDULED TIME:
 2026-09-30 09:30:04 UTC
 
 PUBLISHED MEDIA:
--
+https://www.instagram.com/p/17867511879659985/
 
 SOURCE FILE:
 src/fallbackConcepts.js

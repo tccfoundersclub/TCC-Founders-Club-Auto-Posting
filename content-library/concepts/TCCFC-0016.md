@@ -5,7 +5,7 @@ BATCH:
 BATCH-01
 
 STATUS:
-AVAILABLE
+SCHEDULED
 
 TOPIC:
 A structured mastermind beats a casual founder friend group for real progress
@@ -36,32 +36,34 @@ Most founders have plenty of the first. Almost none have enough of the second.
 
 DM "TRIBE" to find the structured room, not just the comfortable one.
 
+#FoundersClub #StartupCommunity #FounderNetworking #Pakistan
+
 CTA:
 DM "TRIBE"
 
 MUSIC:
--
+assets/music-powerful-trap-beat.mp3
 
 BACKGROUND:
--
+assets/bg-tcc-with-nasheed.mp4
 
 CONTENT HASH:
 c3ed195c531328e7
 
 CREATED:
-2026-09-29 14:20:42 UTC
+2026-09-30 05:47:50 UTC
 
 LAST MODIFIED:
-2026-09-29 14:20:42 UTC
+2026-09-30 05:47:50 UTC
 
 REVISION:
 1
 
 RELATED RENDER:
-(not yet rendered)
+reel-1790747270676-3f3b7t
 
 SCHEDULED TIME:
--
+2026-10-03 13:30:04 UTC
 
 PUBLISHED MEDIA:
 -

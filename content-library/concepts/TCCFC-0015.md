@@ -5,7 +5,7 @@ BATCH:
 BATCH-01
 
 STATUS:
-AVAILABLE
+SCHEDULED
 
 TOPIC:
 Always-be-closing sales culture burns out founder-led sales
@@ -34,32 +34,34 @@ If sales calls are draining you, the fix might not be a better script. It might 
 
 DM "TRIBE" to talk sales with founders who've found a sustainable way to do it.
 
+#TCCFoundersClub #B2BSales #StartupGrowth #StartupPakistan
+
 CTA:
 DM "TRIBE"
 
 MUSIC:
--
+assets/music-powerful-maxko.mp3
 
 BACKGROUND:
--
+assets/bg-tcc-with-nasheed.mp4
 
 CONTENT HASH:
 b02949af34355002
 
 CREATED:
-2026-09-29 14:20:42 UTC
+2026-09-30 01:47:31 UTC
 
 LAST MODIFIED:
-2026-09-29 14:20:42 UTC
+2026-09-30 01:47:31 UTC
 
 REVISION:
 1
 
 RELATED RENDER:
-(not yet rendered)
+reel-1790732851019-lcwt0q
 
 SCHEDULED TIME:
--
+2026-10-03 09:30:04 UTC
 
 PUBLISHED MEDIA:
 -

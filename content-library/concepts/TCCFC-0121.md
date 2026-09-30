@@ -5,7 +5,7 @@ BATCH:
 FALLBACK
 
 STATUS:
-SCHEDULED
+PUBLISHED
 
 TOPIC:
 Always-on founder culture quietly damages decision quality
@@ -66,7 +66,7 @@ SCHEDULED TIME:
 2026-09-29 21:30:04 UTC
 
 PUBLISHED MEDIA:
--
+https://www.instagram.com/p/18116330050791816/
 
 SOURCE FILE:
 src/fallbackConcepts.js

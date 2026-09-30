@@ -61,7 +61,7 @@ CREATED:
 2026-09-29 12:22:00 UTC
 
 LAST MODIFIED:
-2026-09-29 12:22:00 UTC
+2026-09-30 11:20:34 UTC
 
 REVISION:
 1
@@ -73,7 +73,7 @@ SCHEDULED TIME:
 2026-09-29 12:22:00 UTC
 
 PUBLISHED MEDIA:
-https://www.instagram.com/p/17875349691576674/
+https://www.instagram.com/reel/Dd3vx6kjSEE/
 
 SOURCE FILE:
 content-history.json (pre-pipeline manual publish)

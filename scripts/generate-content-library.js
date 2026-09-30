@@ -344,11 +344,16 @@ VALIDATION (measured duration must be 10.000s +/- 0.08s)       -- src/reelPipeli
 SCHEDULE (4 hours after the previous scheduled reel)           -- src/reelPipeline.js (replenish)
   |
   v
-INSTAGRAM / FACEBOOK / THREADS PUBLISHING (when due)            -- src/reelPipeline.js (publishDue), src/social.js
+INSTAGRAM PUBLISH (primary - the only success condition)       -- src/reelPipeline.js (publishDue), src/social.js
+  |
+  v
+THREADS MIRROR (secondary, optional, isolated - see PLATFORMS.md) -- src/threadsCaption.js, src/social.js
   |
   v
 PUBLISHED HISTORY (permanent, never deleted)                    -- state.reels, content-library/PUBLISHED.md
 \`\`\`
+
+Facebook is disabled - see \`content-library/PLATFORMS.md\`.
 
 ## Scripts
 
@@ -416,7 +421,13 @@ PURPOSE: The pure content-hashing function (contentHash) used everywhere duplica
 WHAT DEPENDS ON IT: reelPipeline.js, add-to-content-bank.js (contentHash only)
 
 FILE: src/social.js
-PURPOSE: Publishes a rendered reel to Instagram, Facebook Page, and Threads via the Meta Graph API, polling until each platform reports the upload actually finished processing before publishing it. postToInstagram also posts a required music-license attribution as the first comment right after publish (see the Music licensing audit section below) - never in the caption itself.
+PURPOSE: Publishes a rendered reel to Instagram and Threads via the Meta Graph API, polling until each platform reports the upload actually finished processing before publishing it. postToInstagram also posts a required music-license attribution as the first comment right after publish (see the Music licensing audit section below) - never in the caption itself. Also contains postToFacebookPage, kept but unused - see PLATFORMS.md.
+WHAT DEPENDS ON IT: reelPipeline.js (publishDue)
+
+FILE: src/threadsCaption.js
+PURPOSE: Generates Threads' own native text from a concept's structured fields (hook/points/cta) - never the Instagram caption truncated - and validates it against Threads' 500-character limit before it's ever sent to the API. See PLATFORMS.md.
+INPUT: a concept/reel object (hook, points, cta)
+OUTPUT: buildThreadsText() -> string (<=500 chars); validateThreadsText() -> { valid, errors }
 WHAT DEPENDS ON IT: reelPipeline.js (publishDue)
 
 FILE: src/media.js
@@ -445,6 +456,10 @@ Any future track must go through this same audit before being added to \`src/med
 
 Captions built by \`buildFullCaption()\` in reelPipeline.js now contain **content only**: the hand-written caption text, a blank line, then up to 5 topic-matched hashtags. No music credit, no filenames, no license text, no production/automation notes ever appear in the caption - see content-library/HASHTAGS.md and content-library/KEYWORDS.md for the full research and category breakdown.
 
+## Manual/one-off publish scripts (2026-09-30 rule)
+
+Never trust a manual script's local success as proof of an Instagram publish. A reel may only reach \`status: "PUBLISHED"\` / \`instagramStatus: "PUBLISHED"\` after Instagram actually confirms it - at minimum an \`instagramMediaId\`, and preferably a permalink and a real API success response. This rule exists because of a real incident: five reels (TCCFC-0128 through TCCFC-0132) were found marked \`PUBLISHED\` by one-off scripts (\`manual-backfill\`, \`post-reel-founder-loneliness.js\`, \`post-reel-founder-circle.js\`) with no such evidence for three of them. See \`scripts/audit-manual-reels.js\` for the correction and content-library/PLATFORMS.md for the full account. Any future manual test script should write an intermediate status (\`MANUAL_TEST\`, \`PUBLISHING\`, \`PENDING_VERIFICATION\`) and only promote to \`PUBLISHED\` once Instagram confirms it.
+
 ## .github/workflows/reel-pipeline.yml
 
 Runs \`node scripts/run-reel-pipeline.js\` every 30 minutes on GitHub's own infrastructure (not this laptop). Publishes any due reel, then replenishes the queue from the content bank if it's dropped to 16 or below. No Anthropic/OpenAI/paid API key required or used.
@@ -452,6 +467,10 @@ Runs \`node scripts/run-reel-pipeline.js\` every 30 minutes on GitHub's own infr
 ## .github/workflows/post.yml
 
 The old pipeline (Google Drive inbox + generic captions). Its automatic schedule has been disabled (workflow_dispatch only) so it can't publish to the same Instagram account alongside the new pipeline.
+
+## Remotion rendering layer (optional, not yet wired into production)
+
+A React/Remotion-based visual renderer lives under \`remotion/\` as a parallel, additive capability alongside the ffmpeg renderer in src/media.js - see REMOTION.md for the full architecture, props schema, and component list. It is NOT currently called by reelPipeline.js; the live pipeline still renders every reel through ffmpeg exactly as before. Remotion exists for concepts that benefit from data visualization (charts, animated metrics) the ffmpeg template can't represent. License: free for TCC Founders Club at its current headcount (≤ 3 employees) - re-verify at remotion.dev/docs/license/pricing before relying on it if that changes.
 `;
   fs.writeFileSync(path.join(LIB, "SYSTEM-MAP.md"), content);
 }

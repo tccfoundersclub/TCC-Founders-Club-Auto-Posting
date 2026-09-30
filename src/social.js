@@ -85,6 +85,11 @@ export async function postToInstagram(mediaUrl, caption, isVideo, thumbOffsetMs,
   return { url: `https://www.instagram.com/p/${publish.id}/`, mediaId: publish.id, attributionCommentPosted };
 }
 
+// Facebook publishing: DISABLED BY USER REQUEST (2026-09-30). Instagram is
+// the primary platform and Threads the secondary one; Facebook is no longer
+// called from the production path (see publishDue() in reelPipeline.js).
+// This function is left in place, isolated and unused, rather than deleted,
+// in case Facebook is ever re-enabled later.
 export async function postToFacebookPage(mediaUrl, caption, isVideo) {
   const result = isVideo
     ? await postForm(`${GRAPH}/${FB_PAGE_ID}/videos`, {
@@ -120,5 +125,5 @@ export async function postToThreads(caption, mediaUrl, isVideo) {
     creation_id: create.id,
     access_token: THREADS_ACCESS_TOKEN,
   });
-  return `https://www.threads.net/@tccfoundersclub/post/${publish.id}`;
+  return { url: `https://www.threads.net/@tccfoundersclub/post/${publish.id}`, postId: publish.id };
 }

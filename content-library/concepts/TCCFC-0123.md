@@ -5,7 +5,7 @@ BATCH:
 FALLBACK
 
 STATUS:
-SCHEDULED
+PUBLISHED
 
 TOPIC:
 Hiring people who think like you creates a blind-spot trap
@@ -66,7 +66,7 @@ SCHEDULED TIME:
 2026-09-30 05:30:04 UTC
 
 PUBLISHED MEDIA:
--
+https://www.instagram.com/p/18099456569063817/
 
 SOURCE FILE:
 src/fallbackConcepts.js

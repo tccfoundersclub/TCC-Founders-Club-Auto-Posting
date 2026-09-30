@@ -5,7 +5,7 @@ BATCH:
 FALLBACK
 
 STATUS:
-SCHEDULED
+PUBLISHED
 
 TOPIC:
 Reciprocity and generosity compound a founder's network over time
@@ -69,7 +69,7 @@ SCHEDULED TIME:
 2026-09-30 01:30:04 UTC
 
 PUBLISHED MEDIA:
--
+https://www.instagram.com/p/18487410940108072/
 
 SOURCE FILE:
 src/fallbackConcepts.js

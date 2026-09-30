@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "private": true,
   "type": "module",
-  "description": "Automated content pipeline for TCC Founders Club - pulls from Google Drive, compiles video/images with ffmpeg, hosts on Supabase, and publishes to Instagram, Facebook, and Threads.",
+  "description": "Automated content pipeline for TCC Founders Club - compiles video with ffmpeg, hosts on Supabase, and publishes to Instagram (primary) with a Threads mirror (secondary). Facebook is disabled.",
   "scripts": {
     "start": "node src/index.js"
   }

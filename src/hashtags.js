@@ -77,8 +77,8 @@ export function selectHashtags(concept, conceptId) {
 // metadata, even if it somehow ended up in a caption (e.g. a hand-written
 // batch concept that copied an old template). Never silently allow this
 // text into a published caption.
-const METADATA_LINE_PATTERN = /^(music|track|song|audio|artist|music by|credit|courtesy|source|license|licence|copyright|royalty free)\s*:/i;
-const METADATA_KEYWORD_PATTERN = /(CC\s*BY(-SA)?|maxkomusic\.com|pixabay|youtube audio library|\.mp3\b)/i;
+export const METADATA_LINE_PATTERN = /^(music|track|song|audio|artist|music by|credit|courtesy|source|license|licence|copyright|royalty free)\s*:/i;
+export const METADATA_KEYWORD_PATTERN = /(CC\s*BY(-SA)?|maxkomusic\.com|pixabay|youtube audio library|\.mp3\b)/i;
 
 export function sanitizeCaption(caption) {
   const cleaned = caption
@@ -88,4 +88,19 @@ export function sanitizeCaption(caption) {
     .replace(/\n{3,}/g, "\n\n")
     .trim();
   return cleaned;
+}
+
+// Final defense-in-depth check immediately before an Instagram publish call
+// - sanitizeCaption() already strips this content at caption-build time,
+// this just confirms nothing slipped through (e.g. a hand-written batch
+// concept that skipped sanitizeCaption).
+const IG_MAX_CHARACTERS = 2200;
+
+export function validateInstagramCaption(caption) {
+  const errors = [];
+  if (!caption || !caption.trim()) errors.push("empty");
+  if (caption && caption.length > IG_MAX_CHARACTERS) errors.push(`exceeds Instagram's ${IG_MAX_CHARACTERS} character limit (${caption.length})`);
+  if (caption && caption.split("\n").some((line) => METADATA_LINE_PATTERN.test(line.trim()))) errors.push("contains production/licensing metadata line");
+  if (caption && METADATA_KEYWORD_PATTERN.test(caption)) errors.push("contains production/licensing metadata keyword");
+  return { valid: errors.length === 0, errors };
 }

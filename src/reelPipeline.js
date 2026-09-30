@@ -4,12 +4,13 @@ import path from "node:path";
 import { execFileSync } from "node:child_process";
 import { compileMultiClipReel } from "./media.js";
 import { uploadToSupabase } from "./supabase.js";
-import { postToInstagram, postToFacebookPage, postToThreads } from "./social.js";
+import { postToInstagram, postToThreads } from "./social.js";
 import { loadState, saveState, futureQueue, dueReels, lastScheduledTime, availableBankConcepts, assignConceptId } from "./remoteState.js";
 import { FALLBACK_CONCEPTS } from "./fallbackConcepts.js";
 import { BACKGROUND_VIDEO, MUSIC_LIBRARY } from "./mediaLibrary.js";
 import { contentHash } from "./contentHistory.js";
-import { selectHashtags, sanitizeCaption } from "./hashtags.js";
+import { selectHashtags, sanitizeCaption, validateInstagramCaption } from "./hashtags.js";
+import { buildThreadsText, validateThreadsText } from "./threadsCaption.js";
 
 // No live LLM calls in production - by design, per explicit instruction to
 // avoid any paid API dependency. Replenishment draws only from the
@@ -217,11 +218,17 @@ async function replenish(state, log) {
       createdAt: nowIso,
       lastModifiedAt: nowIso,
       publishedAt: null,
+      instagramStatus: "PENDING",
       instagramResult: null,
       instagramMediaId: null,
+      instagramPermalink: null,
+      instagramPublishedAt: null,
       attributionCommentPosted: null,
-      facebookResult: null,
+      threadsStatus: "PENDING",
       threadsResult: null,
+      threadsPostId: null,
+      threadsPublishedAt: null,
+      threadsError: null,
       error: null,
     };
     state.reels.push(reel);
@@ -238,43 +245,83 @@ async function replenish(state, log) {
   }
 }
 
+// Instagram is the primary platform and the sole condition for a reel
+// counting as published - see PLATFORMS.md. Order: publish to Instagram,
+// verify, mark published; only then optionally mirror to Threads. Threads
+// failure is recorded on its own fields and can never change reel.status
+// or any instagram* field once Instagram has already succeeded. Facebook
+// is disabled entirely (not called, not retried, cannot block anything) -
+// see src/social.js's postToFacebookPage for why it's kept but unused.
 async function publishDue(state, log) {
   for (const reel of dueReels(state)) {
     // Idempotency: never attempt a reel that's already marked published.
     if (reel.status === "PUBLISHED" || reel.instagramResult) continue;
 
+    const igValidation = validateInstagramCaption(reel.caption);
+    if (!igValidation.valid) {
+      reel.status = "FAILED";
+      reel.instagramStatus = "FAILED";
+      reel.error = `Instagram caption failed validation: ${igValidation.errors.join(", ")}`;
+      log(`FAILED to publish ${reel.conceptId} "${reel.hook}": ${reel.error}`);
+      continue;
+    }
+
+    let ig;
     try {
-      const ig = await postToInstagram(reel.mediaUrl, reel.caption, true, 1200, reel.musicCredit);
-      reel.instagramResult = ig.url;
-      reel.instagramMediaId = ig.mediaId;
-      reel.attributionCommentPosted = ig.attributionCommentPosted;
-      if (reel.musicCredit && !ig.attributionCommentPosted) {
-        log(`WARNING: attribution comment did not post for ${reel.conceptId} - music credit is required and not yet visible anywhere on this post. Needs manual follow-up.`);
-      }
-      // Facebook/Threads failures don't block Instagram from counting as
-      // published - Instagram is the primary channel and the one this
-      // whole pipeline is built around.
-      try {
-        reel.facebookResult = await postToFacebookPage(reel.mediaUrl, reel.caption, true);
-      } catch (e) {
-        reel.facebookResult = `FAILED: ${e.message}`;
-      }
-      try {
-        reel.threadsResult = await postToThreads(reel.caption, reel.mediaUrl, true);
-      } catch (e) {
-        reel.threadsResult = `FAILED: ${e.message}`;
-      }
-      reel.status = "PUBLISHED";
-      reel.publishedAt = new Date().toISOString();
-      log(`Published ${reel.conceptId} "${reel.hook}" -> ${reel.instagramResult}`);
+      ig = await postToInstagram(reel.mediaUrl, reel.caption, true, 1200, reel.musicCredit);
     } catch (err) {
       // Instagram result is uncertain here - do NOT retry automatically
       // (would risk a double-post). Mark FAILED and leave it for manual
       // review; it intentionally falls out of dueReels() so it won't be
       // re-attempted next run.
       reel.status = "FAILED";
+      reel.instagramStatus = "FAILED";
       reel.error = err.message;
-      log(`FAILED to publish ${reel.conceptId} "${reel.hook}": ${err.message}`);
+      log(`FAILED to publish ${reel.conceptId} "${reel.hook}" to Instagram: ${err.message}`);
+      continue;
+    }
+
+    // Instagram succeeded - this is the primary success condition. Nothing
+    // after this point may change reel.status or any instagram* field.
+    const publishedAt = new Date().toISOString();
+    reel.instagramResult = ig.url;
+    reel.instagramMediaId = ig.mediaId;
+    reel.instagramPermalink = ig.url;
+    reel.instagramPublishedAt = publishedAt;
+    reel.instagramStatus = "PUBLISHED";
+    reel.attributionCommentPosted = ig.attributionCommentPosted;
+    reel.status = "PUBLISHED";
+    reel.publishedAt = publishedAt;
+    if (reel.musicCredit && !ig.attributionCommentPosted) {
+      log(`WARNING: attribution comment did not post for ${reel.conceptId} - music credit is required and not yet visible anywhere on this post. Needs manual follow-up.`);
+    }
+    log(`Published ${reel.conceptId} "${reel.hook}" to Instagram -> ${reel.instagramResult}`);
+
+    // Threads is secondary and isolated: generated from the concept's own
+    // structured fields (not the Instagram caption), validated against its
+    // own 500-char limit, and any failure here is recorded on threads*
+    // fields only.
+    const threadsText = buildThreadsText(reel);
+    const threadsValidation = validateThreadsText(threadsText);
+    if (!threadsValidation.valid) {
+      reel.threadsStatus = "THREADS_FAILED";
+      reel.threadsError = `Threads text failed validation: ${threadsValidation.errors.join(", ")}`;
+      reel.threadsResult = `FAILED: ${reel.threadsError}`;
+      log(`Threads publish skipped for ${reel.conceptId} (Instagram unaffected): ${reel.threadsError}`);
+      continue;
+    }
+    try {
+      const threads = await postToThreads(threadsText, reel.mediaUrl, true);
+      reel.threadsResult = threads.url;
+      reel.threadsPostId = threads.postId;
+      reel.threadsStatus = "PUBLISHED";
+      reel.threadsPublishedAt = new Date().toISOString();
+      reel.threadsError = null;
+    } catch (e) {
+      reel.threadsStatus = "THREADS_FAILED";
+      reel.threadsError = e.message;
+      reel.threadsResult = `FAILED: ${e.message}`;
+      log(`Threads publish failed for ${reel.conceptId} (Instagram unaffected): ${e.message}`);
     }
   }
 }

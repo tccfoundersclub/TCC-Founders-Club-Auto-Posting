@@ -18,10 +18,10 @@ Rejected: 0
 - **TCCFC-0011** [SCHEDULED] - Why Some Founders Raise Easily and It Has Almost Nothing to Do With the Pitch
 - **TCCFC-0012** [SCHEDULED] - The Hidden Tax of Deciding Everything Alone
 - **TCCFC-0013** [SCHEDULED] - The Stall That Hits Right After Product-Market Fit, Not Before
-- **TCCFC-0014** [AVAILABLE] - The Real Reason Founders Don't Raise Their Prices
-- **TCCFC-0015** [AVAILABLE] - "Always Be Closing" Is Quietly Burning Out Founder-Led Sales
-- **TCCFC-0016** [AVAILABLE] - A Founder Friend Group and a Founder Mastermind Are Not the Same Thing
-- **TCCFC-0017** [AVAILABLE] - Saying No to the Wrong Customer Is a Growth Strategy, Not a Loss
+- **TCCFC-0014** [SCHEDULED] - The Real Reason Founders Don't Raise Their Prices
+- **TCCFC-0015** [SCHEDULED] - "Always Be Closing" Is Quietly Burning Out Founder-Led Sales
+- **TCCFC-0016** [SCHEDULED] - A Founder Friend Group and a Founder Mastermind Are Not the Same Thing
+- **TCCFC-0017** [SCHEDULED] - Saying No to the Wrong Customer Is a Growth Strategy, Not a Loss
 - **TCCFC-0018** [AVAILABLE] - Busy and Making Progress Are Not the Same Thing, and Most Founders Mix Them Up
 - **TCCFC-0019** [AVAILABLE] - Why Your Founder WhatsApp Group Died Three Weeks After You Made It
 - **TCCFC-0020** [AVAILABLE] - The Five Minutes That Tell You More Than Your Last Board Meeting

@@ -5,7 +5,7 @@ BATCH:
 BATCH-01
 
 STATUS:
-AVAILABLE
+SCHEDULED
 
 TOPIC:
 Founders avoid raising prices out of a specific, nameable fear
@@ -34,32 +34,34 @@ The founders who price confidently have done one specific thing - they've separa
 
 DM "TRIBE" to talk pricing with founders who've actually tested this.
 
+#FoundersClub #BusinessOwners #StartupFounder #Entrepreneurs #Karachi
+
 CTA:
 DM "TRIBE"
 
 MUSIC:
--
+assets/music-powerful-trap-beat.mp3
 
 BACKGROUND:
--
+assets/bg-tcc-with-nasheed.mp4
 
 CONTENT HASH:
 f4953c04796f96f0
 
 CREATED:
-2026-09-29 14:20:42 UTC
+2026-09-29 21:46:32 UTC
 
 LAST MODIFIED:
-2026-09-29 14:20:42 UTC
+2026-09-29 21:46:32 UTC
 
 REVISION:
 1
 
 RELATED RENDER:
-(not yet rendered)
+reel-1790718392781-tc4skt
 
 SCHEDULED TIME:
--
+2026-10-03 05:30:04 UTC
 
 PUBLISHED MEDIA:
 -

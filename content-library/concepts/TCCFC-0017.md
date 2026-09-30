@@ -5,7 +5,7 @@ BATCH:
 BATCH-01
 
 STATUS:
-AVAILABLE
+SCHEDULED
 
 TOPIC:
 Saying no to the wrong customer is an underused growth strategy
@@ -36,32 +36,34 @@ Growth isn't just about who you let in. It's about who you don't.
 
 DM "TRIBE" to get sharper on who your real customer actually is.
 
+#TCCFoundersClub #B2BSales #StartupGrowth #Islamabad
+
 CTA:
 DM "TRIBE"
 
 MUSIC:
--
+assets/music-powerful-maxko.mp3
 
 BACKGROUND:
--
+assets/bg-tcc-with-nasheed.mp4
 
 CONTENT HASH:
 94c56262225b3a81
 
 CREATED:
-2026-09-29 14:20:42 UTC
+2026-09-30 09:50:54 UTC
 
 LAST MODIFIED:
-2026-09-29 14:20:42 UTC
+2026-09-30 09:50:54 UTC
 
 REVISION:
 1
 
 RELATED RENDER:
-(not yet rendered)
+reel-1790761854409-pqu49l
 
 SCHEDULED TIME:
--
+2026-10-03 17:30:04 UTC
 
 PUBLISHED MEDIA:
 -
