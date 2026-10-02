@@ -5,7 +5,7 @@ BATCH:
 BATCH-01
 
 STATUS:
-AVAILABLE
+SCHEDULED
 
 TOPIC:
 Founder WhatsApp/Slack communities die within weeks without structure
@@ -36,32 +36,34 @@ Community doesn't run on good intentions. It runs on someone actually doing the 
 
 DM "TRIBE" to be part of a room that's actually hosted, not just created.
 
+#TCCFoundersClub #StartupFounder #Entrepreneurs #FounderCommunity #Karachi
+
 CTA:
 DM "TRIBE"
 
 MUSIC:
--
+assets/music-powerful-maxko.mp3
 
 BACKGROUND:
--
+assets/bg-tcc-with-nasheed.mp4
 
 CONTENT HASH:
 91b6fbc27dd58e1c
 
 CREATED:
-2026-09-29 14:20:42 UTC
+2026-09-30 17:47:03 UTC
 
 LAST MODIFIED:
-2026-09-29 14:20:42 UTC
+2026-09-30 17:47:03 UTC
 
 REVISION:
 1
 
 RELATED RENDER:
-(not yet rendered)
+reel-1790790423211-4k99jh
 
 SCHEDULED TIME:
--
+2026-10-04 01:30:04 UTC
 
 PUBLISHED MEDIA:
 -

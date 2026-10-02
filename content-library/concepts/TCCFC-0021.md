@@ -5,7 +5,7 @@ BATCH:
 BATCH-01
 
 STATUS:
-AVAILABLE
+SCHEDULED
 
 TOPIC:
 "We'll hire when we scale" is usually backwards
@@ -34,32 +34,34 @@ The founders who grow smoothly aren't the ones who waited the longest to hire. T
 
 DM "TRIBE" to think through your next hire with people who've timed it well.
 
+#FoundersClub #TeamBuilding #Hiring #Islamabad
+
 CTA:
 DM "TRIBE"
 
 MUSIC:
--
+assets/music-powerful-maxko.mp3
 
 BACKGROUND:
--
+assets/bg-tcc-with-nasheed.mp4
 
 CONTENT HASH:
 2a4114637cbbc2a8
 
 CREATED:
-2026-09-29 14:20:42 UTC
+2026-10-01 01:47:33 UTC
 
 LAST MODIFIED:
-2026-09-29 14:20:42 UTC
+2026-10-01 01:47:33 UTC
 
 REVISION:
 1
 
 RELATED RENDER:
-(not yet rendered)
+reel-1790819253197-u0seo4
 
 SCHEDULED TIME:
--
+2026-10-04 09:30:04 UTC
 
 PUBLISHED MEDIA:
 -

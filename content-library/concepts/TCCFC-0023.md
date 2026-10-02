@@ -5,7 +5,7 @@ BATCH:
 BATCH-01
 
 STATUS:
-AVAILABLE
+SCHEDULED
 
 TOPIC:
 Exit conversations with early employees go wrong in a specific way
@@ -34,32 +34,34 @@ The founders who handle this well decide the specifics before they walk in - not
 
 DM "TRIBE" to think through a hard conversation before you have it.
 
+#FoundersClub #Entrepreneurs #FounderCommunity #BusinessOwners #Karachi
+
 CTA:
 DM "TRIBE"
 
 MUSIC:
--
+assets/music-powerful-maxko.mp3
 
 BACKGROUND:
--
+assets/bg-tcc-with-nasheed.mp4
 
 CONTENT HASH:
 3f8ec272c8dfa4e6
 
 CREATED:
-2026-09-29 14:20:42 UTC
+2026-10-01 09:49:57 UTC
 
 LAST MODIFIED:
-2026-09-29 14:20:42 UTC
+2026-10-01 09:49:57 UTC
 
 REVISION:
 1
 
 RELATED RENDER:
-(not yet rendered)
+reel-1790848197322-n4ks52
 
 SCHEDULED TIME:
--
+2026-10-04 17:30:04 UTC
 
 PUBLISHED MEDIA:
 -

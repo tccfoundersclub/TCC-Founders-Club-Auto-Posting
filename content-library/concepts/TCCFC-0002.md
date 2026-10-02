@@ -5,7 +5,7 @@ BATCH:
 BATCH-01
 
 STATUS:
-SCHEDULED
+PUBLISHED
 
 TOPIC:
 Hiring a friend into a senior role changes the friendship permanently
@@ -66,7 +66,7 @@ SCHEDULED TIME:
 2026-10-01 05:30:04 UTC
 
 PUBLISHED MEDIA:
--
+https://www.instagram.com/p/18078664511523349/
 
 SOURCE FILE:
 scripts/content-batch-01.js

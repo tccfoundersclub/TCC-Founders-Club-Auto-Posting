@@ -5,7 +5,7 @@ BATCH:
 BATCH-01
 
 STATUS:
-SCHEDULED
+PUBLISHED
 
 TOPIC:
 Celebrating small internal wins changes retention more than founders expect
@@ -66,7 +66,7 @@ SCHEDULED TIME:
 2026-10-01 17:30:04 UTC
 
 PUBLISHED MEDIA:
--
+https://www.instagram.com/p/18091723337670876/
 
 SOURCE FILE:
 scripts/content-batch-01.js

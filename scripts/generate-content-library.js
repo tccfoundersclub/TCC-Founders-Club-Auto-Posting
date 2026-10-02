@@ -448,9 +448,13 @@ Both approved tracks are Creative Commons licensed:
 
 Both licenses legally require attribution wherever the work is used. That's a real license term - it cannot be silently dropped just to get a cleaner caption.
 
-**Resolution:** attribution is now posted as an automated Instagram comment immediately after the reel publishes (src/social.js's \`postToInstagram(..., commentText)\` param, called from reelPipeline.js's \`publishDue()\` with \`reel.musicCredit\`), instead of living inside the caption. This satisfies the "no production metadata in the caption" requirement AND the CC license's attribution requirement (CC licenses require attribution "reasonably associated with the work" - a comment on the same post qualifies) at the same time, without discarding either currently-owned, already-tested track. \`reel.attributionCommentPosted\` records whether that comment actually went through; a failure there does not block the reel from publishing, but is logged as a warning for manual follow-up.
+**2026-09-29 resolution (superseded below):** attribution was posted as an automated Instagram comment immediately after the reel publishes (\`src/social.js\`'s \`postToInstagram(..., commentText)\` param). This satisfied the CC license's attribution requirement ("reasonably associated with the work") without putting production metadata in the caption.
 
-Any future track must go through this same audit before being added to \`src/mediaLibrary.js\` - if its license requires attribution and the comment-based mechanism can't be confirmed to satisfy it, the track gets marked \`NOT_APPROVED_FOR_AUTOMATED_CAPTIONLESS_USE\` and is not used.
+**2026-10-02 update:** the attribution comment is now DISABLED BY USER REQUEST. \`publishDue()\` no longer passes \`commentText\` to \`postToInstagram\` at all - \`src/social.js\` still supports it (unused, kept for future re-enable), and \`reel.musicCredit\` is still recorded on each reel as metadata, but nothing posts it anywhere.
+
+**Compliance note, left open on purpose:** both tracks' licenses (CC BY-SA / CC BY) still legally require attribution wherever the work is used, and right now neither the caption nor a comment provides it. This is a known gap, not an oversight - flagged here so it's visible rather than silently dropped. Options if this needs closing later: credit in the Instagram bio/link-in-bio page (a one-time, not-per-post location), switch to tracks that don't require attribution, or re-enable the comment. No action taken without being asked.
+
+Any future track must go through this same audit before being added to \`src/mediaLibrary.js\`.
 
 ## Caption & hashtag system (2026-09-29)
 

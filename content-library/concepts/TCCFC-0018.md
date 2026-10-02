@@ -5,7 +5,7 @@ BATCH:
 BATCH-01
 
 STATUS:
-AVAILABLE
+SCHEDULED
 
 TOPIC:
 Founders confuse being busy with making progress
@@ -36,32 +36,34 @@ Busy is a feeling. Progress is a result. They're not the same thing.
 
 DM "TRIBE" to figure out what's actually moving your business forward.
 
+#FoundersClub #BusinessOwners #StartupFounder #Entrepreneurs #Lahore
+
 CTA:
 DM "TRIBE"
 
 MUSIC:
--
+assets/music-powerful-trap-beat.mp3
 
 BACKGROUND:
--
+assets/bg-tcc-with-nasheed.mp4
 
 CONTENT HASH:
 b0346dd803764cb6
 
 CREATED:
-2026-09-29 14:20:42 UTC
+2026-09-30 13:49:20 UTC
 
 LAST MODIFIED:
-2026-09-29 14:20:42 UTC
+2026-09-30 13:49:20 UTC
 
 REVISION:
 1
 
 RELATED RENDER:
-(not yet rendered)
+reel-1790776160768-jm9ulp
 
 SCHEDULED TIME:
--
+2026-10-03 21:30:04 UTC
 
 PUBLISHED MEDIA:
 -

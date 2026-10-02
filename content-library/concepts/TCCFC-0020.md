@@ -5,7 +5,7 @@ BATCH:
 BATCH-01
 
 STATUS:
-AVAILABLE
+SCHEDULED
 
 TOPIC:
 An outsider's first impression reveals blind spots founders can't see
@@ -36,32 +36,34 @@ Go find someone who's never seen it. Watch their face, not just their words.
 
 DM "TRIBE" to talk through what your product's blind spots might be.
 
+#TCCFoundersClub #StartupPartnerships #Fundraising #Pakistan
+
 CTA:
 DM "TRIBE"
 
 MUSIC:
--
+assets/music-powerful-trap-beat.mp3
 
 BACKGROUND:
--
+assets/bg-tcc-with-nasheed.mp4
 
 CONTENT HASH:
 ac955995b665e634
 
 CREATED:
-2026-09-29 14:20:42 UTC
+2026-09-30 21:48:28 UTC
 
 LAST MODIFIED:
-2026-09-29 14:20:42 UTC
+2026-09-30 21:48:28 UTC
 
 REVISION:
 1
 
 RELATED RENDER:
-(not yet rendered)
+reel-1790804908462-6yj95v
 
 SCHEDULED TIME:
--
+2026-10-04 05:30:04 UTC
 
 PUBLISHED MEDIA:
 -

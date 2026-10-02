@@ -5,7 +5,7 @@ BATCH:
 BATCH-01
 
 STATUS:
-AVAILABLE
+SCHEDULED
 
 TOPIC:
 Negotiation skill is preparation, not confidence
@@ -36,32 +36,34 @@ Confidence is often just preparation wearing a calmer face.
 
 DM "TRIBE" to prep for your next negotiation with people who'll pressure-test it.
 
+#FoundersClub #Entrepreneurs #FounderCommunity #BusinessOwners #Lahore
+
 CTA:
 DM "TRIBE"
 
 MUSIC:
--
+assets/music-powerful-maxko.mp3
 
 BACKGROUND:
--
+assets/bg-tcc-with-nasheed.mp4
 
 CONTENT HASH:
 65ab43218a4875fa
 
 CREATED:
-2026-09-29 14:20:42 UTC
+2026-10-02 01:48:36 UTC
 
 LAST MODIFIED:
-2026-09-29 14:20:42 UTC
+2026-10-02 01:48:36 UTC
 
 REVISION:
 1
 
 RELATED RENDER:
-(not yet rendered)
+reel-1790905716957-zedxwm
 
 SCHEDULED TIME:
--
+2026-10-05 09:30:04 UTC
 
 PUBLISHED MEDIA:
 -

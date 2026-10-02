@@ -5,7 +5,7 @@ BATCH:
 BATCH-01
 
 STATUS:
-AVAILABLE
+SCHEDULED
 
 TOPIC:
 "We're like family" culture backfires in startups
@@ -36,32 +36,34 @@ Care about your team without borrowing language that quietly erases boundaries.
 
 DM "TRIBE" to build a culture that's warm without being confusing.
 
+#FoundersClub #BusinessOwners #StartupFounder #Entrepreneurs #Pakistan
+
 CTA:
 DM "TRIBE"
 
 MUSIC:
--
+assets/music-powerful-maxko.mp3
 
 BACKGROUND:
--
+assets/bg-tcc-with-nasheed.mp4
 
 CONTENT HASH:
 0e640857823a7b54
 
 CREATED:
-2026-09-29 14:20:42 UTC
+2026-10-01 17:56:21 UTC
 
 LAST MODIFIED:
-2026-09-29 14:20:42 UTC
+2026-10-01 17:56:21 UTC
 
 REVISION:
 1
 
 RELATED RENDER:
-(not yet rendered)
+reel-1790877381726-13f09r
 
 SCHEDULED TIME:
--
+2026-10-05 01:30:04 UTC
 
 PUBLISHED MEDIA:
 -

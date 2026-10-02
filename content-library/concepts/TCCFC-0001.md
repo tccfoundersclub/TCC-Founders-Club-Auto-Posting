@@ -5,7 +5,7 @@ BATCH:
 BATCH-01
 
 STATUS:
-SCHEDULED
+PUBLISHED
 
 TOPIC:
 Over-preparing the ask beats winging it in pitch meetings
@@ -66,7 +66,7 @@ SCHEDULED TIME:
 2026-10-01 01:30:04 UTC
 
 PUBLISHED MEDIA:
--
+https://www.instagram.com/p/18149567224559089/
 
 SOURCE FILE:
 scripts/content-batch-01.js

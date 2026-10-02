@@ -5,7 +5,7 @@ BATCH:
 BATCH-01
 
 STATUS:
-SCHEDULED
+PUBLISHED
 
 TOPIC:
 Founders wait too long to remove an underperformer, unlike the hiring-similarity trap
@@ -64,7 +64,7 @@ SCHEDULED TIME:
 2026-10-01 21:30:04 UTC
 
 PUBLISHED MEDIA:
--
+https://www.instagram.com/p/18075583259739740/
 
 SOURCE FILE:
 scripts/content-batch-01.js

@@ -5,7 +5,7 @@ BATCH:
 BATCH-01
 
 STATUS:
-SCHEDULED
+PUBLISHED
 
 TOPIC:
 Asking every mentor to review your deck burns goodwill fast
@@ -66,7 +66,7 @@ SCHEDULED TIME:
 2026-10-01 09:30:04 UTC
 
 PUBLISHED MEDIA:
--
+https://www.instagram.com/p/18094567418130276/
 
 SOURCE FILE:
 scripts/content-batch-01.js

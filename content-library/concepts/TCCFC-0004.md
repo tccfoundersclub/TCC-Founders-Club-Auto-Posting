@@ -5,7 +5,7 @@ BATCH:
 BATCH-01
 
 STATUS:
-SCHEDULED
+PUBLISHED
 
 TOPIC:
 Remote-first teams lose founder-to-team trust in a specific, avoidable way
@@ -66,7 +66,7 @@ SCHEDULED TIME:
 2026-10-01 13:30:04 UTC
 
 PUBLISHED MEDIA:
--
+https://www.instagram.com/p/18146117326605794/
 
 SOURCE FILE:
 scripts/content-batch-01.js

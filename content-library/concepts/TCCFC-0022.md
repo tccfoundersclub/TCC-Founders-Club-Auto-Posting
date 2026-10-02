@@ -5,7 +5,7 @@ BATCH:
 BATCH-01
 
 STATUS:
-AVAILABLE
+SCHEDULED
 
 TOPIC:
 Building in public vs building in private changes trust differently than expected
@@ -36,32 +36,34 @@ It's not about oversharing. It's about being real enough that the wins mean some
 
 DM "TRIBE" to build that kind of trust with a room that's actually watching.
 
+#TCCFoundersClub #StartupFounder #Entrepreneurs #FounderCommunity #Lahore
+
 CTA:
 DM "TRIBE"
 
 MUSIC:
--
+assets/music-powerful-trap-beat.mp3
 
 BACKGROUND:
--
+assets/bg-tcc-with-nasheed.mp4
 
 CONTENT HASH:
 095f0454470e0b6c
 
 CREATED:
-2026-09-29 14:20:42 UTC
+2026-10-01 05:48:24 UTC
 
 LAST MODIFIED:
-2026-09-29 14:20:42 UTC
+2026-10-01 05:48:24 UTC
 
 REVISION:
 1
 
 RELATED RENDER:
-(not yet rendered)
+reel-1790833704831-cpzdlg
 
 SCHEDULED TIME:
--
+2026-10-04 13:30:04 UTC
 
 PUBLISHED MEDIA:
 -

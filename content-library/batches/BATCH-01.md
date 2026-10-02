@@ -5,13 +5,13 @@ Rejected: 0
 
 ## Accepted concepts
 
-- **TCCFC-0001** [SCHEDULED] - The Best Founders Don't Improvise Their Ask
-- **TCCFC-0002** [SCHEDULED] - Hiring Your Friend Changes the Friendship, Not Just the Org Chart
-- **TCCFC-0003** [SCHEDULED] - Asking Every Mentor to "Just Take a Look at My Deck" Is Burning You Out With Them
-- **TCCFC-0004** [SCHEDULED] - The Trust Gap Remote Teams Don't Notice Until It's Already Wide
-- **TCCFC-0005** [SCHEDULED] - The Retention Lever Most Founders Completely Ignore
-- **TCCFC-0006** [SCHEDULED] - The Delay That Costs More Than the Bad Hire Itself
-- **TCCFC-0007** [SCHEDULED] - Why a Table of 8 Builds More Trust Than a Room of 200
+- **TCCFC-0001** [PUBLISHED] - The Best Founders Don't Improvise Their Ask
+- **TCCFC-0002** [PUBLISHED] - Hiring Your Friend Changes the Friendship, Not Just the Org Chart
+- **TCCFC-0003** [PUBLISHED] - Asking Every Mentor to "Just Take a Look at My Deck" Is Burning You Out With Them
+- **TCCFC-0004** [PUBLISHED] - The Trust Gap Remote Teams Don't Notice Until It's Already Wide
+- **TCCFC-0005** [PUBLISHED] - The Retention Lever Most Founders Completely Ignore
+- **TCCFC-0006** [PUBLISHED] - The Delay That Costs More Than the Bad Hire Itself
+- **TCCFC-0007** [PUBLISHED] - Why a Table of 8 Builds More Trust Than a Room of 200
 - **TCCFC-0008** [SCHEDULED] - The Founders Who Stopped Checking Metrics on Sunday Make Better Calls on Monday
 - **TCCFC-0009** [SCHEDULED] - Most Partnerships Don't Die in the Pitch. They Die in the Handoff.
 - **TCCFC-0010** [SCHEDULED] - The Boring Paperwork Founders Skip Is the Thing That Would've Saved Them
@@ -22,16 +22,16 @@ Rejected: 0
 - **TCCFC-0015** [SCHEDULED] - "Always Be Closing" Is Quietly Burning Out Founder-Led Sales
 - **TCCFC-0016** [SCHEDULED] - A Founder Friend Group and a Founder Mastermind Are Not the Same Thing
 - **TCCFC-0017** [SCHEDULED] - Saying No to the Wrong Customer Is a Growth Strategy, Not a Loss
-- **TCCFC-0018** [AVAILABLE] - Busy and Making Progress Are Not the Same Thing, and Most Founders Mix Them Up
-- **TCCFC-0019** [AVAILABLE] - Why Your Founder WhatsApp Group Died Three Weeks After You Made It
-- **TCCFC-0020** [AVAILABLE] - The Five Minutes That Tell You More Than Your Last Board Meeting
-- **TCCFC-0021** [AVAILABLE] - "We'll Hire When We Scale" Is Usually Backwards
-- **TCCFC-0022** [AVAILABLE] - Building in Public Isn't About Transparency. It's About Trust Compounding Faster.
-- **TCCFC-0023** [AVAILABLE] - Why the Exit Conversation With Your First Employee Almost Never Goes Well
-- **TCCFC-0024** [AVAILABLE] - The Founders Who Raise a Clean Second Round Did One Thing Differently the First Time
-- **TCCFC-0025** [AVAILABLE] - "We're Like Family Here" Is a Warning Sign, Not a Culture Win
-- **TCCFC-0026** [AVAILABLE] - The Moment You Realize You've Outgrown the Desk You Started At
-- **TCCFC-0027** [AVAILABLE] - Good Negotiators Aren't More Confident. They're More Prepared.
+- **TCCFC-0018** [SCHEDULED] - Busy and Making Progress Are Not the Same Thing, and Most Founders Mix Them Up
+- **TCCFC-0019** [SCHEDULED] - Why Your Founder WhatsApp Group Died Three Weeks After You Made It
+- **TCCFC-0020** [SCHEDULED] - The Five Minutes That Tell You More Than Your Last Board Meeting
+- **TCCFC-0021** [SCHEDULED] - "We'll Hire When We Scale" Is Usually Backwards
+- **TCCFC-0022** [SCHEDULED] - Building in Public Isn't About Transparency. It's About Trust Compounding Faster.
+- **TCCFC-0023** [SCHEDULED] - Why the Exit Conversation With Your First Employee Almost Never Goes Well
+- **TCCFC-0024** [SCHEDULED] - The Founders Who Raise a Clean Second Round Did One Thing Differently the First Time
+- **TCCFC-0025** [SCHEDULED] - "We're Like Family Here" Is a Warning Sign, Not a Culture Win
+- **TCCFC-0026** [SCHEDULED] - The Moment You Realize You've Outgrown the Desk You Started At
+- **TCCFC-0027** [SCHEDULED] - Good Negotiators Aren't More Confident. They're More Prepared.
 - **TCCFC-0028** [AVAILABLE] - Trying to Be Liked by Everyone on Your Team Is Costing You Something Bigger
 - **TCCFC-0029** [AVAILABLE] - Why Some Co-Founder Friendships Survive a Failed Startup and Most Don't
 - **TCCFC-0030** [AVAILABLE] - The One Habit That Prevents the Most Regretted Founder Decisions

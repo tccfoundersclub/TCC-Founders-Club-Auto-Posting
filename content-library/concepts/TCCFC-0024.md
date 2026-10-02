@@ -5,7 +5,7 @@ BATCH:
 BATCH-01
 
 STATUS:
-AVAILABLE
+SCHEDULED
 
 TOPIC:
 Founders who raise a second round successfully share a pattern
@@ -34,32 +34,34 @@ The second raise isn't won in the deck. It's won in the eighteen months before y
 
 DM "TRIBE" to think about investor relationships as a long game, not a transaction.
 
+#TCCFoundersClub #FounderCommunity #BusinessOwners #StartupFounder #StartupPakistan
+
 CTA:
 DM "TRIBE"
 
 MUSIC:
--
+assets/music-powerful-trap-beat.mp3
 
 BACKGROUND:
--
+assets/bg-tcc-with-nasheed.mp4
 
 CONTENT HASH:
 913f549f1a64ebf0
 
 CREATED:
-2026-09-29 14:20:42 UTC
+2026-10-01 13:51:10 UTC
 
 LAST MODIFIED:
-2026-09-29 14:20:42 UTC
+2026-10-01 13:51:10 UTC
 
 REVISION:
 1
 
 RELATED RENDER:
-(not yet rendered)
+reel-1790862670842-qc6hrz
 
 SCHEDULED TIME:
--
+2026-10-04 21:30:04 UTC
 
 PUBLISHED MEDIA:
 -

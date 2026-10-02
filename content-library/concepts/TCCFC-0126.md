@@ -5,7 +5,7 @@ BATCH:
 FALLBACK
 
 STATUS:
-SCHEDULED
+PUBLISHED
 
 TOPIC:
 Better questions produce better rooms than more networking
@@ -66,7 +66,7 @@ SCHEDULED TIME:
 2026-09-30 17:30:04 UTC
 
 PUBLISHED MEDIA:
--
+https://www.instagram.com/p/18167458072467277/
 
 SOURCE FILE:
 src/fallbackConcepts.js

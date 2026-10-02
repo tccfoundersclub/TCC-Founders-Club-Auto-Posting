@@ -1,6 +1,76 @@
 # Published
 
-Total published: 7
+Total published: 17
+
+## TCCFC-0007 - Why a Table of 8 Builds More Trust Than a Room of 200
+
+- Published: 2026-10-02 01:47:47 UTC
+- Instagram: https://www.instagram.com/p/17880193923691722/
+- Music: assets/music-powerful-maxko.mp3
+- Caption: see content-library/concepts/TCCFC-0007.md
+
+## TCCFC-0006 - The Delay That Costs More Than the Bad Hire Itself
+
+- Published: 2026-10-01 21:48:24 UTC
+- Instagram: https://www.instagram.com/p/18075583259739740/
+- Music: assets/music-powerful-trap-beat.mp3
+- Caption: see content-library/concepts/TCCFC-0006.md
+
+## TCCFC-0005 - The Retention Lever Most Founders Completely Ignore
+
+- Published: 2026-10-01 17:55:30 UTC
+- Instagram: https://www.instagram.com/p/18091723337670876/
+- Music: assets/music-powerful-maxko.mp3
+- Caption: see content-library/concepts/TCCFC-0005.md
+
+## TCCFC-0004 - The Trust Gap Remote Teams Don't Notice Until It's Already Wide
+
+- Published: 2026-10-01 13:50:19 UTC
+- Instagram: https://www.instagram.com/p/18146117326605794/
+- Music: assets/music-powerful-trap-beat.mp3
+- Caption: see content-library/concepts/TCCFC-0004.md
+
+## TCCFC-0003 - Asking Every Mentor to "Just Take a Look at My Deck" Is Burning You Out With Them
+
+- Published: 2026-10-01 09:49:15 UTC
+- Instagram: https://www.instagram.com/p/18094567418130276/
+- Music: assets/music-powerful-maxko.mp3
+- Caption: see content-library/concepts/TCCFC-0003.md
+
+## TCCFC-0002 - Hiring Your Friend Changes the Friendship, Not Just the Org Chart
+
+- Published: 2026-10-01 05:47:37 UTC
+- Instagram: https://www.instagram.com/p/18078664511523349/
+- Music: assets/music-powerful-trap-beat.mp3
+- Caption: see content-library/concepts/TCCFC-0002.md
+
+## TCCFC-0001 - The Best Founders Don't Improvise Their Ask
+
+- Published: 2026-10-01 01:46:45 UTC
+- Instagram: https://www.instagram.com/p/18149567224559089/
+- Music: assets/music-powerful-maxko.mp3
+- Caption: see content-library/concepts/TCCFC-0001.md
+
+## TCCFC-0127 - "I Don't Have Time to Network" Is Rarely About Time
+
+- Published: 2026-09-30 21:47:40 UTC
+- Instagram: https://www.instagram.com/p/18193200184398098/
+- Music: assets/music-powerful-trap-beat.mp3
+- Caption: see content-library/concepts/TCCFC-0127.md
+
+## TCCFC-0126 - The Founders With the Best Networks Ask Better Questions, Not More Questions
+
+- Published: 2026-09-30 17:46:12 UTC
+- Instagram: https://www.instagram.com/p/18167458072467277/
+- Music: assets/music-powerful-maxko.mp3
+- Caption: see content-library/concepts/TCCFC-0126.md
+
+## TCCFC-0125 - The Loneliest Moment in a Founder's Year Is Usually Right After a Win
+
+- Published: 2026-09-30 13:48:33 UTC
+- Instagram: https://www.instagram.com/p/17957681652248670/
+- Music: assets/music-powerful-trap-beat.mp3
+- Caption: see content-library/concepts/TCCFC-0125.md
 
 ## TCCFC-0124 - Discipline Is Mostly a Myth. Environment Isn't.
 

@@ -10,9 +10,9 @@ Rejected: 0
 - **TCCFC-0122** [PUBLISHED] - Why Some Founders' Networks Get Stronger Every Year (and Others Don't)
 - **TCCFC-0123** [PUBLISHED] - The Hiring Mistake That Feels Like Good Judgment
 - **TCCFC-0124** [PUBLISHED] - Discipline Is Mostly a Myth. Environment Isn't.
-- **TCCFC-0125** [SCHEDULED] - The Loneliest Moment in a Founder's Year Is Usually Right After a Win
-- **TCCFC-0126** [SCHEDULED] - The Founders With the Best Networks Ask Better Questions, Not More Questions
-- **TCCFC-0127** [SCHEDULED] - "I Don't Have Time to Network" Is Rarely About Time
+- **TCCFC-0125** [PUBLISHED] - The Loneliest Moment in a Founder's Year Is Usually Right After a Win
+- **TCCFC-0126** [PUBLISHED] - The Founders With the Best Networks Ask Better Questions, Not More Questions
+- **TCCFC-0127** [PUBLISHED] - "I Don't Have Time to Network" Is Rarely About Time
 
 ## Rejected
 

@@ -5,7 +5,7 @@ BATCH:
 BATCH-01
 
 STATUS:
-SCHEDULED
+PUBLISHED
 
 TOPIC:
 Small dinners work where big networking events don't
@@ -64,7 +64,7 @@ SCHEDULED TIME:
 2026-10-02 01:30:04 UTC
 
 PUBLISHED MEDIA:
--
+https://www.instagram.com/p/17880193923691722/
 
 SOURCE FILE:
 scripts/content-batch-01.js

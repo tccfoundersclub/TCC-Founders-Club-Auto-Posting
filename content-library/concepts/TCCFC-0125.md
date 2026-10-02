@@ -5,7 +5,7 @@ BATCH:
 FALLBACK
 
 STATUS:
-SCHEDULED
+PUBLISHED
 
 TOPIC:
 The isolation that hits right after a founder's big win
@@ -69,7 +69,7 @@ SCHEDULED TIME:
 2026-09-30 13:30:04 UTC
 
 PUBLISHED MEDIA:
--
+https://www.instagram.com/p/17957681652248670/
 
 SOURCE FILE:
 src/fallbackConcepts.js

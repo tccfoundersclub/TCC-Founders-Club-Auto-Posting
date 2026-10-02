@@ -5,7 +5,7 @@ BATCH:
 BATCH-01
 
 STATUS:
-AVAILABLE
+SCHEDULED
 
 TOPIC:
 The symbolic milestone of outgrowing a first workspace
@@ -36,32 +36,34 @@ Growth is worth noticing, not just managing.
 
 DM "TRIBE" to celebrate the milestones that actually mattered.
 
+#TCCFoundersClub #StartupFounder #Entrepreneurs #FounderCommunity #Islamabad
+
 CTA:
 DM "TRIBE"
 
 MUSIC:
--
+assets/music-powerful-trap-beat.mp3
 
 BACKGROUND:
--
+assets/bg-tcc-with-nasheed.mp4
 
 CONTENT HASH:
 63348576f64a0903
 
 CREATED:
-2026-09-29 14:20:42 UTC
+2026-10-01 21:49:17 UTC
 
 LAST MODIFIED:
-2026-09-29 14:20:42 UTC
+2026-10-01 21:49:17 UTC
 
 REVISION:
 1
 
 RELATED RENDER:
-(not yet rendered)
+reel-1790891357337-98ie1x
 
 SCHEDULED TIME:
--
+2026-10-05 05:30:04 UTC
 
 PUBLISHED MEDIA:
 -

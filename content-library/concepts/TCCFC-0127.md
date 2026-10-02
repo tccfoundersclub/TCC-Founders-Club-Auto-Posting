@@ -5,7 +5,7 @@ BATCH:
 FALLBACK
 
 STATUS:
-SCHEDULED
+PUBLISHED
 
 TOPIC:
 Not having time to network is usually a prioritization problem
@@ -66,7 +66,7 @@ SCHEDULED TIME:
 2026-09-30 21:30:04 UTC
 
 PUBLISHED MEDIA:
--
+https://www.instagram.com/p/18193200184398098/
 
 SOURCE FILE:
 src/fallbackConcepts.js

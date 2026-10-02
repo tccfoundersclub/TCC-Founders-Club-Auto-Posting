@@ -101,10 +101,9 @@ function pickSegments(hook) {
   });
 }
 
-// Content only - no music credit, no production metadata. Legally required
-// attribution for the track (both approved tracks are CC BY / CC BY-SA,
-// which require it) goes out as a separate Instagram comment instead - see
-// publishDue() and src/social.js's postToInstagram commentText param.
+// Content only - no music credit, no production metadata. The attribution
+// comment that used to carry the CC BY/CC BY-SA credit was disabled per
+// explicit user request (2026-10-02) - see content-library/PLATFORMS.md.
 function buildFullCaption(concept, conceptId) {
   const hashtags = selectHashtags(concept, conceptId).join(" ");
   return sanitizeCaption(`${concept.caption}\n\n${hashtags}`);
@@ -209,7 +208,7 @@ async function replenish(state, log) {
       cta: concept.cta,
       contentHash: hash,
       musicUsed: rendered.music.path,
-      musicCredit: rendered.music.credit, // legal attribution - posted as an IG comment, never in the caption
+      musicCredit: rendered.music.credit, // kept as metadata only - no longer posted anywhere (comment disabled 2026-10-02)
       mediaUrl: rendered.mediaUrl,
       scheduledTime: slot.toISOString(),
       status: "SCHEDULED",
@@ -268,7 +267,11 @@ async function publishDue(state, log) {
 
     let ig;
     try {
-      ig = await postToInstagram(reel.mediaUrl, reel.caption, true, 1200, reel.musicCredit);
+      // No commentText passed - the music-attribution comment is disabled
+      // per explicit user request (2026-10-02). See the "Music licensing"
+      // section of content-library/PLATFORMS.md for the compliance
+      // tradeoff this leaves open.
+      ig = await postToInstagram(reel.mediaUrl, reel.caption, true, 1200);
     } catch (err) {
       // Instagram result is uncertain here - do NOT retry automatically
       // (would risk a double-post). Mark FAILED and leave it for manual
@@ -292,9 +295,6 @@ async function publishDue(state, log) {
     reel.attributionCommentPosted = ig.attributionCommentPosted;
     reel.status = "PUBLISHED";
     reel.publishedAt = publishedAt;
-    if (reel.musicCredit && !ig.attributionCommentPosted) {
-      log(`WARNING: attribution comment did not post for ${reel.conceptId} - music credit is required and not yet visible anywhere on this post. Needs manual follow-up.`);
-    }
     log(`Published ${reel.conceptId} "${reel.hook}" to Instagram -> ${reel.instagramResult}`);
 
     // Threads is secondary and isolated: generated from the concept's own
