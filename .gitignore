@@ -2,6 +2,7 @@
 node_modules/
 *.log
 *.ttf
+!assets/fonts/**/*.ttf
 Videos folder/
 Music folder/
 scripts/gen/

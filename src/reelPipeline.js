@@ -11,6 +11,7 @@ import { BACKGROUND_VIDEO, MUSIC_LIBRARY } from "./mediaLibrary.js";
 import { contentHash } from "./contentHistory.js";
 import { selectHashtags, sanitizeCaption, validateInstagramCaption } from "./hashtags.js";
 import { buildThreadsText, validateThreadsText } from "./threadsCaption.js";
+import { loadStyleConfig } from "./styleConfig.js";
 
 // No live LLM calls in production - by design, per explicit instruction to
 // avoid any paid API dependency. Replenishment draws only from the
@@ -24,6 +25,10 @@ const HOURS_BETWEEN = 4;
 const LOW_BANK_WARNING_THRESHOLD = 60;
 const MAX_RENDERS_PER_RUN = 4; // bounds run time/minutes per GitHub Actions run
 
+// No longer called by renderConcept() - the live renderer now uses the
+// bundled Inter/Cormorant/Manrope fonts via src/styleConfig.js (see
+// content-library/STYLE.md). Kept only as the font resolver for the older
+// buildYellowTemplateFilters path in media.js, for rollback.
 function templateFonts() {
   if (process.env.TEMPLATE_FONT_BOLD && process.env.TEMPLATE_FONT_REGULAR) {
     return { bold: process.env.TEMPLATE_FONT_BOLD, regular: process.env.TEMPLATE_FONT_REGULAR };
@@ -109,20 +114,35 @@ function buildFullCaption(concept, conceptId) {
   return sanitizeCaption(`${concept.caption}\n\n${hashtags}`);
 }
 
-async function renderConcept(concept, state, log) {
+// styleOverrides: { fontPairing, treatment } - optional, used only by the
+// manual preview-rendering script (scripts/render-style-previews.js) to
+// render the alternate font pairing/treatment for review. Production
+// (replenish(), below) never passes this, so it always gets the config's
+// defaultFontPairing/defaultTreatment ("inter-inter" / "white-panel").
+async function renderConcept(concept, state, log, styleOverrides = {}) {
   const music = pickNextMusic(state);
   const bgPath = await downloadToTmp(BACKGROUND_VIDEO.url, `bg-${Date.now()}.mp4`);
   const musicPath = await downloadToTmp(music.url, `music-${Date.now()}-${path.basename(music.path)}`);
   const outPath = path.join(os.tmpdir(), `reel-${Date.now()}.mp4`);
 
   try {
+    const styleConfig = loadStyleConfig();
     const { totalDuration } = compileMultiClipReel({
       inputPath: bgPath,
       outputPath: outPath,
       segments: pickSegments(concept.hook),
-      template: { hook: concept.hook, context: concept.context, points: concept.points, buttonText: "READ CAPTION" },
-      templateFonts: templateFonts(),
-      templateOpts: { overlayOpacity: 0.7, grayscale: false, brand: "founders" },
+      // Content mapping, per content-library/STYLE.md: hook -> hook,
+      // insight -> concept.context (already written as a single punchy
+      // line - the richer points[] detail lives in the Instagram caption,
+      // not on screen, matching the style guide's "one main message per
+      // scene" rule), cta -> the on-screen button (the caption carries the
+      // actual next step, so "READ CAPTION" applies here - see PLATFORMS.md
+      // caption rules). No spoken-subtitle layer: these reels have no
+      // speech audio, and the style guide is explicit that subtitles must
+      // never be invented when there's none to transcribe.
+      styleTemplate: { hook: concept.hook, insight: concept.context, cta: "READ CAPTION", brand: "TCC FOUNDERS CLUB" },
+      styleConfig,
+      styleOpts: { overlayOpacity: 0.55, grayscale: false, ...styleOverrides },
       musicPath,
       musicStart: 15,
       xfadeDuration: 0.4,

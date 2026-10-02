@@ -119,8 +119,12 @@ OUTPUT: buildThreadsText() -> string (<=500 chars); validateThreadsText() -> { v
 WHAT DEPENDS ON IT: reelPipeline.js (publishDue)
 
 FILE: src/media.js
-PURPOSE: The ffmpeg wrapper - builds the locked TCC Founders Club visual template (white/black branding, rounded panels, centered text) and compiles the multi-clip crossfade reel to an exact requested duration.
+PURPOSE: The ffmpeg wrapper - builds the TCC Founders Club visual template(s) and compiles the multi-clip crossfade reel to an exact requested duration. The live renderer uses buildTccReelStyleTemplate (sequential hook -> insight -> CTA, driven entirely by content-library/styles/tcc-reel-style.v1.json - see content-library/STYLE.md); the older buildYellowTemplateFilters (simultaneous hook/context/points info-card) is kept working but unused, for rollback.
 WHAT DEPENDS ON IT: reelPipeline.js (renderConcept)
+
+FILE: src/styleConfig.js
+PURPOSE: Loads and validates content-library/styles/tcc-reel-style.v1.json (the single source of truth for reel font sizes/weights/colors/coordinates - see content-library/STYLE.md) and resolves a font pairing + role to a bundled .ttf path under assets/fonts/, throwing rather than silently substituting a missing font.
+WHAT DEPENDS ON IT: src/media.js (buildTccReelStyleTemplate), src/reelPipeline.js (renderConcept)
 
 FILE: src/hashtags.js
 PURPOSE: Builds each reel's caption hashtags (topic-aware, capped at 5 per Instagram's Dec 2025 rule - see content-library/HASHTAGS.md) and sanitizes captions to strip any production/licensing metadata (music credits, filenames, license text) as a defense-in-depth check, even though that content is no longer added to captions in the first place.

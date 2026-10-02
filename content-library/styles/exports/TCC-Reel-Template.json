@@ -1,0 +1,102 @@
+{
+  "brand": "The Connector Club / TCC Founders Club",
+  "frame": {
+    "width": 1080,
+    "height": 1920,
+    "ratio": "9:16"
+  },
+  "style": {
+    "font": "locked",
+    "treatment": "panel",
+    "hookSize": 86,
+    "bodySize": 44,
+    "subSize": 56,
+    "ctaSize": 48,
+    "margin": 150,
+    "align": "center",
+    "hookY": 348,
+    "subY": 886,
+    "ctaY": 1124,
+    "backdrop": "noir",
+    "hook": "Your next chapter starts in the right room.",
+    "body": "Build relationships that compound.",
+    "subtitle": "You don't have to build alone.",
+    "cta": "READ CAPTION",
+    "post": "Growth compounds in the right room. DM “tribe”.",
+    "hookFont": "Inter",
+    "bodyFont": "Inter",
+    "hookWeight": 800,
+    "palette": {
+      "tccYellow": "#FFCE00",
+      "tccBlack": "#231F20",
+      "white": "#FFFFFF"
+    }
+  },
+  "safeArea": {
+    "x": 150,
+    "y": 270,
+    "width": 780,
+    "height": 978,
+    "topReserve": 270,
+    "bottomReserve": 672,
+    "minimumPlatformSideReserve": 65,
+    "note": "Conservative production guardrail; inspect the Instagram draft. UI varies."
+  },
+  "layers": [
+    {
+      "role": "Brand",
+      "y": 282,
+      "size": 28,
+      "rule": "Secondary only"
+    },
+    {
+      "role": "Hook",
+      "y": 348,
+      "size": 86,
+      "rule": "≤ 3 lines"
+    },
+    {
+      "role": "Insight",
+      "y": 724,
+      "size": 44,
+      "rule": "1–2 lines"
+    },
+    {
+      "role": "Subtitles",
+      "y": 886,
+      "size": 56,
+      "rule": "≤ 2 lines"
+    },
+    {
+      "role": "CTA",
+      "y": 1124,
+      "size": 48,
+      "rule": "Final scene"
+    }
+  ],
+  "lineBreaks": {
+    "hook": [
+      "Your next",
+      "chapter starts in",
+      "the right room."
+    ],
+    "insight": [
+      "Build relationships that compound."
+    ],
+    "subtitles": [
+      "You don't have to build",
+      "alone."
+    ],
+    "cta": [
+      "READ CAPTION"
+    ]
+  },
+  "timingExample": {
+    "hook": "0–3 s",
+    "insight": "3–10 s",
+    "cta": "10–15 s",
+    "subtitles": "Follow spoken audio"
+  },
+  "postCaption": "Growth compounds in the right room. DM “tribe”.",
+  "_capturedFrom": "https://tcc-reel-style-studio.athar-official07.chatgpt.site/ via its own \"Download template JSON\" button, 2026-10-02 (real browser download, saved automatically to the project working directory by the browser tool). This is the Inter/Inter + white-panel selection (the locked default). The studio also documents two alternate font pairings (Cormorant Garamond / Manrope, Manrope / Inter) and two alternate caption treatments (soft shadow, restrained yellow emphasis) in its Style lab tab, not captured in this particular export - see content-library/styles/tcc-reel-style.v1.json for the full normalized config covering all of them."
+}

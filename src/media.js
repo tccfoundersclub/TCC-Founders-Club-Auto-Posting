@@ -2,6 +2,7 @@ import { execFileSync } from "node:child_process";
 import fs from "node:fs";
 import os from "node:os";
 import path from "node:path";
+import { resolveFontFile, getTreatment } from "./styleConfig.js";
 
 const VIDEO_EXTS = new Set([".mp4", ".mov", ".m4v", ".avi", ".mkv"]);
 
@@ -429,6 +430,156 @@ function buildYellowTemplateFilters({ hook, context, points, buttonText = "READ 
   };
 }
 
+// TCC Reel Style Studio template (content-library/styles/tcc-reel-style.v1.json):
+// a sequential hook -> insight -> CTA story (each shown only during its own
+// timing window, per the studio's "one main message per scene" rule) rather
+// than the older buildYellowTemplateFilters' simultaneous info-card layout.
+// Every size/weight/color/coordinate comes from the style config - nothing
+// is hardcoded here - so a future style version only requires a new JSON,
+// not renderer changes. Returns the same { grayscale, darkOverlay, panels,
+// textFilters, enable } shape buildYellowTemplateFilters does, so it plugs
+// into compileMultiClipReel's existing compositing code; panels may each
+// carry their own `enable` window (compileMultiClipReel falls back to the
+// shared one when absent, so the older template is unaffected).
+function buildTccReelStyleTemplate({ hook, insight, cta, brand = "TCC FOUNDERS CLUB" }, totalDuration, config, opts = {}) {
+  const pairingKey = opts.fontPairing || config.defaultFontPairing;
+  const treatmentKey = opts.treatment || config.defaultTreatment;
+  const treatment = getTreatment(config, treatmentKey);
+  const { x: boundaryX, width: boundaryWidth } = config.contentBoundary;
+  const { hook: hookRole, insight: insightRole, cta: ctaRole, brand: brandRole } = config.roles;
+  const overlayOpacity = opts.overlayOpacity ?? 0.55;
+  const grayscale = opts.grayscale ? "hue=s=0," : "";
+
+  // Windows path.join() produces backslashes, which ffmpeg's filtergraph
+  // parser treats as escape characters - normalize to forward slashes first
+  // (same convention writeText() below and the older buildYellowTemplateFilters
+  // already use), then escape the drive-letter colon.
+  const normalizeFontPath = (p) => p.replace(/\\/g, "/").replace(/:/g, "\\:");
+  const hookFontFile = normalizeFontPath(resolveFontFile(config, pairingKey, "hook"));
+  const bodyFontFile = normalizeFontPath(resolveFontFile(config, pairingKey, "body"));
+  const ctaFontFile = normalizeFontPath(resolveFontFile(config, pairingKey, "cta"));
+
+  const tmpDir = fs.mkdtempSync(path.join(os.tmpdir(), "tcc-style-"));
+  let fileCounter = 0;
+  const writeText = (content) => {
+    const p = path.join(tmpDir, `t${fileCounter++}.txt`);
+    fs.writeFileSync(p, content, "utf8");
+    return p.replace(/\\/g, "/").replace(/:/g, "\\:");
+  };
+
+  // Width-to-chars heuristic (same approach as buildYellowTemplateFilters'
+  // charsFor): wider/bolder glyphs need a smaller chars-per-line estimate.
+  const charsFor = (fontSize, factor) => Math.max(4, Math.floor(boundaryWidth / (fontSize * factor)));
+
+  const windows = {
+    hook: config.timing10s.hook,
+    insight: config.timing10s.insight,
+    cta: config.timing10s.cta,
+  };
+  const enableFor = ([start, end]) => `enable='between(t\\,${start}\\,${end})'`;
+  const fullEnable = `enable='between(t\\,0\\,${totalDuration})'`;
+
+  const centeredLines = (lines, fontfile, fontsize, color, top, lh, enable) =>
+    lines
+      .map((line, i) => {
+        const file = writeText(line);
+        return (
+          `,drawtext=fontfile='${fontfile}':textfile='${file}':` +
+          `fontsize=${fontsize}:fontcolor=${color}:x=(w-text_w)/2:y=${Math.round(top + i * lh)}:` +
+          `expansion=none:${enable}`
+        );
+      })
+      .join("");
+
+  // Never silently drop words to force a line count - the style guide's own
+  // instruction is "shorten or split copy before shrinking it below
+  // readable sizes", which permits shrinking (down to the role's documented
+  // range minimum) as the first fallback. Only if even the range minimum
+  // still overflows maxLines do we allow the extra line rather than lose
+  // content - logged clearly either way, since the real fix at that point
+  // is editing the source copy, not the renderer.
+  function fitTextToRole(text, role, charsFactor) {
+    const step = 2;
+    for (let size = role.size; size >= role.range[0]; size -= step) {
+      const lines = balancedWrap(text, charsFor(size, charsFactor));
+      if (!role.maxLines || lines.length <= role.maxLines) {
+        if (size !== role.size) console.warn(`Style: shrank a text role from ${role.size}px to ${size}px to fit ${role.maxLines} line(s) - "${text.slice(0, 40)}..."`);
+        return { lines, size };
+      }
+    }
+    const minSize = role.range[0];
+    const lines = balancedWrap(text, charsFor(minSize, charsFactor));
+    console.warn(`Style: "${text.slice(0, 50)}..." still runs to ${lines.length} lines at the ${minSize}px range floor (limit ${role.maxLines}) - copy should be shortened, but nothing was truncated.`);
+    return { lines, size: minSize };
+  }
+
+  // Hook (panel, per the default white-panel treatment's locked look)
+  const hookFit = fitTextToRole(hook, hookRole, 0.60);
+  const hookLines = hookFit.lines;
+  const hookSize = hookFit.size;
+  const hookLH = hookSize * hookRole.lineHeight;
+  const hookPadV = Math.round(hookSize * 0.32);
+  const hookBlockH = hookLines.length * hookLH;
+  const hookPanelH = Math.round(hookBlockH + hookPadV * 2);
+  const hookTextTop = hookRole.y + hookPadV;
+  const hookEnable = enableFor(windows.hook);
+  const hookColor = treatment.hookPanel ? "black" : "white";
+
+  // Insight (plain centered text, no panel, per the default treatment)
+  const insightFit = fitTextToRole(insight, insightRole, 0.50);
+  const insightLines = insightFit.lines;
+  const insightSize = insightFit.size;
+  const insightLH = insightSize * insightRole.lineHeight;
+  const insightEnable = enableFor(windows.insight);
+
+  // CTA (panel, same treatment as the hook)
+  const ctaFit = fitTextToRole(cta, ctaRole, 0.60);
+  const ctaLines = ctaFit.lines;
+  const ctaSize = ctaFit.size;
+  const ctaLH = ctaSize * ctaRole.lineHeight;
+  const ctaPadV = Math.round(ctaSize * 0.32);
+  const ctaBlockH = ctaLines.length * ctaLH;
+  const ctaPanelH = Math.round(ctaBlockH + ctaPadV * 2);
+  const ctaTextTop = ctaRole.y + ctaPadV;
+  const ctaEnable = enableFor(windows.cta);
+  const ctaColor = treatment.ctaPanel ? "black" : "white";
+
+  // Brand mark: small, secondary, shown for the whole clip (the style
+  // config documents it as "secondary only" with no dedicated timing of
+  // its own - the least presumptive reading is "always present, never the
+  // focus").
+  const brandLines = [brand.toUpperCase()];
+  const brandColor = "white";
+
+  const panels = [];
+  if (treatment.hookPanel) {
+    panels.push({
+      path: generateRoundedRectPNG(boundaryWidth, hookPanelH, 20, treatment.panelColor || "white", path.join(tmpDir, "hookpanel.png")),
+      x: boundaryX,
+      y: hookRole.y,
+      enable: hookEnable,
+    });
+  }
+  if (treatment.ctaPanel) {
+    panels.push({
+      path: generateRoundedRectPNG(boundaryWidth, ctaPanelH, 20, treatment.panelColor || "white", path.join(tmpDir, "ctapanel.png")),
+      x: boundaryX,
+      y: ctaRole.y,
+      enable: ctaEnable,
+    });
+  }
+
+  const darkOverlay = `,drawbox=x=0:y=0:w=${CANVAS_W}:h=${CANVAS_H}:color=black@${overlayOpacity}:t=fill:${fullEnable}`;
+
+  const textFilters =
+    centeredLines(brandLines, bodyFontFile, brandRole.size, brandColor, brandRole.y, brandRole.size * brandRole.lineHeight, fullEnable) +
+    centeredLines(hookLines, hookFontFile, hookSize, hookColor, hookTextTop, hookLH, hookEnable) +
+    centeredLines(insightLines, bodyFontFile, insightSize, treatment.insightTextColor || "white", insightRole.y, insightLH, insightEnable) +
+    centeredLines(ctaLines, ctaFontFile, ctaSize, ctaColor, ctaTextTop, ctaLH, ctaEnable);
+
+  return { grayscale, darkOverlay, panels, textFilters, enable: fullEnable };
+}
+
 export function compileClipReel({ inputPath, outputPath, startTime, duration, beats = [], fontPath }) {
   const beatFilters = buildBeatFilters(beats, fontPath);
 
@@ -471,6 +622,9 @@ export function compileMultiClipReel({
   template, // { hook, context, points, buttonText } - locked yellow-box template (see buildYellowTemplateFilters)
   templateFonts, // { bold, regular } font paths for the template system
   templateOpts, // { overlayOpacity, grayscale } - Mode A (color) vs Mode B (black & white)
+  styleTemplate, // { hook, insight, cta, brand } - TCC Reel Style Studio template (see buildTccReelStyleTemplate). Mutually exclusive with `template`.
+  styleConfig, // the loaded+validated content-library/styles/tcc-reel-style.v1.json (see src/styleConfig.js)
+  styleOpts, // { fontPairing, treatment, overlayOpacity, grayscale }
   musicPath,
   musicStart = 0, // seconds into the track to start the excerpt from
   fontPath,
@@ -483,7 +637,7 @@ export function compileMultiClipReel({
     "-ss", `${s.start}`, "-i", inputPath, "-t", `${s.duration}`,
   ]);
 
-  const grayscale = template && templateOpts?.grayscale ? "hue=s=0," : "";
+  const grayscale = (template && templateOpts?.grayscale) || (styleTemplate && styleOpts?.grayscale) ? "hue=s=0," : "";
   const scaleFilters = segments
     .map((_, i) => `[${i}:v]${grayscale}scale=1080:1920:force_original_aspect_ratio=increase,crop=1080:1920,setsar=1,fps=30[v${i}]`)
     .join(";");
@@ -503,7 +657,9 @@ export function compileMultiClipReel({
   // sized with a little slack so this only ever trims, never runs short.
   const totalDuration = targetDuration || runningDuration;
 
-  const templateResult = template
+  const templateResult = styleTemplate
+    ? buildTccReelStyleTemplate(styleTemplate, totalDuration, styleConfig, styleOpts || {})
+    : template
     ? buildYellowTemplateFilters(template, totalDuration, templateFonts || {}, templateOpts || {})
     : null;
 
@@ -522,7 +678,7 @@ export function compileMultiClipReel({
     label = "vdark";
     templateResult.panels.forEach((p, i) => {
       const outLabel = `vp${i}`;
-      chain += `;[${label}][${panelInputBase + i}:v]overlay=x=${p.x}:y=${p.y}:${templateResult.enable}[${outLabel}]`;
+      chain += `;[${label}][${panelInputBase + i}:v]overlay=x=${p.x}:y=${p.y}:${p.enable || templateResult.enable}[${outLabel}]`;
       label = outLabel;
     });
     chain += `;[${label}]${templateResult.textFilters.slice(1)}[vout]`;

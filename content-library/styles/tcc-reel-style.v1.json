@@ -1,0 +1,96 @@
+{
+  "version": 1,
+  "source": "content-library/styles/exports/TCC-Reel-Template.json",
+  "generatedFrom": "https://tcc-reel-style-studio.athar-official07.chatgpt.site/",
+  "capturedAt": "2026-10-02",
+  "frame": { "width": 1080, "height": 1920, "ratio": "9:16" },
+  "contentBoundary": { "x": 150, "width": 780 },
+  "guardrail": { "top": 270, "bottom": 1248 },
+  "colors": {
+    "black": "#231F20",
+    "white": "#FFFFFF",
+    "yellow": "#FFCE00"
+  },
+  "roles": {
+    "brand":    { "y": 282,  "size": 28, "weight": 700, "lineHeight": 1.15, "range": [24, 32] },
+    "hook":     { "y": 348,  "size": 86, "weight": 800, "lineHeight": 1.08, "range": [72, 100], "maxLines": 3 },
+    "insight":  { "y": 724,  "size": 44, "weight": 500, "lineHeight": 1.30, "range": [38, 48],  "maxLines": 2 },
+    "subtitle": { "y": 886,  "size": 56, "weight": 700, "lineHeight": 1.15, "range": [44, 72],  "maxLines": 2 },
+    "cta":      { "y": 1124, "size": 48, "weight": 700, "lineHeight": 1.20, "range": [42, 52],  "maxLines": 1 }
+  },
+  "fontPairings": {
+    "inter-inter": {
+      "label": "Inter / Inter · TCC original (locked default)",
+      "hookFont": "inter", "hookWeight": "extrabold",
+      "bodyFont": "inter", "bodyWeight": "medium",
+      "subtitleFont": "inter", "subtitleWeight": "bold",
+      "ctaFont": "inter", "ctaWeight": "bold"
+    },
+    "cormorant-manrope": {
+      "label": "Cormorant Garamond / Manrope · Editorial",
+      "hookFont": "cormorant-garamond", "hookWeight": "bold",
+      "bodyFont": "manrope", "bodyWeight": "regular",
+      "subtitleFont": "manrope", "subtitleWeight": "bold",
+      "ctaFont": "manrope", "ctaWeight": "bold",
+      "note": "Keep the serif to short hooks at 90-100px, weight 700."
+    },
+    "manrope-inter": {
+      "label": "Manrope / Inter · Modern",
+      "hookFont": "manrope", "hookWeight": "bold",
+      "bodyFont": "inter", "bodyWeight": "medium",
+      "subtitleFont": "inter", "subtitleWeight": "bold",
+      "ctaFont": "inter", "ctaWeight": "bold"
+    }
+  },
+  "fontFiles": {
+    "inter": {
+      "regular": "assets/fonts/inter/Inter-Regular.ttf",
+      "medium": "assets/fonts/inter/Inter-Medium.ttf",
+      "bold": "assets/fonts/inter/Inter-Bold.ttf",
+      "extrabold": "assets/fonts/inter/Inter-ExtraBold.ttf"
+    },
+    "cormorant-garamond": {
+      "semibold": "assets/fonts/cormorant-garamond/CormorantGaramond-SemiBold.ttf",
+      "bold": "assets/fonts/cormorant-garamond/CormorantGaramond-Bold.ttf"
+    },
+    "manrope": {
+      "regular": "assets/fonts/manrope/Manrope-Regular.ttf",
+      "semibold": "assets/fonts/manrope/Manrope-SemiBold.ttf",
+      "bold": "assets/fonts/manrope/Manrope-Bold.ttf"
+    }
+  },
+  "treatments": {
+    "white-panel": {
+      "label": "White panels · TCC original (locked default)",
+      "hookPanel": true, "ctaPanel": true,
+      "panelColor": "white", "panelTextColor": "black",
+      "insightTextColor": "white",
+      "subtitleScrim": true
+    },
+    "soft-shadow": {
+      "label": "Clean type · soft shadow",
+      "hookPanel": false, "ctaPanel": false,
+      "textColor": "white", "shadow": true,
+      "subtitleScrim": true
+    },
+    "yellow-emphasis": {
+      "label": "Yellow emphasis · restrained",
+      "hookPanel": false, "ctaPanel": false,
+      "textColor": "white", "accentColor": "#FFCE00",
+      "subtitleScrim": true
+    }
+  },
+  "defaultFontPairing": "inter-inter",
+  "defaultTreatment": "white-panel",
+  "copyRules": {
+    "hook": { "words": [4, 8], "maxLines": 3 },
+    "insight": { "lines": [1, 2] },
+    "subtitle": { "wordsPerChunk": [3, 7], "maxLines": 2, "onlyIfSpokenAudio": true },
+    "cta": { "finalScene": true, "options": ["READ CAPTION", "approved DM/comment CTA"] }
+  },
+  "timing10s": {
+    "hook": [0, 2],
+    "insight": [2, 8],
+    "cta": [8, 10]
+  }
+}
