@@ -5,7 +5,7 @@ BATCH:
 BATCH-01
 
 STATUS:
-AVAILABLE
+SCHEDULED
 
 TOPIC:
 Admitting "I don't know" in front of the team builds more trust than pretending
@@ -34,32 +34,34 @@ The teams that move fastest through hard problems usually work for founders who 
 
 DM "TRIBE" to build the kind of leadership that earns real trust, not performed confidence.
 
+#TCCFoundersClub #StartupFounder #Entrepreneurs #FounderCommunity #Lahore
+
 CTA:
 DM "TRIBE"
 
 MUSIC:
--
+assets/music-powerful-trap-beat.mp3
 
 BACKGROUND:
--
+assets/bg-tcc-with-nasheed.mp4
 
 CONTENT HASH:
 5b914273e4ade3b0
 
 CREATED:
-2026-09-29 14:20:42 UTC
+2026-10-04 11:08:10 UTC
 
 LAST MODIFIED:
-2026-09-29 14:20:42 UTC
+2026-10-04 11:08:10 UTC
 
 REVISION:
 1
 
 RELATED RENDER:
-(not yet rendered)
+reel-1791112090958-87u5ka
 
 SCHEDULED TIME:
--
+2026-10-07 13:30:04 UTC
 
 PUBLISHED MEDIA:
 -

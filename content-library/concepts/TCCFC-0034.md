@@ -5,7 +5,7 @@ BATCH:
 BATCH-01
 
 STATUS:
-AVAILABLE
+SCHEDULED
 
 TOPIC:
 Un-scalable early customer service builds outsized loyalty
@@ -36,32 +36,34 @@ Don't feel guilty that it doesn't scale. That was never the job it was doing.
 
 DM "TRIBE" to talk through building loyalty before you're big enough to need it.
 
+#FoundersClub #StartupGrowth #B2BSales #Pakistan
+
 CTA:
 DM "TRIBE"
 
 MUSIC:
--
+assets/music-powerful-trap-beat.mp3
 
 BACKGROUND:
--
+assets/bg-tcc-with-nasheed.mp4
 
 CONTENT HASH:
 2e0f227801cdcb8a
 
 CREATED:
-2026-09-29 14:20:42 UTC
+2026-10-03 05:50:29 UTC
 
 LAST MODIFIED:
-2026-09-29 14:20:42 UTC
+2026-10-03 05:50:29 UTC
 
 REVISION:
 1
 
 RELATED RENDER:
-(not yet rendered)
+reel-1791006629361-fr1gyg
 
 SCHEDULED TIME:
--
+2026-10-06 13:30:04 UTC
 
 PUBLISHED MEDIA:
 -

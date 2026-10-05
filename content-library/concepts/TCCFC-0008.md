@@ -5,7 +5,7 @@ BATCH:
 BATCH-01
 
 STATUS:
-SCHEDULED
+PUBLISHED
 
 TOPIC:
 Protecting a weekly recovery cadence changes founder decision quality
@@ -66,7 +66,7 @@ SCHEDULED TIME:
 2026-10-02 05:30:04 UTC
 
 PUBLISHED MEDIA:
--
+https://www.instagram.com/p/18109276979270006/
 
 SOURCE FILE:
 scripts/content-batch-01.js

@@ -5,7 +5,7 @@ BATCH:
 BATCH-01
 
 STATUS:
-SCHEDULED
+PUBLISHED
 
 TOPIC:
 Founders avoid the unglamorous admin work that protects them
@@ -66,7 +66,7 @@ SCHEDULED TIME:
 2026-10-02 13:30:04 UTC
 
 PUBLISHED MEDIA:
--
+https://www.instagram.com/p/17991216012099553/
 
 SOURCE FILE:
 scripts/content-batch-01.js

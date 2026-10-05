@@ -5,7 +5,7 @@ BATCH:
 BATCH-01
 
 STATUS:
-SCHEDULED
+PUBLISHED
 
 TOPIC:
 Growth stalls after product-market fit, not before it, for a specific reason
@@ -64,7 +64,7 @@ SCHEDULED TIME:
 2026-10-03 01:30:04 UTC
 
 PUBLISHED MEDIA:
--
+https://www.instagram.com/p/18125666327309254/
 
 SOURCE FILE:
 scripts/content-batch-01.js

@@ -5,7 +5,7 @@ BATCH:
 BATCH-02
 
 STATUS:
-AVAILABLE
+SCHEDULED
 
 TOPIC:
 Founders avoid asking existing customers directly for referrals
@@ -34,32 +34,34 @@ The founders with the strongest referral engines aren't running clever campaigns
 
 DM "TRIBE" to build a referral habit that actually works.
 
+#FoundersClub #StartupGrowth #FounderNetworking #StartupCommunity #StartupPakistan
+
 CTA:
 DM "TRIBE"
 
 MUSIC:
--
+assets/music-powerful-maxko.mp3
 
 BACKGROUND:
--
+assets/bg-tcc-with-nasheed.mp4
 
 CONTENT HASH:
 5b9f0e0cbc0c7e23
 
 CREATED:
-2026-09-29 14:20:49 UTC
+2026-10-05 09:50:10 UTC
 
 LAST MODIFIED:
-2026-09-29 14:20:49 UTC
+2026-10-05 09:50:10 UTC
 
 REVISION:
 1
 
 RELATED RENDER:
-(not yet rendered)
+reel-1791193810854-pxr2jy
 
 SCHEDULED TIME:
--
+2026-10-08 17:30:04 UTC
 
 PUBLISHED MEDIA:
 -

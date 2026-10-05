@@ -5,7 +5,7 @@ BATCH:
 BATCH-01
 
 STATUS:
-AVAILABLE
+SCHEDULED
 
 TOPIC:
 Genuine community differs from an audience in a specific way
@@ -36,32 +36,34 @@ That's a much harder, much more valuable thing to build.
 
 DM "TRIBE" to be part of a room built for real relationships, not just an audience.
 
+#TCCFoundersClub #FounderNetworking #StartupCommunity #Pakistan
+
 CTA:
 DM "TRIBE"
 
 MUSIC:
--
+assets/music-powerful-maxko.mp3
 
 BACKGROUND:
--
+assets/bg-tcc-with-nasheed.mp4
 
 CONTENT HASH:
 306c6c0a1ecb588b
 
 CREATED:
-2026-09-29 14:20:42 UTC
+2026-10-04 02:33:43 UTC
 
 LAST MODIFIED:
-2026-09-29 14:20:42 UTC
+2026-10-04 02:33:43 UTC
 
 REVISION:
 1
 
 RELATED RENDER:
-(not yet rendered)
+reel-1791081223369-s7ds50
 
 SCHEDULED TIME:
--
+2026-10-07 09:30:04 UTC
 
 PUBLISHED MEDIA:
 -

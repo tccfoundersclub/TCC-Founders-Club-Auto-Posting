@@ -5,7 +5,7 @@ BATCH:
 BATCH-01
 
 STATUS:
-AVAILABLE
+WAITING_FOR_META_ACCESS
 
 TOPIC:
 Trying to be liked by everyone on the team costs founders authority
@@ -34,32 +34,34 @@ The founders with real authority have made peace with being disliked sometimes. 
 
 DM "TRIBE" to build the kind of leadership that earns trust, not just likability.
 
+#TCCFoundersClub #Leadership #FounderMindset #Karachi
+
 CTA:
 DM "TRIBE"
 
 MUSIC:
--
+assets/music-powerful-trap-beat.mp3
 
 BACKGROUND:
--
+assets/bg-tcc-with-nasheed.mp4
 
 CONTENT HASH:
 be76886055f2e293
 
 CREATED:
-2026-09-29 14:20:42 UTC
+2026-10-02 05:48:40 UTC
 
 LAST MODIFIED:
-2026-09-29 14:20:42 UTC
+2026-10-05 17:01:41 UTC
 
 REVISION:
 1
 
 RELATED RENDER:
-(not yet rendered)
+reel-1790920120360-i55k00
 
 SCHEDULED TIME:
--
+2026-10-05 13:30:04 UTC
 
 PUBLISHED MEDIA:
 -

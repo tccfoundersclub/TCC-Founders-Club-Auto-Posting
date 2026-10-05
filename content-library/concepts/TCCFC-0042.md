@@ -5,7 +5,7 @@ BATCH:
 BATCH-01
 
 STATUS:
-AVAILABLE
+SCHEDULED
 
 TOPIC:
 Founders assume their team already knows the company's why
@@ -34,32 +34,34 @@ The founders who keep teams aligned through the tough months repeat the why far 
 
 DM "TRIBE" to think through how clearly your team actually understands the why.
 
+#TCCFoundersClub #FounderCommunity #BusinessOwners #StartupFounder #StartupPakistan
+
 CTA:
 DM "TRIBE"
 
 MUSIC:
--
+assets/music-powerful-trap-beat.mp3
 
 BACKGROUND:
--
+assets/bg-tcc-with-nasheed.mp4
 
 CONTENT HASH:
 d7669dbb4db77480
 
 CREATED:
-2026-09-29 14:20:42 UTC
+2026-10-04 18:05:19 UTC
 
 LAST MODIFIED:
-2026-09-29 14:20:42 UTC
+2026-10-04 18:05:19 UTC
 
 REVISION:
 1
 
 RELATED RENDER:
-(not yet rendered)
+reel-1791137119295-22q8ve
 
 SCHEDULED TIME:
--
+2026-10-07 21:30:04 UTC
 
 PUBLISHED MEDIA:
 -

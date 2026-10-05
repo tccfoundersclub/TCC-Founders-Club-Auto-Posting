@@ -5,7 +5,7 @@ BATCH:
 BATCH-01
 
 STATUS:
-SCHEDULED
+PUBLISHED
 
 TOPIC:
 Founders avoid raising prices out of a specific, nameable fear
@@ -64,7 +64,7 @@ SCHEDULED TIME:
 2026-10-03 05:30:04 UTC
 
 PUBLISHED MEDIA:
--
+https://www.instagram.com/p/18385072522225035/
 
 SOURCE FILE:
 scripts/content-batch-01.js

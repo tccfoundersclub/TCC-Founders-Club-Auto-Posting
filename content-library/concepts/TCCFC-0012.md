@@ -5,7 +5,7 @@ BATCH:
 BATCH-01
 
 STATUS:
-SCHEDULED
+PUBLISHED
 
 TOPIC:
 Solo founders lose time to decisions that would take minutes with a thinking partner
@@ -64,7 +64,7 @@ SCHEDULED TIME:
 2026-10-02 21:30:04 UTC
 
 PUBLISHED MEDIA:
--
+https://www.instagram.com/p/18128840198477793/
 
 SOURCE FILE:
 scripts/content-batch-01.js

@@ -5,7 +5,7 @@ BATCH:
 BATCH-02
 
 STATUS:
-AVAILABLE
+SCHEDULED
 
 TOPIC:
 Founders overestimate how much their first product launch will matter long-term
@@ -36,32 +36,34 @@ If your launch didn't go the way you hoped, the story isn't over. It just starte
 
 DM "TRIBE" to talk through what comes after a rough launch.
 
+#TCCFoundersClub #TechFounder #SoftwareHouse #Karachi
+
 CTA:
 DM "TRIBE"
 
 MUSIC:
--
+assets/music-powerful-trap-beat.mp3
 
 BACKGROUND:
--
+assets/bg-tcc-with-nasheed.mp4
 
 CONTENT HASH:
 b14acd0e2ecd7f3e
 
 CREATED:
-2026-09-29 14:20:49 UTC
+2026-10-05 05:50:30 UTC
 
 LAST MODIFIED:
-2026-09-29 14:20:49 UTC
+2026-10-05 05:50:30 UTC
 
 REVISION:
 1
 
 RELATED RENDER:
-(not yet rendered)
+reel-1791179430876-4xx3rw
 
 SCHEDULED TIME:
--
+2026-10-08 13:30:04 UTC
 
 PUBLISHED MEDIA:
 -

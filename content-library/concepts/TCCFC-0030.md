@@ -5,7 +5,7 @@ BATCH:
 BATCH-01
 
 STATUS:
-AVAILABLE
+SCHEDULED
 
 TOPIC:
 Instituting a second-opinion call before big decisions
@@ -36,32 +36,34 @@ That single habit prevents more regret than any framework.
 
 DM "TRIBE" to build that habit with people who'll actually push back.
 
+#FoundersClub #Entrepreneurs #FounderCommunity #BusinessOwners #Islamabad
+
 CTA:
 DM "TRIBE"
 
 MUSIC:
--
+assets/music-powerful-trap-beat.mp3
 
 BACKGROUND:
--
+assets/bg-tcc-with-nasheed.mp4
 
 CONTENT HASH:
 58108e3807d57752
 
 CREATED:
-2026-09-29 14:20:42 UTC
+2026-10-02 13:51:00 UTC
 
 LAST MODIFIED:
-2026-09-29 14:20:42 UTC
+2026-10-02 13:51:00 UTC
 
 REVISION:
 1
 
 RELATED RENDER:
-(not yet rendered)
+reel-1790949060587-0ueu9w
 
 SCHEDULED TIME:
--
+2026-10-05 21:30:04 UTC
 
 PUBLISHED MEDIA:
 -

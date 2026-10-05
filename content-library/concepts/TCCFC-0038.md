@@ -5,7 +5,7 @@ BATCH:
 BATCH-01
 
 STATUS:
-AVAILABLE
+SCHEDULED
 
 TOPIC:
 Founders have blind spots about their own reputation in a room
@@ -34,32 +34,34 @@ The founders who manage this well don't assume they know. They actively, occasio
 
 DM "TRIBE" to be around people who'll tell you the truth about this.
 
+#FoundersClub #Entrepreneurs #FounderCommunity #BusinessOwners #StartupPakistan
+
 CTA:
 DM "TRIBE"
 
 MUSIC:
--
+assets/music-powerful-trap-beat.mp3
 
 BACKGROUND:
--
+assets/bg-tcc-with-nasheed.mp4
 
 CONTENT HASH:
 8c7427bb382a02c1
 
 CREATED:
-2026-09-29 14:20:42 UTC
+2026-10-04 02:33:31 UTC
 
 LAST MODIFIED:
-2026-09-29 14:20:42 UTC
+2026-10-04 02:33:31 UTC
 
 REVISION:
 1
 
 RELATED RENDER:
-(not yet rendered)
+reel-1791081211910-b4kbzx
 
 SCHEDULED TIME:
--
+2026-10-07 05:30:04 UTC
 
 PUBLISHED MEDIA:
 -

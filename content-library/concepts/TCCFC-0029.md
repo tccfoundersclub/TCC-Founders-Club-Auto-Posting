@@ -5,7 +5,7 @@ BATCH:
 BATCH-01
 
 STATUS:
-AVAILABLE
+SCHEDULED
 
 TOPIC:
 Some founder friendships survive a failed startup and others don't
@@ -36,32 +36,34 @@ How you talk to your co-founder now is the actual predictor, not how the ending 
 
 DM "TRIBE" to build the kind of founder relationships built on honesty from day one.
 
+#FoundersClub #StartupTeams #Cofounders #StartupPakistan
+
 CTA:
 DM "TRIBE"
 
 MUSIC:
--
+assets/music-powerful-maxko.mp3
 
 BACKGROUND:
--
+assets/bg-tcc-with-nasheed.mp4
 
 CONTENT HASH:
 d4d4bf7b7240238b
 
 CREATED:
-2026-09-29 14:20:42 UTC
+2026-10-02 09:49:32 UTC
 
 LAST MODIFIED:
-2026-09-29 14:20:42 UTC
+2026-10-02 09:49:32 UTC
 
 REVISION:
 1
 
 RELATED RENDER:
-(not yet rendered)
+reel-1790934572197-q9n1ld
 
 SCHEDULED TIME:
--
+2026-10-05 17:30:04 UTC
 
 PUBLISHED MEDIA:
 -

@@ -268,8 +268,29 @@ function writeStatus(state, views) {
   const nextReel = future[0];
   const lastReel = future[future.length - 1];
 
+  const meta = state.metaAccess || { status: "HEALTHY" };
+  const waiting = state.reels.filter((r) => r.status === "WAITING_FOR_META_ACCESS");
+  const metaBlocked = meta.status === "BLOCKED";
+  const metaLines = [
+    `## META API STATUS`,
+    ``,
+    `Status: ${meta.status}`,
+    `Blocked since: ${meta.blockedSince ? fmtDate(meta.blockedSince) : "-"}`,
+    `Last error: ${meta.lastError ? String(meta.lastError).replace(/https?:\/\/\S+/g, "<url>").slice(0, 160) : "-"}`,
+    `Affected reels (held, not failed): ${waiting.length}`,
+    `Reels preserved for recovery: ${waiting.length}`,
+    `Last API check: ${meta.lastCheck ? fmtDate(meta.lastCheck) : "-"}`,
+    `Next recovery check: ${meta.nextCheck ? fmtDate(meta.nextCheck) : metaBlocked ? "next pipeline run (every 30 min)" : "-"}`,
+    `Held reels: ${waiting.length ? waiting.map((r) => r.conceptId).join(", ") : "none"}`,
+    `Instagram publishing: ${metaBlocked ? "SAFE-HOLD (blocked)" : "ACTIVE (every 4 hours, public Reels)"}. Threads: secondary. Facebook: DISABLED. Trial Reels: NOT ACTIVE (no API graduation).`,
+    `Recovery behaviour: held reels are re-slotted one per 4 hours starting ~15 min after access returns - no burst posting. See META-ACCESS.md.`,
+    ``,
+  ];
+
   let nextAction;
-  if (future.length < 20) {
+  if (metaBlocked) {
+    nextAction = `Meta API access is blocked - Instagram publishing is on safe hold (${waiting.length} reels preserved). Athar must resolve the app/account restriction; see META-ACCESS.md for exact steps. The pipeline checks for recovery every run.`;
+  } else if (future.length < 20) {
     nextAction = `Replenish queue (${future.length}/20) from the content bank - runs automatically every 30 min via GitHub Actions, or manually via \`node scripts/run-reel-pipeline.js\`.`;
   } else if (available < 60) {
     nextAction = `Content bank is below the 60-concept comfort threshold (${available} available) - write and ingest another batch via scripts/content-batch-N.js + scripts/add-to-content-bank.js.`;
@@ -300,9 +321,10 @@ function writeStatus(state, views) {
     `NEXT REEL: ${nextReel ? `${nextReel.conceptId} - ${fmtDate(nextReel.scheduledTime)}` : "(none scheduled)"}`,
     `LAST SCHEDULED REEL: ${lastReel ? `${lastReel.conceptId} - ${fmtDate(lastReel.scheduledTime)}` : "(none scheduled)"}`,
     ``,
+    ...metaLines,
     `NEXT ACTION: ${nextAction}`,
     ``,
-    `AUTOMATION HEALTH: ${failed > 0 ? `${failed} reel(s) FAILED and need manual review (see INDEX.md)` : "OK - no failed reels"}`,
+    `AUTOMATION HEALTH: ${metaBlocked ? `DEGRADED - Meta API blocked, publishing on safe hold, ${waiting.length} reels preserved` : failed > 0 ? `${failed} reel(s) FAILED and need manual review (see INDEX.md)` : "OK - no failed reels"}`,
     ``,
     `Anthropic/paid LLM dependency: REMOVED - production path uses only the content bank + zero-cost fallback reserve.`,
   ];
@@ -467,6 +489,10 @@ Captions built by \`buildFullCaption()\` in reelPipeline.js now contain **conten
 ## Manual/one-off publish scripts (2026-09-30 rule)
 
 Never trust a manual script's local success as proof of an Instagram publish. A reel may only reach \`status: "PUBLISHED"\` / \`instagramStatus: "PUBLISHED"\` after Instagram actually confirms it - at minimum an \`instagramMediaId\`, and preferably a permalink and a real API success response. This rule exists because of a real incident: five reels (TCCFC-0128 through TCCFC-0132) were found marked \`PUBLISHED\` by one-off scripts (\`manual-backfill\`, \`post-reel-founder-loneliness.js\`, \`post-reel-founder-circle.js\`) with no such evidence for three of them. See \`scripts/audit-manual-reels.js\` for the correction and content-library/PLATFORMS.md for the full account. Any future manual test script should write an intermediate status (\`MANUAL_TEST\`, \`PUBLISHING\`, \`PENDING_VERIFICATION\`) and only promote to \`PUBLISHED\` once Instagram confirms it.
+
+## Meta access safe mode (2026-10-05)
+
+If Meta returns OAuthException 200 "API access blocked", the pipeline enters safe mode: Instagram publishing is held, due reels are preserved as WAITING_FOR_META_ACCESS (never FAILED), a read-only check runs every pipeline run, and on recovery held reels are re-slotted one per 4 hours with no burst. See content-library/META-ACCESS.md and src/metaAccess.js.
 
 ## .github/workflows/reel-pipeline.yml
 

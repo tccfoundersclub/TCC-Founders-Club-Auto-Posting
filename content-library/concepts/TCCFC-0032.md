@@ -5,7 +5,7 @@ BATCH:
 BATCH-01
 
 STATUS:
-AVAILABLE
+SCHEDULED
 
 TOPIC:
 Over-indexing on same-industry peers misses cross-industry insight
@@ -34,32 +34,34 @@ The founders with the sharpest, most original thinking usually keep at least a f
 
 DM "TRIBE" to meet founders solving completely different problems than you.
 
+#FoundersClub #BusinessOwners #StartupFounder #Entrepreneurs #Karachi
+
 CTA:
 DM "TRIBE"
 
 MUSIC:
--
+assets/music-powerful-trap-beat.mp3
 
 BACKGROUND:
--
+assets/bg-tcc-with-nasheed.mp4
 
 CONTENT HASH:
 16b35d92b0c19b56
 
 CREATED:
-2026-09-29 14:20:42 UTC
+2026-10-02 21:48:20 UTC
 
 LAST MODIFIED:
-2026-09-29 14:20:42 UTC
+2026-10-02 21:48:20 UTC
 
 REVISION:
 1
 
 RELATED RENDER:
-(not yet rendered)
+reel-1790977700605-pw6jz1
 
 SCHEDULED TIME:
--
+2026-10-06 05:30:04 UTC
 
 PUBLISHED MEDIA:
 -

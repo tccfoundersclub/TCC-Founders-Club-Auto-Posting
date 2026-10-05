@@ -5,7 +5,7 @@ BATCH:
 BATCH-01
 
 STATUS:
-AVAILABLE
+SCHEDULED
 
 TOPIC:
 Founders wait too long to find a real peer group
@@ -36,32 +36,34 @@ Don't wait for the crisis to go looking for your room.
 
 DM "TRIBE" to build that foundation before you need it.
 
+#TCCFoundersClub #FounderCommunity #BusinessOwners #StartupFounder #Islamabad
+
 CTA:
 DM "TRIBE"
 
 MUSIC:
--
+assets/music-powerful-maxko.mp3
 
 BACKGROUND:
--
+assets/bg-tcc-with-nasheed.mp4
 
 CONTENT HASH:
 6a256474127659d7
 
 CREATED:
-2026-09-29 14:20:42 UTC
+2026-10-03 09:47:27 UTC
 
 LAST MODIFIED:
-2026-09-29 14:20:42 UTC
+2026-10-03 09:47:27 UTC
 
 REVISION:
 1
 
 RELATED RENDER:
-(not yet rendered)
+reel-1791020847210-mapimu
 
 SCHEDULED TIME:
--
+2026-10-06 17:30:04 UTC
 
 PUBLISHED MEDIA:
 -

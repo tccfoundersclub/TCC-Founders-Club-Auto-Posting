@@ -5,7 +5,7 @@ BATCH:
 BATCH-01
 
 STATUS:
-SCHEDULED
+PUBLISHED
 
 TOPIC:
 Fundraising ease depends more on reputation than pitch quality
@@ -66,7 +66,7 @@ SCHEDULED TIME:
 2026-10-02 17:30:04 UTC
 
 PUBLISHED MEDIA:
--
+https://www.instagram.com/p/18145701538625917/
 
 SOURCE FILE:
 scripts/content-batch-01.js

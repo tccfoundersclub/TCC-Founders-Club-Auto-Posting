@@ -1,6 +1,69 @@
 # Published
 
-Total published: 17
+Total published: 26
+
+## TCCFC-0016 - A Founder Friend Group and a Founder Mastermind Are Not the Same Thing
+
+- Published: 2026-10-03 14:49:36 UTC
+- Instagram: https://www.instagram.com/p/18134259667642142/
+- Music: assets/music-powerful-trap-beat.mp3
+- Caption: see content-library/concepts/TCCFC-0016.md
+
+## TCCFC-0015 - "Always Be Closing" Is Quietly Burning Out Founder-Led Sales
+
+- Published: 2026-10-03 09:46:29 UTC
+- Instagram: https://www.instagram.com/p/17978001906132910/
+- Music: assets/music-powerful-maxko.mp3
+- Caption: see content-library/concepts/TCCFC-0015.md
+
+## TCCFC-0014 - The Real Reason Founders Don't Raise Their Prices
+
+- Published: 2026-10-03 05:49:37 UTC
+- Instagram: https://www.instagram.com/p/18385072522225035/
+- Music: assets/music-powerful-trap-beat.mp3
+- Caption: see content-library/concepts/TCCFC-0014.md
+
+## TCCFC-0013 - The Stall That Hits Right After Product-Market Fit, Not Before
+
+- Published: 2026-10-03 01:46:17 UTC
+- Instagram: https://www.instagram.com/p/18125666327309254/
+- Music: assets/music-powerful-maxko.mp3
+- Caption: see content-library/concepts/TCCFC-0013.md
+
+## TCCFC-0012 - The Hidden Tax of Deciding Everything Alone
+
+- Published: 2026-10-02 21:47:30 UTC
+- Instagram: https://www.instagram.com/p/18128840198477793/
+- Music: assets/music-powerful-trap-beat.mp3
+- Caption: see content-library/concepts/TCCFC-0012.md
+
+## TCCFC-0011 - Why Some Founders Raise Easily and It Has Almost Nothing to Do With the Pitch
+
+- Published: 2026-10-02 17:46:44 UTC
+- Instagram: https://www.instagram.com/p/18145701538625917/
+- Music: assets/music-powerful-maxko.mp3
+- Caption: see content-library/concepts/TCCFC-0011.md
+
+## TCCFC-0010 - The Boring Paperwork Founders Skip Is the Thing That Would've Saved Them
+
+- Published: 2026-10-02 13:50:15 UTC
+- Instagram: https://www.instagram.com/p/17991216012099553/
+- Music: assets/music-powerful-trap-beat.mp3
+- Caption: see content-library/concepts/TCCFC-0010.md
+
+## TCCFC-0009 - Most Partnerships Don't Die in the Pitch. They Die in the Handoff.
+
+- Published: 2026-10-02 09:48:38 UTC
+- Instagram: https://www.instagram.com/p/17870913027642288/
+- Music: assets/music-powerful-maxko.mp3
+- Caption: see content-library/concepts/TCCFC-0009.md
+
+## TCCFC-0008 - The Founders Who Stopped Checking Metrics on Sunday Make Better Calls on Monday
+
+- Published: 2026-10-02 05:47:53 UTC
+- Instagram: https://www.instagram.com/p/18109276979270006/
+- Music: assets/music-powerful-trap-beat.mp3
+- Caption: see content-library/concepts/TCCFC-0008.md
 
 ## TCCFC-0007 - Why a Table of 8 Builds More Trust Than a Room of 200
 

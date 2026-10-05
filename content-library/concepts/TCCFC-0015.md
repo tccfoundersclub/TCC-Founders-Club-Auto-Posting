@@ -5,7 +5,7 @@ BATCH:
 BATCH-01
 
 STATUS:
-SCHEDULED
+PUBLISHED
 
 TOPIC:
 Always-be-closing sales culture burns out founder-led sales
@@ -64,7 +64,7 @@ SCHEDULED TIME:
 2026-10-03 09:30:04 UTC
 
 PUBLISHED MEDIA:
--
+https://www.instagram.com/p/17978001906132910/
 
 SOURCE FILE:
 scripts/content-batch-01.js

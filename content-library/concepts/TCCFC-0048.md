@@ -5,7 +5,7 @@ BATCH:
 BATCH-02
 
 STATUS:
-AVAILABLE
+SCHEDULED
 
 TOPIC:
 Founders assume their network will show up for a launch without preparation
@@ -34,32 +34,34 @@ The founders who get genuine launch-day support prepared for it days in advance,
 
 DM "TRIBE" to plan your next launch with people who'll actually show up.
 
+#TCCFoundersClub #FounderNetworking #StartupCommunity #Pakistan
+
 CTA:
 DM "TRIBE"
 
 MUSIC:
--
+assets/music-powerful-trap-beat.mp3
 
 BACKGROUND:
--
+assets/bg-tcc-with-nasheed.mp4
 
 CONTENT HASH:
 456b13efbb44a2b2
 
 CREATED:
-2026-09-29 14:20:49 UTC
+2026-10-05 13:51:23 UTC
 
 LAST MODIFIED:
-2026-09-29 14:20:49 UTC
+2026-10-05 13:51:23 UTC
 
 REVISION:
 1
 
 RELATED RENDER:
-(not yet rendered)
+reel-1791208283198-16wb42
 
 SCHEDULED TIME:
--
+2026-10-08 21:30:04 UTC
 
 PUBLISHED MEDIA:
 -

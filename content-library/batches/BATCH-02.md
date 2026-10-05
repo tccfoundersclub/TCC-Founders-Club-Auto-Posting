@@ -5,12 +5,12 @@ Rejected: 0
 
 ## Accepted concepts
 
-- **TCCFC-0043** [AVAILABLE] - Why Your Team Keeps Re-Litigating the Same Decision Every Quarter
-- **TCCFC-0044** [AVAILABLE] - Churn Isn't Always a Product Problem. Sometimes It's a Relationship Problem.
-- **TCCFC-0045** [AVAILABLE] - Seeking Consensus on Everything Isn't Good Leadership. It's Often the Absence of It.
-- **TCCFC-0046** [AVAILABLE] - Your First Launch Matters Less Than You Think It Does Right Now
-- **TCCFC-0047** [AVAILABLE] - The Referral You Never Got Because You Never Actually Asked
-- **TCCFC-0048** [AVAILABLE] - Your Network Won't Show Up for Your Launch Unless You Actually Ask Them To
+- **TCCFC-0043** [SCHEDULED] - Why Your Team Keeps Re-Litigating the Same Decision Every Quarter
+- **TCCFC-0044** [SCHEDULED] - Churn Isn't Always a Product Problem. Sometimes It's a Relationship Problem.
+- **TCCFC-0045** [SCHEDULED] - Seeking Consensus on Everything Isn't Good Leadership. It's Often the Absence of It.
+- **TCCFC-0046** [SCHEDULED] - Your First Launch Matters Less Than You Think It Does Right Now
+- **TCCFC-0047** [SCHEDULED] - The Referral You Never Got Because You Never Actually Asked
+- **TCCFC-0048** [SCHEDULED] - Your Network Won't Show Up for Your Launch Unless You Actually Ask Them To
 - **TCCFC-0049** [AVAILABLE] - Waiting for the Perfect Co-Founder Is Costing You Time You Don't Get Back
 - **TCCFC-0050** [AVAILABLE] - Your Team Can Probably Handle the Bad Numbers Better Than You Think
 - **TCCFC-0051** [AVAILABLE] - Showing Up to a New Room and Waiting to Be Noticed Rarely Works

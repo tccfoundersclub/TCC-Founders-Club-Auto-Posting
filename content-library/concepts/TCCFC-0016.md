@@ -5,7 +5,7 @@ BATCH:
 BATCH-01
 
 STATUS:
-SCHEDULED
+PUBLISHED
 
 TOPIC:
 A structured mastermind beats a casual founder friend group for real progress
@@ -66,7 +66,7 @@ SCHEDULED TIME:
 2026-10-03 13:30:04 UTC
 
 PUBLISHED MEDIA:
--
+https://www.instagram.com/p/18134259667642142/
 
 SOURCE FILE:
 scripts/content-batch-01.js

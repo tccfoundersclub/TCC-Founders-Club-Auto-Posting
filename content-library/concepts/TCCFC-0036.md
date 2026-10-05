@@ -5,7 +5,7 @@ BATCH:
 BATCH-01
 
 STATUS:
-AVAILABLE
+SCHEDULED
 
 TOPIC:
 First-time founders systematically under-price their product
@@ -34,32 +34,34 @@ The founders who price with confidence usually tested higher earlier than felt c
 
 DM "TRIBE" to pressure-test your pricing with founders who've been there.
 
+#FoundersClub #SoftwareHouse #B2BSales #StartupGrowth #Lahore
+
 CTA:
 DM "TRIBE"
 
 MUSIC:
--
+assets/music-powerful-trap-beat.mp3
 
 BACKGROUND:
--
+assets/bg-tcc-with-nasheed.mp4
 
 CONTENT HASH:
 d865217ef6ecc774
 
 CREATED:
-2026-09-29 14:20:42 UTC
+2026-10-03 14:50:26 UTC
 
 LAST MODIFIED:
-2026-09-29 14:20:42 UTC
+2026-10-03 14:50:26 UTC
 
 REVISION:
 1
 
 RELATED RENDER:
-(not yet rendered)
+reel-1791039026113-0xjtk8
 
 SCHEDULED TIME:
--
+2026-10-06 21:30:04 UTC
 
 PUBLISHED MEDIA:
 -

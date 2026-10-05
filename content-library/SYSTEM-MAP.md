@@ -156,6 +156,10 @@ Captions built by `buildFullCaption()` in reelPipeline.js now contain **content 
 
 Never trust a manual script's local success as proof of an Instagram publish. A reel may only reach `status: "PUBLISHED"` / `instagramStatus: "PUBLISHED"` after Instagram actually confirms it - at minimum an `instagramMediaId`, and preferably a permalink and a real API success response. This rule exists because of a real incident: five reels (TCCFC-0128 through TCCFC-0132) were found marked `PUBLISHED` by one-off scripts (`manual-backfill`, `post-reel-founder-loneliness.js`, `post-reel-founder-circle.js`) with no such evidence for three of them. See `scripts/audit-manual-reels.js` for the correction and content-library/PLATFORMS.md for the full account. Any future manual test script should write an intermediate status (`MANUAL_TEST`, `PUBLISHING`, `PENDING_VERIFICATION`) and only promote to `PUBLISHED` once Instagram confirms it.
 
+## Meta access safe mode (2026-10-05)
+
+If Meta returns OAuthException 200 "API access blocked", the pipeline enters safe mode: Instagram publishing is held, due reels are preserved as WAITING_FOR_META_ACCESS (never FAILED), a read-only check runs every pipeline run, and on recovery held reels are re-slotted one per 4 hours with no burst. See content-library/META-ACCESS.md and src/metaAccess.js.
+
 ## .github/workflows/reel-pipeline.yml
 
 Runs `node scripts/run-reel-pipeline.js` every 30 minutes on GitHub's own infrastructure (not this laptop). Publishes any due reel, then replenishes the queue from the content bank if it's dropped to 16 or below. No Anthropic/OpenAI/paid API key required or used.

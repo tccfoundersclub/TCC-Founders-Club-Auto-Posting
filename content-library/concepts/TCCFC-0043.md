@@ -5,7 +5,7 @@ BATCH:
 BATCH-02
 
 STATUS:
-AVAILABLE
+SCHEDULED
 
 TOPIC:
 Founders under-invest in documenting decisions, causing repeated debates
@@ -36,32 +36,34 @@ Fewer meetings. Same decision, once.
 
 DM "TRIBE" to build habits that actually stick past one meeting.
 
+#FoundersClub #BusinessOwners #StartupFounder #Entrepreneurs #Pakistan
+
 CTA:
 DM "TRIBE"
 
 MUSIC:
--
+assets/music-powerful-maxko.mp3
 
 BACKGROUND:
--
+assets/bg-tcc-with-nasheed.mp4
 
 CONTENT HASH:
 08aa4e76f224cb76
 
 CREATED:
-2026-09-29 14:20:49 UTC
+2026-10-04 18:05:34 UTC
 
 LAST MODIFIED:
-2026-09-29 14:20:49 UTC
+2026-10-04 18:05:34 UTC
 
 REVISION:
 1
 
 RELATED RENDER:
-(not yet rendered)
+reel-1791137134423-inf5hf
 
 SCHEDULED TIME:
--
+2026-10-08 01:30:04 UTC
 
 PUBLISHED MEDIA:
 -

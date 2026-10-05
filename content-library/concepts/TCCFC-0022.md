@@ -5,7 +5,7 @@ BATCH:
 BATCH-01
 
 STATUS:
-SCHEDULED
+WAITING_FOR_META_ACCESS
 
 TOPIC:
 Building in public vs building in private changes trust differently than expected
@@ -54,7 +54,7 @@ CREATED:
 2026-10-01 05:48:24 UTC
 
 LAST MODIFIED:
-2026-10-01 05:48:24 UTC
+2026-10-05 17:01:41 UTC
 
 REVISION:
 1

@@ -5,7 +5,7 @@ BATCH:
 BATCH-02
 
 STATUS:
-AVAILABLE
+SCHEDULED
 
 TOPIC:
 Founders treat customer churn as a product problem when it's often a relationship problem
@@ -34,32 +34,34 @@ The founders with the lowest churn aren't always running the best product. They'
 
 DM "TRIBE" to think about retention as relationship-building, not just features.
 
+#TCCFoundersClub #TechFounder #SoftwareHouse #FounderNetworking #Islamabad
+
 CTA:
 DM "TRIBE"
 
 MUSIC:
--
+assets/music-powerful-trap-beat.mp3
 
 BACKGROUND:
--
+assets/bg-tcc-with-nasheed.mp4
 
 CONTENT HASH:
 8350afb605f45094
 
 CREATED:
-2026-09-29 14:20:49 UTC
+2026-10-04 21:49:50 UTC
 
 LAST MODIFIED:
-2026-09-29 14:20:49 UTC
+2026-10-04 21:49:50 UTC
 
 REVISION:
 1
 
 RELATED RENDER:
-(not yet rendered)
+reel-1791150590158-3bvzhk
 
 SCHEDULED TIME:
--
+2026-10-08 05:30:04 UTC
 
 PUBLISHED MEDIA:
 -

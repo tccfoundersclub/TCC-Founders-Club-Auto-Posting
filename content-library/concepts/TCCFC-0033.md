@@ -5,7 +5,7 @@ BATCH:
 BATCH-01
 
 STATUS:
-AVAILABLE
+SCHEDULED
 
 TOPIC:
 Only networking "up" toward more successful people backfires
@@ -34,32 +34,34 @@ The strongest networks aren't built by only networking up. They're built across 
 
 DM "TRIBE" to build a network that actually spans your stage, not just above it.
 
+#TCCFoundersClub #FounderNetworking #StartupCommunity #StartupPakistan
+
 CTA:
 DM "TRIBE"
 
 MUSIC:
--
+assets/music-powerful-maxko.mp3
 
 BACKGROUND:
--
+assets/bg-tcc-with-nasheed.mp4
 
 CONTENT HASH:
 f2348b00c3fe9540
 
 CREATED:
-2026-09-29 14:20:42 UTC
+2026-10-03 01:47:07 UTC
 
 LAST MODIFIED:
-2026-09-29 14:20:42 UTC
+2026-10-03 01:47:07 UTC
 
 REVISION:
 1
 
 RELATED RENDER:
-(not yet rendered)
+reel-1790992027959-3tacum
 
 SCHEDULED TIME:
--
+2026-10-06 09:30:04 UTC
 
 PUBLISHED MEDIA:
 -

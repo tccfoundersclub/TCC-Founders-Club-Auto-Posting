@@ -5,7 +5,7 @@ BATCH:
 BATCH-01
 
 STATUS:
-SCHEDULED
+WAITING_FOR_META_ACCESS
 
 TOPIC:
 Founders who raise a second round successfully share a pattern
@@ -52,7 +52,7 @@ CREATED:
 2026-10-01 13:51:10 UTC
 
 LAST MODIFIED:
-2026-10-01 13:51:10 UTC
+2026-10-05 17:01:41 UTC
 
 REVISION:
 1

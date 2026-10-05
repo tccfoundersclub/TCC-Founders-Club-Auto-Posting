@@ -5,7 +5,7 @@ BATCH:
 BATCH-02
 
 STATUS:
-AVAILABLE
+SCHEDULED
 
 TOPIC:
 Founders confuse consensus-seeking with good leadership
@@ -36,32 +36,34 @@ Input is a gift. The decision is still your job.
 
 DM "TRIBE" to build the kind of leadership that's both collaborative and clear.
 
+#FoundersClub #FounderMindset #Leadership #Lahore
+
 CTA:
 DM "TRIBE"
 
 MUSIC:
--
+assets/music-powerful-maxko.mp3
 
 BACKGROUND:
--
+assets/bg-tcc-with-nasheed.mp4
 
 CONTENT HASH:
 590fcd0604aea11f
 
 CREATED:
-2026-09-29 14:20:49 UTC
+2026-10-05 01:46:59 UTC
 
 LAST MODIFIED:
-2026-09-29 14:20:49 UTC
+2026-10-05 01:46:59 UTC
 
 REVISION:
 1
 
 RELATED RENDER:
-(not yet rendered)
+reel-1791164819536-vj85o9
 
 SCHEDULED TIME:
--
+2026-10-08 09:30:04 UTC
 
 PUBLISHED MEDIA:
 -

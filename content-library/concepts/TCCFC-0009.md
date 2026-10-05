@@ -5,7 +5,7 @@ BATCH:
 BATCH-01
 
 STATUS:
-SCHEDULED
+PUBLISHED
 
 TOPIC:
 Partnerships fail at the operational handoff, not the pitch
@@ -66,7 +66,7 @@ SCHEDULED TIME:
 2026-10-02 09:30:04 UTC
 
 PUBLISHED MEDIA:
--
+https://www.instagram.com/p/17870913027642288/
 
 SOURCE FILE:
 scripts/content-batch-01.js

@@ -5,7 +5,7 @@ BATCH:
 BATCH-01
 
 STATUS:
-AVAILABLE
+SCHEDULED
 
 TOPIC:
 Founders overestimate how much their network can be built through content alone
@@ -36,32 +36,34 @@ Content gets you noticed. Relationships get you helped.
 
 DM "TRIBE" to turn visibility into an actual network.
 
+#FoundersClub #StartupCommunity #FounderNetworking #Karachi
+
 CTA:
 DM "TRIBE"
 
 MUSIC:
--
+assets/music-powerful-maxko.mp3
 
 BACKGROUND:
--
+assets/bg-tcc-with-nasheed.mp4
 
 CONTENT HASH:
 e56f3b4b5c001359
 
 CREATED:
-2026-09-29 14:20:42 UTC
+2026-10-04 11:08:26 UTC
 
 LAST MODIFIED:
-2026-09-29 14:20:42 UTC
+2026-10-04 11:08:26 UTC
 
 REVISION:
 1
 
 RELATED RENDER:
-(not yet rendered)
+reel-1791112106808-gonzjh
 
 SCHEDULED TIME:
--
+2026-10-07 17:30:04 UTC
 
 PUBLISHED MEDIA:
 -

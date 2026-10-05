@@ -5,7 +5,7 @@ BATCH:
 BATCH-01
 
 STATUS:
-SCHEDULED
+WAITING_FOR_META_ACCESS
 
 TOPIC:
 Founder WhatsApp/Slack communities die within weeks without structure
@@ -54,7 +54,7 @@ CREATED:
 2026-09-30 17:47:03 UTC
 
 LAST MODIFIED:
-2026-09-30 17:47:03 UTC
+2026-10-05 17:01:41 UTC
 
 REVISION:
 1

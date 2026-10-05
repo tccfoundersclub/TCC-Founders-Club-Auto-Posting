@@ -5,7 +5,7 @@ BATCH:
 BATCH-01
 
 STATUS:
-SCHEDULED
+WAITING_FOR_META_ACCESS
 
 TOPIC:
 Saying no to the wrong customer is an underused growth strategy
@@ -54,7 +54,7 @@ CREATED:
 2026-09-30 09:50:54 UTC
 
 LAST MODIFIED:
-2026-09-30 09:50:54 UTC
+2026-10-05 17:01:41 UTC
 
 REVISION:
 1
