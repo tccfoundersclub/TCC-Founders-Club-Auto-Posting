@@ -4,7 +4,8 @@ import path from "node:path";
 import { execFileSync } from "node:child_process";
 import { compileMultiClipReel } from "./media.js";
 import { uploadToSupabase } from "./supabase.js";
-import { postToInstagram, postToThreads } from "./social.js";
+import { postToInstagram, postToThreads, checkMetaAccess } from "./social.js";
+import { ensureMetaState, markBlocked, holdReel, waitingReels, rescheduleAfterRecovery, isMetaAccessBlockedError } from "./metaAccess.js";
 import { loadState, saveState, futureQueue, dueReels, lastScheduledTime, availableBankConcepts, assignConceptId } from "./remoteState.js";
 import { FALLBACK_CONCEPTS } from "./fallbackConcepts.js";
 import { BACKGROUND_VIDEO, MUSIC_LIBRARY } from "./mediaLibrary.js";
@@ -181,7 +182,9 @@ function nextBankConcept(state) {
 async function replenish(state, log) {
   let rendersThisRun = 0;
 
-  while (futureQueue(state).length < TARGET_QUEUE && rendersThisRun < MAX_RENDERS_PER_RUN) {
+  // Reels held for Meta access still count toward the queue, so a block never
+  // makes replenishment burn through content-bank concepts.
+  while (futureQueue(state).length + waitingReels(state).length < TARGET_QUEUE && rendersThisRun < MAX_RENDERS_PER_RUN) {
     const next = nextBankConcept(state);
     if (!next) {
       const available = availableBankConcepts(state).length;
@@ -271,7 +274,36 @@ async function replenish(state, log) {
 // or any instagram* field once Instagram has already succeeded. Facebook
 // is disabled entirely (not called, not retried, cannot block anything) -
 // see src/social.js's postToFacebookPage for why it's kept but unused.
-async function publishDue(state, log) {
+const DEFAULT_API = { postToInstagram, postToThreads, checkMetaAccess };
+
+// Meta access safe mode (see src/metaAccess.js): a blocked API never marks a
+// reel FAILED. While BLOCKED the publish step is held, a read-only check runs
+// every pipeline run, and on recovery held reels are re-slotted every 4h.
+export async function publishDue(state, log, api = DEFAULT_API) {
+  const meta = ensureMetaState(state);
+  if (meta.status === "BLOCKED") {
+    const now = new Date();
+    const check = await api.checkMetaAccess();
+    meta.lastCheck = now.toISOString();
+    if (check.ok) {
+      meta.status = "RECOVERED";
+      meta.lastRecoveredAt = now.toISOString();
+      meta.recoveryProof = { checkedAt: now.toISOString(), ...check.proof };
+      meta.events.push({ at: now.toISOString(), type: "RECOVERED", proof: meta.recoveryProof });
+      const moved = rescheduleAfterRecovery(state, now);
+      meta.status = "HEALTHY";
+      meta.blockedSince = null;
+      meta.lastError = null;
+      meta.nextCheck = null;
+      log(`META ACCESS RECOVERED - ${moved} pending reels re-slotted every 4h from ${state.reels.find((r) => r.recoveryStatus === "RESCHEDULED")?.newScheduledTime}. No backlog burst.`);
+    } else {
+      markBlocked(state, check.error || "Meta access check failed", now);
+      for (const reel of dueReels(state)) holdReel(reel, meta.lastError, now);
+      log(`META_ACCESS_BLOCKED still active (${check.blocked ? "API access blocked" : "check failed"}); Instagram publishing held, ${waitingReels(state).length} reels preserved. Next check ${meta.nextCheck}.`);
+      return;
+    }
+  }
+
   for (const reel of dueReels(state)) {
     // Idempotency: never attempt a reel that's already marked published.
     if (reel.status === "PUBLISHED" || reel.instagramResult) continue;
@@ -291,8 +323,17 @@ async function publishDue(state, log) {
       // per explicit user request (2026-10-02). See the "Music licensing"
       // section of content-library/PLATFORMS.md for the compliance
       // tradeoff this leaves open.
-      ig = await postToInstagram(reel.mediaUrl, reel.caption, true, 1200);
+      ig = await api.postToInstagram(reel.mediaUrl, reel.caption, true, 1200);
     } catch (err) {
+      if (isMetaAccessBlockedError(err)) {
+        // Not a reel failure: the whole API is blocked. Preserve this reel
+        // and every other due reel, enter safe mode, stop calling the API.
+        const now = new Date();
+        markBlocked(state, err.message, now);
+        for (const due of dueReels(state)) holdReel(due, err.message, now);
+        log(`META_ACCESS_BLOCKED detected while publishing ${reel.conceptId}; entering safe mode. Reels preserved, not failed.`);
+        return;
+      }
       // Instagram result is uncertain here - do NOT retry automatically
       // (would risk a double-post). Mark FAILED and leave it for manual
       // review; it intentionally falls out of dueReels() so it won't be
@@ -331,7 +372,7 @@ async function publishDue(state, log) {
       continue;
     }
     try {
-      const threads = await postToThreads(threadsText, reel.mediaUrl, true);
+      const threads = await api.postToThreads(threadsText, reel.mediaUrl, true);
       reel.threadsResult = threads.url;
       reel.threadsPostId = threads.postId;
       reel.threadsStatus = "PUBLISHED";
@@ -358,6 +399,8 @@ export async function runPipeline({ log = console.log } = {}) {
     futureQueueCount: futureQueue(state).length,
     totalReels: state.reels.length,
     failedCount: state.reels.filter((r) => r.status === "FAILED").length,
+    metaAccessStatus: ensureMetaState(state).status,
+    waitingForMetaCount: waitingReels(state).length,
     contentBankAvailable: availableBankConcepts(state).length,
     lowContentBankWarning: !!state.lowContentBankWarning,
   };

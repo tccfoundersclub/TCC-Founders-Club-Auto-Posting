@@ -1,3 +1,4 @@
+import { isMetaAccessBlockedError } from "./metaAccess.js";
 const GRAPH = "https://graph.facebook.com/v21.0";
 const IG_GRAPH = "https://graph.instagram.com/v21.0";
 const THREADS_GRAPH = "https://graph.threads.net/v1.0";
@@ -126,4 +127,25 @@ export async function postToThreads(caption, mediaUrl, isVideo) {
     access_token: THREADS_ACCESS_TOKEN,
   });
   return { url: `https://www.threads.net/@tccfoundersclub/post/${publish.id}`, postId: publish.id };
+}
+
+// Lightweight, read-only Instagram access check used while the pipeline is in
+// META_ACCESS_BLOCKED safe mode. Reads the account identity and the
+// publishing-quota endpoint only: no media is created, no quota is spent.
+// Resolves (never throws) to { ok, blocked, error, proof }.
+export async function checkMetaAccess() {
+  try {
+    const me = await getJson(`${IG_GRAPH}/me`, { fields: "user_id,username,account_type", access_token: IG_ACCESS_TOKEN });
+    const idMatches = [me.user_id, me.id].some((v) => v != null && String(v) === String(IG_USER_ID));
+    if (!idMatches) {
+      return { ok: false, blocked: false, error: "Authenticated Instagram user does not match IG_USER_ID" };
+    }
+    const quota = await getJson(`${IG_GRAPH}/${IG_USER_ID}/content_publishing_limit`, {
+      fields: "quota_usage,config",
+      access_token: IG_ACCESS_TOKEN,
+    });
+    return { ok: true, blocked: false, error: null, proof: { username: me.username, accountType: me.account_type, userIdMatches: true, quota: quota.data?.[0] || quota } };
+  } catch (e) {
+    return { ok: false, blocked: isMetaAccessBlockedError(e), error: e.message };
+  }
 }
